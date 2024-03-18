@@ -146,7 +146,12 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="uf">Gênero:</label>
+                                            <label for="sexo">Sexo:</label>
+                                            <select name="sexo" id="sexo">
+                                                <option value="masculino">Masculino</option>
+                                                <option value="feminino">Feminino</option>
+                                                <option value="outro">Outro</option>
+                                            </select>
                                             <input type="text" class="form-control" id="genero" name="genero">
                                             <small></small>
                                         </div>
