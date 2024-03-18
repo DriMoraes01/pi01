@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = 'http://localhost/accountsystem/';
-$config['base_url'] = 'https://kontensystem.000webhostapp.com/';
+$config['base_url'] = 'http://localhost/pi/pi01/';
 /*
 |--------------------------------------------------------------------------
 | Index File

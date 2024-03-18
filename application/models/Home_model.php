@@ -20,7 +20,7 @@ class Home_model extends CI_Model{
 
     }
 
-    public function valorContas(){
+    public function valorDoaocoes(){
        
         $this->db->select("FORMAT(SUM(valor),2,'de_DE') as total_mensalidades");
 

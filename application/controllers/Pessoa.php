@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('Ação não permitida');
 
-class Telefonia extends CI_Controller {	
+class Pessoa extends CI_Controller {	
 
 	public function __construct()
 	{
@@ -19,10 +19,10 @@ class Telefonia extends CI_Controller {
 	public function index()
 	{			
 		$data = array(
-			'titulo' => 'Linhas Telefonicas cadastradas',
-			'sub_titulo' => 'Listando as linhas cadastradas no sistema',
-			'icone_view' => 'ik ik-phone',			
-			'linhas' => $this->core_model->getLinhas(),				
+			'titulo' => 'Pessoas Cadastradas',
+			'sub_titulo' => 'Listando as pessoas cadastradas no sistema',
+			'icone_view' => 'ik ik-user',			
+			'linhas' => $this->core_model->getPessoas(),				
 			'styles' => array(
 				'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
 			),	
@@ -37,7 +37,7 @@ class Telefonia extends CI_Controller {
 		exit();*/
 
 		$this->load->view('layout/header',$data);
-		$this->load->view('telefonia/index');
+		$this->load->view('pessoa/index');
 		$this->load->view('layout/footer');		
 
 	}
