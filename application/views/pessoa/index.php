@@ -73,13 +73,11 @@
                                                     <tr>
                                                         <th class="text-center">#</th>
                                                         <th class="text-center">Nome</th>
-                                                        <th class="text-center">celular</th>
+                                                        <th class="text-center">Celular</th>
                                                         <th class="text-center">Endereço</th>
                                                         <th class="text-center">E-mail</th>
                                                         <th class="text-center">Data de Cadastro</th>
-                                                        <?php if ($this->ion_auth->is_admin()) : ?>
-                                                            <th class="nosort text-right pr-25">Ações</th>
-                                                        <?php endif; ?>
+                                                        <th class="nosort text-right pr-25">Ações</th>                                                      
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -87,11 +85,11 @@
                                                         <?php foreach ($pessoas as $pessoa) : ?>
                                                             <tr>
                                                                 <td class="text-center"><?= $pessoa->id; ?></td>
-                                                                <td class="text-center"><?= mb_strtoupper($linha->nome); ?></td>
+                                                                <td class="text-center"><?= mb_strtoupper($pessoa->nome); ?></td>
                                                                 <td class="text-center"><?= $pessoa->logradouro . ',&nbsp;' . $pessoa->numero . '&nbsp;-&nbsp;' . $pessoa->bairro . '&nbsp;-&nbsp;' . $pessoa->cidade; ?></td>
                                                                 <td class="text-center"><?= $pessoa->celular; ?></td>
                                                                 <td class="text-center"><?= $pessoa->email; ?></td>
-                                                                <td class="text-center"><?= $pessoa->data_cadastro; ?></td>                                                                
+                                                                <td class="text-center"><?= $pessoa->data_cadastro; ?></td> 
                                                                     <td class="nosort text-right pr-25">
                                                                         <div class="table-actions">
                                                                             <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $pessoa->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a>

@@ -131,7 +131,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="uf">E-mail:</label>
-                                            <input type="text" class="form-control" id="email" name="email">
+                                            <input type="email" class="form-control" id="email" name="email">
                                             <small></small>
                                         </div>
                                     </div>

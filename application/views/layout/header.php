@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Kontensystem |&nbsp;<?php echo (isset($titulo) ? $titulo : 'Kontensystem'); ?></title>
+        <title>HelpOnPets |&nbsp;<?php echo (isset($titulo) ? $titulo : 'HelpOnPets'); ?></title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -155,11 +155,11 @@ class Core_model extends CI_Model{
 
      }  
 
-     public function getLinhas(){
+     public function getPessoas(){
         $this->db->select('*');
-        $this->db->from('telefonia t');             
-        $this->db->where('t.excluido', 0);       
-        $this->db->order_by('t.id');       
+        $this->db->from('pessoa p');             
+        $this->db->where('p.excluido', 0);       
+        $this->db->order_by('p.id');       
 
         $query = $this->db->get();       
             
