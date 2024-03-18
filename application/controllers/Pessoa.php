@@ -49,7 +49,7 @@ class Pessoa extends CI_Controller {
 			$this->session->set_flashdata('error', 'O campo ID deve estar em branco');
 			redirect($this->router->fetch_class());	
 		}
-		
+		/*
 		$this->form_validation->set_rules('local', 'Local', 'trim|min_length[1]|max_length[255]');		
 		$this->form_validation->set_rules('linha', 'Linha', 'trim|min_length[1]|max_length[10]');
 		$this->form_validation->set_rules('logradouro', 'Logradouro', 'trim|min_length[1]|max_length[255]');
@@ -59,7 +59,7 @@ class Pessoa extends CI_Controller {
 		$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[9]');				
 		$this->form_validation->set_rules('nrc', 'NRC', 'trim|min_length[8]|max_length[12]');	
 		$this->form_validation->set_rules('numero', 'Número', 'trim|min_length[1]|max_length[6]');			
-
+		
 		if (!$this->form_validation->run()) {
 
 			$data = array(
@@ -74,11 +74,12 @@ class Pessoa extends CI_Controller {
 					'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js',				
 				),												
 			);				
-
+			*/
 			$this->load->view('layout/header',$data);
-			$this->load->view('telefonia/cadastrar');
+			$this->load->view('pessoa/cadastrar');
 			$this->load->view('layout/footer');	
 		}else{
+			/*
 			//cadastrar						
 			$data['local'] = $this->input->post('local');			
 			$data['linha'] = $this->input->post('linha');
@@ -186,9 +187,9 @@ class Pessoa extends CI_Controller {
 				$this->session->set_flashdata('sucesso', 'Linha excluída com sucesso!');				
 			}
 		}
-
+		*/
 		redirect($this->router->fetch_class());
-	}	
+	/*} */	
 
 }
 	
