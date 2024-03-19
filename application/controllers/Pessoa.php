@@ -13,7 +13,7 @@ class Pessoa extends CI_Controller {
 			redirect('login');
 		}*/
 
-		$this->load->model('models/core_model');
+		//$this->load->model('models/core_model');
 	}
 	
 	public function index()
