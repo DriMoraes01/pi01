@@ -93,14 +93,14 @@
                                 </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-md-6">
+                            <div class="col-md-4 ml-20">
                                 <div class="form-group">
                                     <label for="bairro">Bairro:</label>
                                     <input type="text" class="form-control" id="bairro" name="bairro">
                                     <small></small>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="bairro">Complemento:</label>
                                     <input type="text" class="form-control" id="complemento" name="complemento">
@@ -114,7 +114,6 @@
                                     <small></small>
                                 </div>
                             </div>
-
                             <div class="col-md-1">
                                 <div class="form-group">
                                     <label for="uf">UF:</label>
