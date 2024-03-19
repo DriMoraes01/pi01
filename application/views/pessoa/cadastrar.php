@@ -41,10 +41,21 @@
                                         <input type="text" class="form-control" name="nome" value="<?= set_value('nome'); ?>" style="text-transform: uppercase;">
                                         <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
                                     </div>
-                                    <div class="col-md-6 mb-20">
+                                    <div class="col-md-4 mb-20">
                                         <label>Sobrenome</label>
                                         <input type="text" class="form-control" name="sobrenome" value="<?= set_value('sobrenome'); ?>" style="text-transform: uppercase;">
                                         <?= form_error('sobrenome', '<div class="text-danger">', '</div>'); ?>
+                                    </div>
+                                    <div class="col-md-3 mt-30">
+                                        <div class="form-group">
+                                            <label for="sexo">Sexo:</label>
+                                            <select name="sexo" id="sexo">
+                                                <option value="masculino">Masculino</option>
+                                                <option value="feminino">Feminino</option>
+                                                <option value="outro">Prefiro não Dizer</option>
+                                            </select>
+                                            <small></small>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -109,8 +120,8 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="cidade">Cidade:</label>
-                                    <input type="text" class="form-control" id="cidade" name="cidade">
+                                    <label for="localidade">Cidade:</label>
+                                    <input type="text" class="form-control" id="localidade" name="localidade">
                                     <small></small>
                                 </div>
                             </div>
@@ -123,7 +134,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-md-3">
+                            <div class="col-md-3 ml-20">
                                 <div class="form-group">
                                     <label for="uf">Telefone:</label>
                                     <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(99)9999-9999">
@@ -137,29 +148,7 @@
                                     <small></small>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="uf">Data de Cadastro:</label>
-                                    <input type="text" class="form-control" id="data_cadastro" name="data_cadastro" placeholder="Data de Cadastro do Usuário" disabled>
-                                    <small></small>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="sexo">Sexo:</label>
-                                    <select name="sexo" id="sexo">
-                                        <option value="masculino">Masculino</option>
-                                        <option value="feminino">Feminino</option>
-                                        <option value="outro">Outro</option>
-                                    </select>
-                                    <input type="text" class="form-control" id="genero" name="genero">
-                                    <small></small>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="uf">E-mail:</label>
                                     <input type="text" class="form-control" id="email" name="email">
@@ -167,9 +156,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <button type="submit" class="btn btn-primary mr-2">Cadastrar</button>
-                            <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info">Voltar</a>
+                        <div class="form-group row">
+                            <div class="col-md-6 ml-20">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                    <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info ml-20">Voltar</a>
+                                </div>
+                            </div>
+
                         </div>
                         </form>
                     </div>
@@ -177,5 +171,3 @@
             </div>
         </div>
     </div>
-</div>
-</div>

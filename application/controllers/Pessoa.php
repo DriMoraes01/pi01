@@ -6,14 +6,14 @@ class Pessoa extends CI_Controller {
 	public function __construct()
 	{
 		parent:: __construct();
-		
+
 		//chama o controller login se o usuário não estiver logado
 		/*if (!$this->ion_auth->logged_in())
 		{
 			redirect('login');
-		}*/		
-		
-		
+		}*/
+
+		$this->load->model('models/core_model');
 	}
 	
 	public function index()
@@ -51,13 +51,13 @@ class Pessoa extends CI_Controller {
 		}
 		
 		$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]|required');		
-		$this->form_validation->set_rules('sobrenome', 'Sobrenome', 'trim|min_length[1]|max_length[10]');
+		$this->form_validation->set_rules('sobrenome', 'Sobrenome', 'trim|min_length[1]|max_length[255]');
 		$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[14]');
 		$this->form_validation->set_rules('rg', 'RG', 'trim|min_length[1]|max_length[14]');
 		$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[255]');
 		$this->form_validation->set_rules('complemento', 'Complemento', 'trim|min_length[1]|max_length[100]');
 		$this->form_validation->set_rules('numero', 'Número', 'trim|min_length[1]|max_length[50]');
-		$this->form_validation->set_rules('cidade', 'Cidade', 'trim|min_length[1]|max_length[255]');
+		$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[255]');
 		$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]');		
 		$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[9]');				
 		$this->form_validation->set_rules('telefone', 'Telefone', 'trim|min_length[10]|max_length[14]');
@@ -95,7 +95,7 @@ class Pessoa extends CI_Controller {
 			$data['bairro'] = $this->input->post('bairro');
 			$data['complemento'] = $this->input->post('complemento');
 			$data['numero'] = $this->input->post('numero');
-			$data['cidade'] = $this->input->post('cidade');
+			$data['localidade'] = $this->input->post('localidade');
 			$data['uf'] = $this->input->post('uf');	
 			$data['cep'] = $this->input->post('cep');
 			$data['telefone'] = $this->input->post('telefone');
