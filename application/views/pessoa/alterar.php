@@ -39,23 +39,25 @@
                             <div class="card-body">
                                 <form class="forms-sample" name="form_core" method="POST">
                                     <div class="form-group row">
-                                        <div class="col-md-4 mb-20">
+                                        <div class="col-md-2 mb-20">
                                             <label>Nome</label>
                                             <input type="text" class="form-control" name="nome" value="<?= (isset($pessoa) ? $pessoa->nome : set_value('nome')); ?>" style="text-transform: uppercase;">
                                             <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
                                         </div>
 
-                                        <div class="col-md-2 mb-20">
-                                            <label>Linha</label>
-                                            <input type="text" class="form-control" name="linha" value="<?= (isset($pessoa) ? $pessoa->linha : set_value('linha')); ?>" placeholder="1935411000">
-                                            <?= form_error('linha', '<div class="text-danger">', '</div>'); ?>
-                                        </div>
-                                        <div class="col-md-2 mb-20">
-                                            <label>NRC</label>
-                                            <input type="text" class="form-control" name="nrc" value="<?= (isset($pessoa) ? $pessoa->nrc : set_value('nrc')); ?>">
-                                            <?= form_error('nrc', '<div class="text-danger">', '</div>'); ?>
+                                        <div class="col-md-4 mb-20">
+                                            <label>Sobrenome</label>
+                                            <input type="text" class="form-control" name="sobrenome" value="<?= (isset($pessoa) ? $pessoa->sobrenome : set_value('sobrenome')); ?>">
+                                            <?= form_error('sobrenome', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                         <div class="col-md-4 mb-20">
+                                            <label>Email</label>
+                                            <input type="email" class="form-control" name="email" value="<?= (isset($pessoa) ? $pessoa->email : set_value('email')); ?>">
+                                            <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-3 mb-20">
                                             <label for="cep">CEP:</label>
                                             <div class="input-group mb-3">
                                                 <input type="text" class="form-control" id="cep" name="cep" maxlength="9" value="<?= (isset($pessoa) ? $pessoa->cep : set_value('cep')); ?>" onblur="pesquisacep(this.value)">
@@ -64,9 +66,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="logradouro">Logradouro:</label>
                                                 <input type="text" class="form-control" id="logradouro" name="logradouro" value="<?= (isset($pessoa) ? $pessoa->logradouro : set_value('logradouro')); ?>">
@@ -80,13 +80,19 @@
                                                 <small></small>
                                             </div>
                                         </div>
-
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="bairro">Bairro:</label>
-                                                <input type="text" class="form-control" id="bairro" name="bairro" value="<?= (isset($pessoa) ? $pessoa->bairro : set_value('bairro')); ?>">
+                                                <label for="complemento">Complemento:</label>
+                                                <input type="text" class="form-control" id="complemento" name="complemento" value="<?= (isset($pessoa) ? $pessoa->complemento : set_value('complemento')); ?>">
                                                 <small></small>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-3 mb-20">
+                                            <label>Bairro</label>
+                                            <input type="text" class="form-control" name="bairro" value="<?= (isset($pessoa) ? $pessoa->bairro : set_value('bairro')); ?>">
+                                            <?= form_error('bairro', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
@@ -103,7 +109,22 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="form-group row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="telefone">Telefone:</label>
+                                                <input type="text" class="form-control" id="telefone" name="telefone" value="<?= (isset($pessoa) ? $pessoa->telefone : set_value('telefone')); ?>">
+                                                <small></small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="celular">Celular:</label>
+                                                <input type="text" class="form-control" id="celular" name="celular" value="<?= (isset($pessoa) ? $pessoa->celular : set_value('celular')); ?>">
+                                                <small></small>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <?php if (isset($pessoa)) : ?>
                                         <div class="form-group row">
                                             <div class="col-md-12">
