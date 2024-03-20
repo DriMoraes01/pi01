@@ -93,8 +93,8 @@
                                                                 <td class="text-center"><?= $pessoa->email; ?></td>
                                                                 <td class="text-center"><?= formata_data_banco_com_hora($pessoa->data_cadastro); ?></td>
                                                                 <td class="nosort text-right pr-25">
-                                                                    <div class="table-actions">
-                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $pessoa->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a>
+                                                                    <div class="table-actions"> 
+                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) .'/alterar/'. $pessoa->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a>
                                                                         <button type="button" data-toggle="modal" data-target="#categoria-<?= $pessoa->id; ?>" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" class="btn btn-icon btn-danger"><i class="ik ik-trash-2"></i></button>
                                                                     </div>
                                                                 </td>

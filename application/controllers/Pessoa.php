@@ -13,7 +13,6 @@ class Pessoa extends CI_Controller {
 			redirect('login');
 		}*/
 
-		//$this->load->model('models/core_model');
 	}
 	
 	public function index()
@@ -124,18 +123,18 @@ class Pessoa extends CI_Controller {
 			redirect($this->router->fetch_class());
 
 		}else{	
-			$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]|required');		
+			/*$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]|required');		
 			$this->form_validation->set_rules('sobrenome', 'Sobrenome', 'trim|min_length[1]|max_length[255]|required');
 			$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[255]|required');
 			$this->form_validation->set_rules('complemento', 'Complemento', 'trim|min_length[1]|max_length[100]');
 			$this->form_validation->set_rules('numero', 'Número', 'trim|min_length[1]|max_length[50]|required');
 			$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[255]|required');
 			$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]|required');		
-			$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[9]');				
+			$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[8]');				
 			$this->form_validation->set_rules('telefone', 'Telefone', 'trim|min_length[10]|max_length[14]|required');
 			$this->form_validation->set_rules('celular', 'Celular', 'trim|min_length[9]|max_length[14]');
 			$this->form_validation->set_rules('email', 'E-mail', 'trim|min_length[10]|max_length[255]');			
-			$this->form_validation->set_rules('logradouro', 'Logradouro', 'trim|min_length[1]|max_length[255]|required');				
+			$this->form_validation->set_rules('logradouro', 'Logradouro', 'trim|min_length[1]|max_length[255]|required');	*/			
 
 		
 				
@@ -178,14 +177,16 @@ class Pessoa extends CI_Controller {
 				$data = html_escape($data);				
 	
 				$this->core_model->update('pessoa', $data, array('id' => $id));
+
+
 				$this->session->set_flashdata('sucesso', 'Dados atualizados com sucesso!');
 				redirect($this->router->fetch_class()); 				
 			}		
 		}	
 		
-	}		
-	
+	}
 
+	
 	public function del($id = Null){
 
 		if(!$id || !$this->core_model->get_by_id('pessoa', array('id' => $id))){

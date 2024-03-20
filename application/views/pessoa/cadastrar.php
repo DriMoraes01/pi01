@@ -73,7 +73,7 @@
                                         <div class="form-group">
                                             <label for="uf">E-mail:</label>
                                             <input type="email" class="form-control" id="email" name="email">
-                                            <small></small>
+                                            <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -81,90 +81,93 @@
                                     <div class="col-md-3 mb-20">
                                         <label for="cep">CEP:</label>
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="00000-000" aria-label="" aria-describedby="" id="cep" name="cep" maxlength="9" placeholder="00000-000" onblur="pesquisacep(this.value)">
+                                            <input type="text" class="form-control" placeholder="00000000" id="cep" name="cep" maxlength="8" onblur="pesquisacep(this.value)">
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-secondary" type="button">Buscar</button>
                                             </div>
+                                            <?= form_error('cep', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="logradouro">Logradouro:</label>
                                             <input type="text" class="form-control" id="logradouro" name="logradouro">
-                                            <small></small>
+                                            <?= form_error('logradouro', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
                                     <div class="col-md-1">
                                         <div class="form-group">
                                             <label for="numero">N°:</label>
                                             <input type="text" class="form-control" id="numero" name="numero">
+                                            <?= form_error('numero', '<div class="text-danger">', '</div>'); ?>
                                             <small></small>
                                         </div>
                                     </div>
                                 </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-4 ml-20">
-                                <div class="form-group">
-                                    <label for="bairro">Bairro:</label>
-                                    <input type="text" class="form-control" id="bairro" name="bairro">
-                                    <small></small>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4 ml-20">
+                                    <div class="form-group">
+                                        <label for="bairro">Bairro:</label>
+                                        <input type="text" class="form-control" id="bairro" name="bairro">
+                                        <?= form_error('bairro', '<div class="text-danger">', '</div>'); ?>
+                                        <small></small>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="complemento">Complemento:</label>
+                                        <input type="text" class="form-control" id="complemento" name="complemento">                                       
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="localidade">Cidade:</label>
+                                        <input type="text" class="form-control" id="localidade" name="localidade">
+                                        <?= form_error('localidade', '<div class="text-danger">', '</div>'); ?>
+                                        <small></small>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label for="uf">UF:</label>
+                                        <input type="text" class="form-control" id="uf" name="uf">
+                                        <?= form_error('uf', '<div class="text-danger">', '</div>'); ?>
+                                        <small></small>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="bairro">Complemento:</label>
-                                    <input type="text" class="form-control" id="complemento" name="complemento">
-                                    <small></small>
+                            <div class="form-group row">
+                                <div class="col-md-3 ml-20">
+                                    <div class="form-group">
+                                        <label for="telefone">Telefone:</label>
+                                        <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(99)9999-9999">                                   
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="celular">Celular:</label>
+                                        <input type="text" class="form-control" id="celular" name="celular" placeholder="(99)99999-9999">
+                                        <?= form_error('celular', '<div class="text-danger">', '</div>'); ?>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="email">E-mail:</label>
+                                        <input type="text" class="form-control" id="email" name="email">
+                                        <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
+                                        <small></small>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="localidade">Cidade:</label>
-                                    <input type="text" class="form-control" id="localidade" name="localidade">
-                                    <small></small>
+                            <div class="form-group row">
+                                <div class="col-md-6 ml-20">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                        <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info ml-20">Voltar</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-1">
-                                <div class="form-group">
-                                    <label for="uf">UF:</label>
-                                    <input type="text" class="form-control" id="uf" name="uf">
-                                    <small></small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-3 ml-20">
-                                <div class="form-group">
-                                    <label for="uf">Telefone:</label>
-                                    <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(99)9999-9999">
-                                    <small></small>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="uf">Celular:</label>
-                                    <input type="text" class="form-control" id="celular" name="celular" placeholder="(99)99999-9999">
-                                    <small></small>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="uf">E-mail:</label>
-                                    <input type="text" class="form-control" id="email" name="email">
-                                    <small></small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-6 ml-20">
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                    <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info ml-20">Voltar</a>
-                                </div>
-                            </div>
-
-                        </div>
                         </form>
                     </div>
                 </div>

@@ -60,7 +60,7 @@
                                         <div class="col-md-3 mb-20">
                                             <label for="cep">CEP:</label>
                                             <div class="input-group mb-3">
-                                                <input type="text" class="form-control" id="cep" name="cep" maxlength="9" value="<?= (isset($pessoa) ? $pessoa->cep : set_value('cep')); ?>" onblur="pesquisacep(this.value)">
+                                                <input type="text" class="form-control" id="cep" name="cep" maxlength="8" value="<?= (isset($pessoa) ? $pessoa->cep : set_value('cep')); ?>" onblur="pesquisacep(this.value)">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-outline-secondary" type="button">Buscar</button>
                                                 </div>
@@ -91,7 +91,7 @@
                                     <div class="form-group row">
                                         <div class="col-md-3 mb-20">
                                             <label>Bairro</label>
-                                            <input type="text" class="form-control" name="bairro" value="<?= (isset($pessoa) ? $pessoa->bairro : set_value('bairro')); ?>">
+                                            <input type="text" class="form-control" id="bairro" name="bairro" value="<?= (isset($pessoa) ? $pessoa->bairro : set_value('bairro')); ?>">
                                             <?= form_error('bairro', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                         <div class="col-md-3">
