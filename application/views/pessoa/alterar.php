@@ -122,6 +122,7 @@
                                                 <label for="celular">Celular:</label>
                                                 <input type="text" class="form-control" id="celular" name="celular" value="<?= (isset($pessoa) ? $pessoa->celular : set_value('celular')); ?>">
                                                 <small></small>
+                                                <?= form_error('rg', '<div class="text-danger">', '</div>'); ?>
                                             </div>
                                         </div>
                                     </div>
