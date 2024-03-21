@@ -33,26 +33,26 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <?php foreach ($pessoas as $pessoa) : ?>
+                    <?php foreach ($peoples as $pessoa) : ?>
                         <div class="card">
                             <div class="card-header"><?= (isset($pessoa) ? '<i class="ik ik-calendar ik-2x"></i>&nbsp;Data da última alteração: &nbsp;' . date("d/m/Y H:i:s", strtotime($pessoa->ultima_alteracao)) : ''); ?></div>
                             <div class="card-body">
-                                <form class="forms-sample" name="form_core" method="POST">
+                                <form class="forms-sample" id="form_core" name="form_core" method="POST">
                                     <div class="form-group row">
                                         <div class="col-md-2 mb-20">
                                             <label>Nome</label>
-                                            <input type="text" class="form-control" name="nome" value="<?= (isset($pessoa) ? $pessoa->nome : set_value('nome')); ?>" style="text-transform: uppercase;">
+                                            <input type="text" class="form-control" id="nome" name="nome" value="<?= (isset($pessoa) ? $pessoa->nome : set_value('nome')); ?>" style="text-transform: uppercase;">
                                             <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
                                         </div>
 
                                         <div class="col-md-4 mb-20">
                                             <label>Sobrenome</label>
-                                            <input type="text" class="form-control" name="sobrenome" value="<?= (isset($pessoa) ? $pessoa->sobrenome : set_value('sobrenome')); ?>">
+                                            <input type="text" class="form-control" name="sobrenome" id="sobrenome" value="<?= (isset($pessoa) ? $pessoa->sobrenome : set_value('sobrenome')); ?>">
                                             <?= form_error('sobrenome', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                         <div class="col-md-4 mb-20">
                                             <label>Email</label>
-                                            <input type="email" class="form-control" name="email" value="<?= (isset($pessoa) ? $pessoa->email : set_value('email')); ?>">
+                                            <input type="email" id="email" class="form-control" name="email" value="<?= (isset($pessoa) ? $pessoa->email : set_value('email')); ?>">
                                             <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
@@ -93,6 +93,7 @@
                                             <label>Bairro</label>
                                             <input type="text" class="form-control" id="bairro" name="bairro" value="<?= (isset($pessoa) ? $pessoa->bairro : set_value('bairro')); ?>">
                                             <?= form_error('bairro', '<div class="text-danger">', '</div>'); ?>
+                                            <small></small>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
@@ -122,7 +123,7 @@
                                                 <label for="celular">Celular:</label>
                                                 <input type="text" class="form-control" id="celular" name="celular" value="<?= (isset($pessoa) ? $pessoa->celular : set_value('celular')); ?>">
                                                 <small></small>
-                                                <?= form_error('rg', '<div class="text-danger">', '</div>'); ?>
+                                                <?= form_error('celular', '<div class="text-danger">', '</div>'); ?>
                                             </div>
                                         </div>
                                     </div>

@@ -181,8 +181,9 @@ class Core_model extends CI_Model{
             return $query->result();
         }
         return false;
-    }   
-
+    } 
+    
+    
 }
 
     

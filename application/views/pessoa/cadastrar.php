@@ -36,17 +36,22 @@
                         <div class="card-body">
                             <form name="form_core" method="POST">
                                 <div class="form-group row">
-                                    <div class="col-md-4 mb-20">
+                                    <div class="col-md-2 mb-20">
+                                        <label>CPF</label>
+                                        <input type="text" class="form-control" id="cpf" name="cpf" value="<?= set_value('cpf'); ?>" placeholder="111.111.111-01">
+                                        <?= form_error('cpf', '<div class="text-danger">', '</div>'); ?>
+                                    </div>
+                                    <div class="col-md-3 mb-20">
                                         <label>Nome</label>
-                                        <input type="text" class="form-control" name="nome" value="<?= set_value('nome'); ?>" style="text-transform: uppercase;">
+                                        <input type="text" class="form-control" id="nome" name="nome" value="<?= set_value('nome'); ?>" style="text-transform: uppercase;">
                                         <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
                                     </div>
-                                    <div class="col-md-4 mb-20">
+                                    <div class="col-md-3 mb-20">
                                         <label>Sobrenome</label>
-                                        <input type="text" class="form-control" name="sobrenome" value="<?= set_value('sobrenome'); ?>" style="text-transform: uppercase;">
+                                        <input type="text" class="form-control" id="sobrenome" name="sobrenome" value="<?= set_value('sobrenome'); ?>" style="text-transform: uppercase;">
                                         <?= form_error('sobrenome', '<div class="text-danger">', '</div>'); ?>
                                     </div>
-                                    <div class="col-md-3 mt-30">
+                                    <div class="col-md-2 mt-10">
                                         <div class="form-group">
                                             <label for="sexo">Sexo:</label>
                                             <select name="sexo" id="sexo">
@@ -59,15 +64,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-md-3 mb-20">
-                                        <label>CPF</label>
-                                        <input type="text" class="form-control" name="cpf" value="<?= set_value('cpf'); ?>" placeholder="111.111.111-01">
-                                        <?= form_error('cpf', '<div class="text-danger">', '</div>'); ?>
-                                    </div>
-                                    <div class="col-md-3 mb-20">
-                                        <label>RG</label>
-                                        <input type="text" class="form-control" name="rg" value="<?= set_value('rg'); ?>" placeholder="11.111.111-1">
-                                        <?= form_error('rg', '<div class="text-danger">', '</div>'); ?>
+                                    <div class="col-md-3 ">
+                                        <div class="form-group">
+                                            <label for="celular">Celular:</label>
+                                            <input type="text" class="form-control" id="celular" name="celular" placeholder="(99)99999-9999">
+                                            <?= form_error('celular', '<div class="text-danger">', '</div>'); ?>
+                                        </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
@@ -76,19 +78,19 @@
                                             <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group row">
                                     <div class="col-md-3 mb-20">
                                         <label for="cep">CEP:</label>
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="00000000" id="cep" name="cep" maxlength="8" onblur="pesquisacep(this.value)">
+                                            <input type="text" class="form-control" placeholder="00000-000" id="cep" name="cep" maxlength="9" onblur="pesquisacep(this.value)">
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-secondary" type="button">Buscar</button>
                                             </div>
                                             <?= form_error('cep', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="logradouro">Logradouro:</label>
                                             <input type="text" class="form-control" id="logradouro" name="logradouro">
@@ -103,68 +105,53 @@
                                             <small></small>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-4 ml-20">
-                                    <div class="form-group">
-                                        <label for="bairro">Bairro:</label>
-                                        <input type="text" class="form-control" id="bairro" name="bairro">
-                                        <?= form_error('bairro', '<div class="text-danger">', '</div>'); ?>
-                                        <small></small>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="complemento">Complemento:</label>
+                                            <input type="text" class="form-control" id="complemento" name="complemento">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 ml-20">
+                                        <div class="form-group">
+                                            <label for="bairro">Bairro:</label>
+                                            <input type="text" class="form-control" id="bairro" name="bairro">
+                                            <?= form_error('bairro', '<div class="text-danger">', '</div>'); ?>
+                                            <small></small>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label for="complemento">Complemento:</label>
-                                        <input type="text" class="form-control" id="complemento" name="complemento">                                       
+                                <div class="form-group row">
+                                    <div class="col-md-3 ml-20">
+                                        <div class="form-group">
+                                            <label for="localidade">Cidade:</label>
+                                            <input type="text" class="form-control" id="localidade" name="localidade">
+                                            <?= form_error('localidade', '<div class="text-danger">', '</div>'); ?>
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="uf">UF:</label>
+                                            <input type="text" class="form-control" id="uf" name="uf">
+                                            <?= form_error('uf', '<div class="text-danger">', '</div>'); ?>
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="data_cadastro">Data de Cadastro:</label>
+                                            <input type="date" class="form-control" id="data_cadastro" name="data_cadastro">
+                                            <?= form_error('data_cadastro', '<div class="text-danger">', '</div>'); ?>
+                                            <small></small>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="localidade">Cidade:</label>
-                                        <input type="text" class="form-control" id="localidade" name="localidade">
-                                        <?= form_error('localidade', '<div class="text-danger">', '</div>'); ?>
-                                        <small></small>
-                                    </div>
-                                </div>
-                                <div class="col-md-1">
-                                    <div class="form-group">
-                                        <label for="uf">UF:</label>
-                                        <input type="text" class="form-control" id="uf" name="uf">
-                                        <?= form_error('uf', '<div class="text-danger">', '</div>'); ?>
-                                        <small></small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-3 ml-20">
-                                    <div class="form-group">
-                                        <label for="telefone">Telefone:</label>
-                                        <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(99)9999-9999">                                   
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="celular">Celular:</label>
-                                        <input type="text" class="form-control" id="celular" name="celular" placeholder="(99)99999-9999">
-                                        <?= form_error('celular', '<div class="text-danger">', '</div>'); ?>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="email">E-mail:</label>
-                                        <input type="text" class="form-control" id="email" name="email">
-                                        <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
-                                        <small></small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-6 ml-20">
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                        <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info ml-20">Voltar</a>
+                                <div class="form-group row">
+                                    <div class="col-md-6 ml-20">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                            <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info ml-20">Voltar</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

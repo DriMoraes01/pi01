@@ -62,3 +62,12 @@ function formata_data_banco_sem_hora($string) {
 
     return $dia . '/' . $mes_num . '/' . $ano;
 }
+
+function idade($data_nascimento){
+
+    $data_atual = date('Y');
+    $idade = $data_atual - $data_nascimento;
+    return $idade;
+
+}
+
