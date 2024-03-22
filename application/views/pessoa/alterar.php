@@ -41,16 +41,11 @@
                                             <input type="text" class="form-control" id="cpf" name="cpf" value="<?= (isset($pessoa) ? $pessoa->cpf : set_value('cpf')); ?>">
                                             <?= form_error('cpf', '<div class="text-danger">', '</div>'); ?>
                                         </div>
-                                        <div class="col-md-3 mb-20">
+                                        <div class="col-md-4 mb-20">
                                             <label>Nome</label>
                                             <input type="text" class="form-control" id="nome" name="nome" value="<?= (isset($pessoa) ? $pessoa->nome : set_value('nome')); ?>" style="text-transform: uppercase;">
                                             <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
-                                        </div>
-                                        <div class="col-md-3 mb-20">
-                                            <label>Sobrenome</label>
-                                            <input type="text" class="form-control" name="sobrenome" id="sobrenome" value="<?= (isset($pessoa) ? $pessoa->sobrenome : set_value('sobrenome')); ?>">
-                                            <?= form_error('sobrenome', '<div class="text-danger">', '</div>'); ?>
-                                        </div>
+                                        </div>                                        
                                         <div class="col-md-3 mb-20">
                                             <label>Sexo</label>
                                             <input type="text" class="form-control" name="sexo" id="sexo" value="<?= (isset($pessoa) ? $pessoa->sexo : set_value('sexo')); ?>" disabled>
@@ -132,7 +127,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="data_cadastro">Data de Cadastro:</label>
-                                                <input type="text" class="form-control" id="uf" name="uf" value="<?= (isset($pessoa) ? $pessoa->data_cadastro : set_value('data_cadastro')); ?>" disabled>
+                                                <input type="text" class="form-control" id="uf" name="uf" value="<?= (isset($pessoa) ?formata_data_banco_sem_hora($pessoa->data_cadastro) : set_value('data_cadastro')); ?>" disabled>
                                                 <?= form_error('data_cadastro', '<div class="text-danger">', '</div>'); ?>
                                                 <small></small>
                                             </div>

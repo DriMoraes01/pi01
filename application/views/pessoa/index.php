@@ -85,7 +85,7 @@
                                                         <?php foreach ($pessoas as $pessoa) : ?>
                                                             <tr>
                                                                 <td class="text-center"><?= $pessoa->id; ?></td>
-                                                                <td class="text-center"><?= mb_strtoupper($pessoa->nome) . ',&nbsp;' . mb_strtoupper($pessoa->sobrenome); ?></td>
+                                                                <td class="text-center"><?= mb_strtoupper($pessoa->nome); ?></td>
                                                                <td class="text-center"><?= $pessoa->logradouro . ',&nbsp;' . $pessoa->numero . '&nbsp;-&nbsp;' . $pessoa->bairro . '&nbsp;-&nbsp;' . $pessoa->localidade; ?></td>
                                                                 <td class="text-center"><?= $pessoa->celular; ?></td>
                                                                 <td class="text-center"><?= $pessoa->email; ?></td>

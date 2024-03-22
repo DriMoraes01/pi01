@@ -51,7 +51,6 @@ class Pessoa extends CI_Controller {
 
 		$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[14]|required');
 		$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]|required');		
-		$this->form_validation->set_rules('sobrenome', 'Sobrenome', 'trim|min_length[1]|max_length[255]|required');
 		$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[5]|max_length[10]|required');
 		$this->form_validation->set_rules('celular', 'Celular', 'trim|min_length[9]|max_length[14]|required');
 		$this->form_validation->set_rules('email', 'E-mail', 'trim|min_length[1]|max_length[255]');
@@ -88,7 +87,6 @@ class Pessoa extends CI_Controller {
 			//cadastrar					
 			$data['cpf'] = $this->input->post('cpf');				
 			$data['nome'] = $this->input->post('nome');			
-			$data['sobrenome'] = $this->input->post('sobrenome');
 			$data['sexo'] = $this->input->post('sexo');
 			$data['celular'] = $this->input->post('celular');
 			$data['email'] = $this->input->post('email');
@@ -100,8 +98,7 @@ class Pessoa extends CI_Controller {
 			$data['localidade'] = $this->input->post('localidade');
 			$data['uf'] = $this->input->post('uf');
 			$data['data_cadastro'] = $this->input->post('data_cadastro');
-			$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');
-					
+			$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');					
 
 			$data = html_escape($data);				
 
@@ -124,7 +121,6 @@ class Pessoa extends CI_Controller {
 		}else{
 			$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[14]|required');
 			$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]|required');
-			$this->form_validation->set_rules('sobrenome', 'Sobrenome', 'trim|min_length[1]|max_length[255]|required');
 			//$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[5]|max_length[10]|required');
 			$this->form_validation->set_rules('celular', 'Celular', 'trim|min_length[9]|max_length[14]|required');
 			$this->form_validation->set_rules('email', 'E-mail', 'trim|min_length[1]|max_length[255]');
@@ -162,8 +158,7 @@ class Pessoa extends CI_Controller {
 
 			}else{
 				$data['cpf'] = $this->input->post('cpf');
-				$data['nome'] = $this->input->post('nome');
-				$data['sobrenome'] = $this->input->post('sobrenome');
+				$data['nome'] = $this->input->post('nome');				
 				//$data['sexo'] = $this->input->post('sexo');
 				$data['celular'] = $this->input->post('celular');
 				$data['email'] = $this->input->post('email');

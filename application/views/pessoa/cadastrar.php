@@ -41,16 +41,11 @@
                                         <input type="text" class="form-control" id="cpf" name="cpf" value="<?= set_value('cpf'); ?>" placeholder="111.111.111-01">
                                         <?= form_error('cpf', '<div class="text-danger">', '</div>'); ?>
                                     </div>
-                                    <div class="col-md-3 mb-20">
+                                    <div class="col-md-4 mb-20">
                                         <label>Nome</label>
                                         <input type="text" class="form-control" id="nome" name="nome" value="<?= set_value('nome'); ?>" style="text-transform: uppercase;">
                                         <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
-                                    </div>
-                                    <div class="col-md-3 mb-20">
-                                        <label>Sobrenome</label>
-                                        <input type="text" class="form-control" id="sobrenome" name="sobrenome" value="<?= set_value('sobrenome'); ?>" style="text-transform: uppercase;">
-                                        <?= form_error('sobrenome', '<div class="text-danger">', '</div>'); ?>
-                                    </div>
+                                    </div>                                    
                                     <div class="col-md-2 mt-10">
                                         <div class="form-group">
                                             <label for="sexo">Sexo:</label>
