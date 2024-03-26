@@ -77,9 +77,8 @@
                                                         <th class="text-center">Raça</th>
                                                         <th class="text-center">Porte</th>
                                                         <th class="text-center">Data de Cadastro</th>
+                                                        <th class="text-center">Foto</th>
                                                         <th class="text-center">Obs</th>
-                                                        <th class="text-center">Local de Resgate</th>
-                                                        <th class="text-center">Data de Resgate</th>
                                                         <th class="nosort text-right pr-25">Ações</th>
                                                     </tr>
                                                 </thead>
@@ -89,17 +88,13 @@
                                                             <tr>
                                                                 <td class="text-center"><?= $animal->id; ?></td>
                                                                 <td class="text-center"><?= mb_strtoupper($animal->nome); ?></td>
+                                                                <td class="text-center"><?= $animal->sexo; ?></td>
                                                                 <td class="text-center"><?= $animal->raca; ?></td>
                                                                 <td class="text-center"><?= $animal->porte; ?></td>
-                                                                <td class="text-center"><?= $animal->obs; ?></td>
-                                                                <?php if (isset($resgates)) : ?>
-                                                                    <?php foreach ($resgates as $resgate) : ?>
-                                                                        <td class="text-center"><?= $resgate->logradouro . ',&nbsp;' . $resgate->numero . '&nbsp;-&nbsp;' . $resgate->bairro . '&nbsp;-&nbsp;' . $resgate->localidade; ?></td>
-                                                                        <td class="text-center"><?= $resgate->data_resgate; ?></td>
-                                                                    <?php endforeach; ?>
-                                                                <? endif; ?>
-
                                                                 <td class="text-center"><?= formata_data_banco_sem_hora($animal->data_cadastro); ?></td>
+                                                                <td class="text-center"><?= $animal->foto_animal; ?></td>
+                                                                <td class="text-center"><?= $animal->observacao; ?></td>
+
                                                                 <td class="nosort text-right pr-25">
                                                                     <div class="table-actions">
                                                                         <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $animal->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a>

@@ -72,6 +72,7 @@ class Core_model extends CI_Model{
         }  
     }  
     
+    
     public function AlterarSenha($table = NULL, $data = NULL, $condition = NULL)
     {
         if($table && is_array($data) && is_array($condition)){
@@ -85,6 +86,33 @@ class Core_model extends CI_Model{
         }
     } 
     
+    public function getResgate(){
+        $this->db->select('*');
+        $this->db->from('resgate_animal');
+       // $this->db->where('id', $id);
+
+       //$this->db->where('users.active', 1);
+
+        $query = $this->db->get();
+        if ($query->num_rows() >= 1) {
+            return $query->row();
+        }
+        return false;  
+    }
+
+    public function getAnimais(){
+        $this->db->select('*');
+        $this->db->from('animal a');
+        $this->db->where('a.excluido', 0);
+        $this->db->order_by('a.id');   
+
+        $query = $this->db->get();
+        if ($query->num_rows() >= 1) {
+            return $query->result();
+            //return $query->row();
+        }
+        return false;
+    }
 
     public function delete($table = NULL, $condition = NULL)
     {

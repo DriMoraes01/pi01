@@ -21,8 +21,7 @@ class Animal extends CI_Controller {
 			'titulo' => 'Animais Cadastrados',
 			'sub_titulo' => 'Listando os animais cadastrados no sistema',
 			'icone_view' => 'ik ik-user',			
-			'animais' => $this->core_model->getAnimais(),
-			'resgates' => $this->core_model->get_all(),			
+			'animais' => $this->core_model->getAnimais(),			
 			'styles' => array(
 				'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
 			),	
@@ -33,12 +32,12 @@ class Animal extends CI_Controller {
 		);
 		
 		/*echo '<pre>';
-		print_r($data['pessoas']);
+		print_r($data['resgates']);
 		exit();*/
-
+		
 		$this->load->view('layout/header',$data);
 		$this->load->view('animal/index');
-		$this->load->view('layout/footer');		
+		$this->load->view('layout/footer');	
 
 	}
 		
@@ -50,14 +49,14 @@ class Animal extends CI_Controller {
 			redirect($this->router->fetch_class());	
 		}
 
-		$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]|required');		
-		$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[5]|max_length[10]|required');
-		$this->form_validation->set_rules('raca', 'Raça', 'trim|min_length[1]|max_length[20]|required');
+		$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]');		
+		$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[5]|max_length[10]');
+		$this->form_validation->set_rules('raca', 'Raça', 'trim|min_length[1]|max_length[20]');
 		$this->form_validation->set_rules('porte', 'Porte', 'trim|min_length[1]|max_length[10]');
-		$this->form_validation->set_rules('cor', 'Cor', 'trim|min_length[8]|max_length[9]|required');
+		$this->form_validation->set_rules('cor', 'Cor', 'trim|min_length[1]|max_length[9]');
 		$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[10]');
-		$this->form_validation->set_rules('obs', 'Observação', 'trim|min_length[1]|max_length[255]');
-		$this->form_validation->set_rules('excluido', 'Excluido', 'exact_length[1]');
+		$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
+		//$this->form_validation->set_rules('excluido', 'Excluido', 'exact_length[1]');
 		
 		if (!$this->form_validation->run()) {
 
@@ -81,13 +80,13 @@ class Animal extends CI_Controller {
 			//cadastrar					
 			$data['nome'] = $this->input->post('nome');			
 			$data['sexo'] = $this->input->post('sexo');
-			$data['raca'] = $this->input->post('celular');
-			$data['porte'] = $this->input->post('email');
-			$data['cor'] = $this->input->post('cep');
+			$data['raca'] = $this->input->post('raca');
+			$data['porte'] = $this->input->post('porte');
+			$data['cor'] = $this->input->post('cor');
 			$data['data_cadastro'] = $this->input->post('data_cadastro');
-			$data['obs'] = $this->input->post('data_cadastro');
-			$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');
-			$data['excluido'] = $this->input->post('excluido');			
+			$data['observacao'] = $this->input->post('observacao');
+			//$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');
+			//$data['excluido'] = $this->input->post('excluido');			
 
 			$data = html_escape($data);				
 
@@ -109,15 +108,13 @@ class Animal extends CI_Controller {
 
 		}else{
 
-			$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]|required');
-			$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[5]|max_length[10]|required');
-			$this->form_validation->set_rules('raca', 'Raça', 'trim|min_length[1]|max_length[20]|required');
+			$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]');
+			$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[5]|max_length[10]');
+			$this->form_validation->set_rules('raca', 'Raça', 'trim|min_length[1]|max_length[20]');
 			$this->form_validation->set_rules('porte', 'Porte', 'trim|min_length[1]|max_length[10]');
-			$this->form_validation->set_rules('cor', 'Cor', 'trim|min_length[8]|max_length[9]|required');
-			//$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[10]');
-			$this->form_validation->set_rules('obs', 'Observação', 'trim|min_length[1]|max_length[255]');
-			//$this->form_validation->set_rules('excluido', 'Excluido', 'exact_length[1]');
-		
+			$this->form_validation->set_rules('cor', 'Cor', 'trim|min_length[1]|max_length[9]');
+			$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
+			$this->form_validation->set_rules('foto_animal', 'Foto do Animal', 'trim|min_length[1]|max_length[255]');
 				
 			if (!$this->form_validation->run()){
 
@@ -146,10 +143,11 @@ class Animal extends CI_Controller {
 				$data['raca'] = $this->input->post('raca');
 				$data['porte'] = $this->input->post('porte');
 				$data['cor'] = $this->input->post('cor');				
-				$data['obs'] = $this->input->post('obs');
-				$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');				
+				$data['observacao'] = $this->input->post('observacao');
+				$data['foto_animal'] = $this->input->post('foto_animal');				
 				
-				$data = html_escape($data);				
+				$data = html_escape($data);			
+				
 	
 				$this->core_model->update('animal', $data, array('id' => $id));
 

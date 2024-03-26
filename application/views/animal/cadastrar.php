@@ -42,17 +42,7 @@
                                             <?= form_error('data_cadastro', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">Data de Resgate:</label>
-                                            <input type="date" class="form-control" id="data_resgate" name="data_resgate" value="<?= (isset($resgate) ? $resgate->data_resgate : set_value('data_resgate')); ?>" disabled>
-                                            <?= form_error('data_resgate', '<div class="text-danger">', '</div>'); ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">Local de Resgate:</label>
-                                            <input type="text" class="form-control" id="local_resgate" name="local_resgate" value="<?= (isset($resgate)) ? $resgate->logradouro . ',&nbsp;' . $resgate->numero . ',&nbsp;' . $resgate->bairro . ',&nbsp;' . $resgate->localidade . ',&nbsp;' . $resgate->uf : set_value('local_resgate'); ?>" disabled>
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-2 mb-20">
@@ -87,8 +77,13 @@
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="porte">Porte:</label>
-                                            <input type="text" class="form-control" id="porte" name="porte">
-                                            <?= form_error('porte', '<div class="text-danger">', '</div>'); ?>
+                                            <select name="porte" id="porte">
+                                                <option value="pequeno">Pequeno</option>
+                                                <option value="medio">Médio</option>
+                                                <option value="grande">Grande</option>
+                                                <?= form_error('porte', '<div class="text-danger">', '</div>'); ?>
+                                            </select>
+                                            <small></small>                                           
                                         </div>
                                     </div>
                                 </div>
@@ -99,13 +94,13 @@
                                             <input type="text" class="form-control" id="obs" name="obs">
                                             <?= form_error('obs', '<div class="text-danger">', '</div>'); ?>
                                         </div>
-                                    </div>    
+                                    </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-6 ml-20">
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                             <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info ml-20">Voltar</a>
+                                            <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info ml-20">Voltar</a>
                                         </div>
                                     </div>
                                 </div>
