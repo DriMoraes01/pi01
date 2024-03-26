@@ -21,7 +21,8 @@ class Animal extends CI_Controller {
 			'titulo' => 'Animais Cadastrados',
 			'sub_titulo' => 'Listando os animais cadastrados no sistema',
 			'icone_view' => 'ik ik-user',			
-			'pessoas' => $this->core_model->getAnimais(),				
+			'animais' => $this->core_model->getAnimais(),
+			'resgates' => $this->core_model->get_all(),			
 			'styles' => array(
 				'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
 			),	
@@ -97,11 +98,11 @@ class Animal extends CI_Controller {
 
 	}	
 
-
+	
 	public function alterar($id = NULL)
 	{
 		//atualizando
-		if(!$this->core_model->get_by_id('pessoa', array('id' => $id))){
+		if(!$this->core_model->get_by_id('animal', array('id' => $id))){
 
 			$this->session->set_flashdata('error', 'Cadastro não encontrado!');
 			redirect($this->router->fetch_class());
@@ -113,9 +114,9 @@ class Animal extends CI_Controller {
 			$this->form_validation->set_rules('raca', 'Raça', 'trim|min_length[1]|max_length[20]|required');
 			$this->form_validation->set_rules('porte', 'Porte', 'trim|min_length[1]|max_length[10]');
 			$this->form_validation->set_rules('cor', 'Cor', 'trim|min_length[8]|max_length[9]|required');
-			$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[10]');
+			//$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[10]');
 			$this->form_validation->set_rules('obs', 'Observação', 'trim|min_length[1]|max_length[255]');
-			$this->form_validation->set_rules('excluido', 'Excluido', 'exact_length[1]');
+			//$this->form_validation->set_rules('excluido', 'Excluido', 'exact_length[1]');
 		
 				
 			if (!$this->form_validation->run()){
@@ -142,19 +143,15 @@ class Animal extends CI_Controller {
 
 				$data['nome'] = $this->input->post('nome');
 				$data['sexo'] = $this->input->post('sexo');
-				$data['raca'] = $this->input->post('celular');
-				$data['porte'] = $this->input->post('email');
-				$data['cor'] = $this->input->post('cep');
-				$data['data_cadastro'] = $this->input->post('data_cadastro');
-				$data['obs'] = $this->input->post('data_cadastro');
-				$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');
-				$data['excluido'] = $this->input->post('excluido');			
-				
+				$data['raca'] = $this->input->post('raca');
+				$data['porte'] = $this->input->post('porte');
+				$data['cor'] = $this->input->post('cor');				
+				$data['obs'] = $this->input->post('obs');
+				$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');				
 				
 				$data = html_escape($data);				
 	
 				$this->core_model->update('animal', $data, array('id' => $id));
-
 
 				$this->session->set_flashdata('sucesso', 'Dados atualizados com sucesso!');
 				redirect($this->router->fetch_class()); 				
