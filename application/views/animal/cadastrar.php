@@ -51,13 +51,12 @@
                                     <div class="col-md-6">
                                         <div class="form-group">Local de Resgate:</label>
                                             <input type="text" class="form-control" id="local_resgate" name="local_resgate" value="<?= (isset($resgate)) ? $resgate->logradouro . ',&nbsp;' . $resgate->numero . ',&nbsp;' . $resgate->bairro . ',&nbsp;' . $resgate->localidade . ',&nbsp;' . $resgate->uf : set_value('local_resgate'); ?>" disabled>
-
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-2 mb-20">
-                                        <label>Nome do Animal</label>
+                                        <label for="nome">Nome do Animal</label>
                                         <input type="text" class="form-control" id="nome" name="nome" value="<?= set_value('nome'); ?>" style="text-transform: uppercase;">
                                         <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
                                     </div>
@@ -88,18 +87,28 @@
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="porte">Porte:</label>
-                                            <input type="porte" class="form-control" id="porte" name="porte">
+                                            <input type="text" class="form-control" id="porte" name="porte">
                                             <?= form_error('porte', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="obs">Observação:</label>
+                                            <input type="text" class="form-control" id="obs" name="obs">
+                                            <?= form_error('obs', '<div class="text-danger">', '</div>'); ?>
+                                        </div>
+                                    </div>    
+                                </div>
+                                <div class="form-group row">
                                     <div class="col-md-6 ml-20">
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                            <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info ml-20">Voltar</a>
+                                             <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info ml-20">Voltar</a>
                                         </div>
                                     </div>
+                                </div>
                             </form>
                         </div>
                     </div>
