@@ -99,6 +99,7 @@ class Core_model extends CI_Model{
         }
         return false;  
     }
+   
 
     public function getAnimais(){
         $this->db->select('*');
