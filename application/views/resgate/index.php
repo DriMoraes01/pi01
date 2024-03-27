@@ -73,6 +73,7 @@
                                                     <tr>
                                                         <th class="text-center">#</th>
                                                         <th class="text-center">Tipo de Animal</th>
+                                                        <th class="text-center">Sexo</th>
                                                         <th class="text-center">Endereço</th>
                                                         <th class="text-center">Data de Resgate</th>
                                                         <th class="text-center">Observação</th>
@@ -85,9 +86,10 @@
                                                             <tr>
                                                                 <td class="text-center"><?= $resgate->id; ?></td>
                                                                 <td class="text-center"><?= mb_strtoupper($resgate->animal); ?></td>
+                                                                <td class="text-center"><?= $resgate->sexo; ?></td>
                                                                 <td class="text-center"><?= $resgate->logradouro . ',&nbsp;' . $resgate->numero . '&nbsp;-&nbsp;' . $resgate->bairro . '&nbsp;-&nbsp;' . $resgate->localidade; ?></td>
-                                                                <td class="text-center"><?= formata_data_banco_com_hora($resgate->data_resgate); ?></td>
-                                                                <td class="text-center"><?= $resgate->obs; ?></td>                                                               
+                                                                <td class="text-center"><?= formata_data_banco_sem_hora($resgate->data_resgate); ?></td>
+                                                                <td class="text-center"><?= $resgate->observacao; ?></td>
                                                                 <td class="nosort text-right pr-25">
                                                                     <div class="table-actions">
                                                                         <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $resgate->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a>

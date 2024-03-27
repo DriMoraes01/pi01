@@ -62,7 +62,7 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <?php if ($this->ion_auth->is_admin()) : ?>
-                                        <div class="card-header d-block"><a data-toggle="tooltip" data-placement="right" title="Cadastrar<?= $this->router->fetch_class(); ?>" class="btn bg-blue float-right text-white" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>">+ Novo</a></div>
+                                        <div class="card-header d-block"><a data-toggle="tooltip" data-placement="right" title="Cadastrar <?= $this->router->fetch_class(); ?>" class="btn bg-blue float-right text-white" href="<?= base_url($this->router->fetch_class() . '/cadastrar/'); ?>" data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>">+ Novo</a></div>
                                     <?php else : ?>
                                         <div class="card-header d-block"></div>
                                     <?php endif; ?>
@@ -73,30 +73,36 @@
                                                     <tr>
                                                         <th class="text-center">#</th>
                                                         <th class="text-center">Nome</th>
-                                                        <th class="text-center">Valor</th>                                                        
-                                                        <th class="text-center">E-mail</th>
-                                                        <th class="text-center">Data da Doação</th>
+                                                        <th class="text-center">Tipo de Animal</th>
+                                                        <th class="text-center">Nome do Animal</th>
+                                                        <th class="text-center">Sexo do Animal</th>
+                                                        <th class="text-center">Endereço do Adotante</th>
+                                                        <th class="text-center">Data da Adoção</th>
+                                                        <th class="text-center">Observação</th>
                                                         <th class="nosort text-right pr-25">Ações</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php if (isset($doacoes)) : ?>
-                                                        <?php foreach ($doacoes as $doacao) : ?>
+                                                    <?php if (isset($adocoes)) : ?>
+                                                        <?php foreach ($adocoes as $adocao) : ?>
                                                             <tr>
-                                                                <td class="text-center"><?= $doacao->id; ?></td>
-                                                                <td class="text-center"><?= mb_strtoupper($doacao->nome); ?></td>
-                                                                <td class="text-center">R$ &nbsp;<?= $doacao->valor; ?></td>   
-                                                                <td class="text-center"><?= $doacao->email; ?></td>                                                                           
-                                                                <td class="text-center"><?= formata_data_banco_sem_hora($doacao->data_doacao); ?></td>
+                                                                <td class="text-center"><?= $adocao->id; ?></td>
+                                                                <td class="text-center"><?= mb_strtoupper($adocao->nome_adotante); ?></td>
+                                                                <td class="text-center"><?= $adocao->tipo_animal; ?></td>
+                                                                <td class="text-center"><?= mb_strtoupper($adocao->nome_animal); ?></td>
+                                                                <td class="text-center"><?= $adocao->sexo; ?></td>
+                                                                <td class="text-center"><?= $adocao->logradouro . ',&nbsp;' . $adocao->numero . '&nbsp;-&nbsp;' . $adocao->bairro . '&nbsp;-&nbsp;' . $adocao->localidade; ?></td>
+                                                                <td class="text-center"><?= formata_data_banco_sem_hora($adocao->data_adocao); ?></td>
+                                                                <td class="text-center"><?= $adocao->observacao; ?></td>
                                                                 <td class="nosort text-right pr-25">
                                                                     <div class="table-actions">
-                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $doacao->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a>
-                                                                        <button type="button" data-toggle="modal" data-target="#categoria-<?= $doacao->id; ?>" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" class="btn btn-icon btn-danger"><i class="ik ik-trash-2"></i></button>
+                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $adocao->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a>
+                                                                        <button type="button" data-toggle="modal" data-target="#categoria-<?= $adocao->id; ?>" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" class="btn btn-icon btn-danger"><i class="ik ik-trash-2"></i></button>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <div class="modal fade" id="categoria-<?= $doacao->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered" role="document" id="categoria-<?= $doacao->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
+                                                            <div class="modal fade" id="categoria-<?= $adocao->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered" role="document" id="categoria-<?= $adocao->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalCenterLabel"><i class="fas fa-exclamation-triangle text-danger"></i>&nbsp;Tem certeza que quer excluir?</h5>
@@ -109,7 +115,7 @@
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button data-toggle="tooltip" data-placement="bottom" title="Cancelar Exclusão" type="button" class="btn btn-secondary" data-dismiss="modal">Não, voltar</button>
-                                                                            <a data-toggle="tooltip" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/del/' . $doacao->id; ?> " class="btn btn-danger">Sim, excluir</a>
+                                                                            <a data-toggle="tooltip" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/del/' . $adocao->id; ?> " class="btn btn-danger">Sim, excluir</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>

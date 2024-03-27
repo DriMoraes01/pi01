@@ -36,13 +36,11 @@
                             <div class="card-body">
                                 <form class="forms-sample" id="form_core" name="form_core" method="POST">
                                     <div class="form-group row">
-                                        <div class="col-md-4 mb-20">
+                                        <div class="col-md-6 mb-20">
                                             <label for="nome">Nome</label>
                                             <input type="text" class="form-control" id="nome" name="nome" value="<?= (isset($doacao) ? $doacao->nome : set_value('nome')); ?>" style="text-transform: uppercase;">
                                             <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="cpf">CPF</label>
@@ -51,35 +49,34 @@
                                                 <small></small>
                                             </div>
                                         </div>
-                                        <div class="col-md-2 mb-20">
-                                            <label for="raca">Raça:</label>
-                                            <input type="text" id="raca" class="form-control" name="raca" value="<?= (isset($animal) ? $animal->raca : set_value('raca')); ?>">
-                                            <?= form_error('raca', '<div class="text-danger">', '</div>'); ?>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="porte">Porte:</label>
-                                                <input type="text" class="form-control" id="porte" name="porte" value="<?= (isset($animal) ? $animal->porte : set_value('porte')); ?>">
-                                                <?= form_error('porte', '<div class="text-danger">', '</div>'); ?>
-                                                <small></small>
-                                            </div>
-                                        </div>
-
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-2 mt-10">
+                                            <label for="valor">Valor</label>
+                                            <input type="text" id="raca" class="form-control" name="valor" value="<?= (isset($doacao) ? $doacao->valor : set_value('valor')); ?>">
+                                            <?= form_error('valor', '<div class="text-danger">', '</div>'); ?>
+                                        </div>
+                                        <div class="col-md-2 mt-10">
                                             <div class="form-group">
-                                                <label for="observacao">Observação:</label>
-                                                <input type="text" class="form-control" id="observacao" name="observacao" value="<?= (isset($animal) ? $animal->observacao : set_value('observacao')); ?>">
-                                                <?= form_error('observacao', '<div class="text-danger">', '</div>'); ?>
+                                                <label for="data_doacao">Data da Doação</label>
+                                                <input type="text" class="form-control" id="data_doacao" name="data_doacao" value="<?= (isset($doacao) ?$doacao->data_doacao: set_value('data_doacao')); ?>">
+                                                <?= form_error('data_doacao', '<div class="text-danger">', '</div>'); ?>
+                                                <small></small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mt-10">
+                                            <div class="form-group">
+                                                <label for="email">E-mail</label>
+                                                <input type="text" class="form-control" id="email" name="email" value="<?= (isset($doacao) ? $doacao->email : set_value('email')); ?>">
+                                                <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
                                                 <small></small>
                                             </div>
                                         </div>
                                     </div>
-                                    <?php if (isset($animal)) : ?>
+                                    <?php if (isset($doacao)) : ?>
                                         <div class="form-group row">
                                             <div class="col-md-12">
-                                                <input type="hidden" class="form-control" name="id" value="<?= $animal->id; ?>">
+                                                <input type="hidden" class="form-control" name="id" value="<?= $doacao->id; ?>">
                                             </div>
                                         </div>
                                     <?php endif; ?>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('Ação não permitida');
 
-class Resgate extends CI_Controller {	
+class Adocao extends CI_Controller {	
 
 	public function __construct()
 	{
@@ -21,7 +21,7 @@ class Resgate extends CI_Controller {
 			'titulo' => 'Resgates Cadastrados',
 			'sub_titulo' => 'Listando as pessoas cadastradas no sistema',
 			'icone_view' => 'ik ik-user',			
-			'resgates' => $this->core_model->get_by_id('resgate_animal', array('excluido' => 0)),				
+			'adocoes' => $this->core_model->get_by_id('adocao', array('excluido' => 0)),				
 			'styles' => array(
 				'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
 			),	
@@ -32,7 +32,7 @@ class Resgate extends CI_Controller {
 		);
 		
 		$this->load->view('layout/header',$data);
-		$this->load->view('resgate/index');
+		$this->load->view('adocao/index');
 		$this->load->view('layout/footer');		
 
 	}
@@ -45,8 +45,14 @@ class Resgate extends CI_Controller {
 			redirect($this->router->fetch_class());	
 		}
 
-		$this->form_validation->set_rules('animal', 'Tipo de Animal', 'trim|min_length[1]|max_length[30]');
-		$this->form_validation->set_rules('data_resgate', 'Data do Resgate', 'trim|min_length[1]|max_length[20]');		
+		$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[30]');
+		$this->form_validation->set_rules('nome_adotante', 'Nome do Adotante', 'trim|min_length[1]|max_length[20]');
+		$this->form_validation->set_rules('email', 'Email', 'trim|min_length[1]|max_length[20]');
+		$this->form_validation->set_rules('celular', 'Celular', 'trim|min_length[1]|max_length[20]');		
+		$this->form_validation->set_rules('nome_animal', 'Nome de Animal', 'trim|min_length[1]|max_length[30]');
+		$this->form_validation->set_rules('sexo_animal', 'Sexo do Animal', 'trim|min_length[1]|max_length[30]');
+		$this->form_validation->set_rules('tipo_animal', 'Tipo de Animal', 'trim|min_length[1]|max_length[30]');
+		$this->form_validation->set_rules('data_adocao', 'Data da Adoção', 'trim|min_length[1]|max_length[30]');
 		$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[10]');
 		$this->form_validation->set_rules('logradouro', 'Logradouro', 'trim|min_length[1]|max_length[255]');
 		$this->form_validation->set_rules('numero', 'Número', 'trim|min_length[1]|max_length[10]');
@@ -54,12 +60,11 @@ class Resgate extends CI_Controller {
 		$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]');
 		$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]');
 		$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
-		$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[1]|max_length[10]');
 		
 		if (!$this->form_validation->run()) {
 
 			$data = array(
-				'titulo' => 'Cadastrar Resgate',				
+				'titulo' => 'Cadastrar Adoção',				
 				'icone_view' => 'ik ik-user',	
 				'styles' => array(
 					'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
@@ -71,25 +76,31 @@ class Resgate extends CI_Controller {
 			);				
 			
 			$this->load->view('layout/header',$data);
-			$this->load->view('resgate/cadastrar');
+			$this->load->view('adocao/cadastrar');
 			$this->load->view('layout/footer');	
 		}else{
 
-			//cadastrar					
-			$data['animal'] = $this->input->post('animal');				
-			$data['data_resgate'] = $this->input->post('data_resgate');			
-			$data['cep'] = $this->input->post('cep');		
+			//cadastrar	
+			$data['cpf'] = $this->input->post('cpf');
+			$data['nome_adotante'] = $this->input->post('nome_adotante');
+			$data['email'] = $this->input->post('email');
+			$data['celular'] = $this->input->post('celular');
+			$data['nome_animal'] = $this->input->post('nome_animal');
+			$data['sexo_animal'] = $this->input->post('sexo_animal');
+			$data['tipo_animal'] = $this->input->post('tipo_animal');
+			$data['data_adocao'] = $this->input->post('data_adocao');
+			$data['cep'] = $this->input->post('cep');
 			$data['logradouro'] = $this->input->post('logradouro');
-			$data['numero'] = $this->input->post('numero');
-			$data['bairro'] = $this->input->post('bairro');
+			$data['numero'] = $this->input->post('numero');				
+			$data['bairro'] = $this->input->post('bairro');			
 			$data['localidade'] = $this->input->post('localidade');
 			$data['uf'] = $this->input->post('uf');
 			$data['observacao'] = $this->input->post('observacao');
-			$data['sexo'] = $this->input->post('sexo');							
+									
 
 			$data = html_escape($data);				
 
-			$this->core_model->insert('resgate_animal', $data);
+			$this->core_model->insert('adocao', $data);
 			$this->session->set_flashdata('sucesso', 'Resgate cadastrado com sucesso!');
 			redirect($this->router->fetch_class());	
 		}	
@@ -106,16 +117,22 @@ class Resgate extends CI_Controller {
 			redirect($this->router->fetch_class());
 
 		}else{
-			$this->form_validation->set_rules('animal', 'Tipo de Animal', 'trim|min_length[1]|max_length[30]');
-			$this->form_validation->set_rules('data_resgate', 'Data do Resgate', 'trim|min_length[1]|max_length[20]');
-			$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[9]');
+
+			$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[30]');
+			$this->form_validation->set_rules('nome_adotante', 'Nome do Adotante', 'trim|min_length[1]|max_length[20]');
+			$this->form_validation->set_rules('email', 'Email', 'trim|min_length[1]|max_length[20]');
+			$this->form_validation->set_rules('celular', 'Celular', 'trim|min_length[1]|max_length[20]');
+			$this->form_validation->set_rules('nome_animal', 'Nome de Animal', 'trim|min_length[1]|max_length[30]');
+			$this->form_validation->set_rules('sexo_animal', 'Sexo do Animal', 'trim|min_length[1]|max_length[30]');
+			$this->form_validation->set_rules('tipo_animal', 'Tipo de Animal', 'trim|min_length[1]|max_length[30]');
+			$this->form_validation->set_rules('data_adocao', 'Data da Adoção', 'trim|min_length[1]|max_length[30]');
+			$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[10]');
 			$this->form_validation->set_rules('logradouro', 'Logradouro', 'trim|min_length[1]|max_length[255]');
 			$this->form_validation->set_rules('numero', 'Número', 'trim|min_length[1]|max_length[10]');
 			$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[100]');
 			$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]');
 			$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]');
 			$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
-			$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[1]|max_length[10]');			
 				
 		
 				
@@ -124,7 +141,7 @@ class Resgate extends CI_Controller {
 				$data = array(
 					'titulo' => 'Editar Cadastro',					
 					'icone_view' => 'ik ik-user',						
-					'resgates' => $this->core_model->get_by_id('resgate_animal', array('id' => $id)),
+					'adocoes' => $this->core_model->get_by_id('adocao', array('id' => $id)),
 					'styles' => array(
 						'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
 					),
@@ -133,24 +150,29 @@ class Resgate extends CI_Controller {
 						'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js',				
 					),					
 
-				);			
+				);		
 				
 
 				$this->load->view('layout/header',$data);
-				$this->load->view('resgate/alterar');
+				$this->load->view('adocao/alterar');
 				$this->load->view('layout/footer');
 
 			}else{
-				$data['animal'] = $this->input->post('animal');
-				$data['data_resgate'] = $this->input->post('data_resgate');
+				$data['cpf'] = $this->input->post('cpf');
+				$data['nome_adotante'] = $this->input->post('nome_adotante');
+				$data['email'] = $this->input->post('email');
+				$data['celular'] = $this->input->post('celular');
+				$data['nome_animal'] = $this->input->post('nome_animal');
+				$data['sexo_animal'] = $this->input->post('sexo_animal');
+				$data['tipo_animal'] = $this->input->post('tipo_animal');
+				$data['data_adocao'] = $this->input->post('data_adocao');
 				$data['cep'] = $this->input->post('cep');
 				$data['logradouro'] = $this->input->post('logradouro');
 				$data['numero'] = $this->input->post('numero');
 				$data['bairro'] = $this->input->post('bairro');
 				$data['localidade'] = $this->input->post('localidade');
 				$data['uf'] = $this->input->post('uf');
-				$data['observacao'] = $this->input->post('obs');
-				$data['sexo'] = $this->input->post('sexo');										
+				$data['observacao'] = $this->input->post('observacao');								
 
 				$data = html_escape($data);				
 	
@@ -162,11 +184,10 @@ class Resgate extends CI_Controller {
 		}	
 		
 	}
-
 	
 	public function del($id = Null){
 
-		if(!$id || !$this->core_model->get_by_id('resgate_animal', array('id' => $id))){
+		if(!$id || !$this->core_model->get_by_id('adocao', array('id' => $id))){
 
 			$this->session->set_flashdata('error', 'Cadastro não encontrado!');
 			redirect($this->router->fetch_class());
@@ -178,7 +199,7 @@ class Resgate extends CI_Controller {
 			);
 	
 			$this->db->where('id', $id);
-			if ($this->db->update('resgate_animal', $data)) {       
+			if ($this->db->update('adocao', $data)) {       
 				$this->session->set_flashdata('sucesso', 'Cadastro excluído com sucesso!');				
 			}
 		}

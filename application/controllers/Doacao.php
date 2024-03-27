@@ -21,7 +21,7 @@ class Doacao extends CI_Controller {
 			'titulo' => 'Doações Cadastradas',
 			'sub_titulo' => 'Listando os animais cadastrados no sistema',
 			'icone_view' => 'ik ik-user',			
-			'doacoes' => $this->core_model->get_all('doacao', 'excluido => 0'),				
+			'doacoes' => $this->core_model->get_all('doacao', array('excluido' => 0)),				
 			'styles' => array(
 				'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
 			),	
@@ -80,10 +80,7 @@ class Doacao extends CI_Controller {
 			$data['valor'] = $this->input->post('valor');
 			$data['cpf'] = $this->input->post('cpf');
 			$data['email'] = $this->input->post('email');
-			$data['data_doacao'] = $this->input->post('data_doacao');
-			//$data['observacao'] = $this->input->post('observacao');
-			//$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');
-			//$data['excluido'] = $this->input->post('excluido');			
+			$data['data_doacao'] = $this->input->post('data_doacao');				
 
 			$data = html_escape($data);				
 
@@ -106,8 +103,8 @@ class Doacao extends CI_Controller {
 
 			$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]');
 			$this->form_validation->set_rules('valor', 'Raça', 'trim|min_length[1]|max_length[20]');
-			$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[10]');
-			$this->form_validation->set_rules('email', 'E-mail', 'trim|min_length[1]|max_length[9]');
+			$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[20]');
+			$this->form_validation->set_rules('email', 'E-mail', 'trim|min_length[1]|max_length[255]');
 			$this->form_validation->set_rules('data_doacao', 'Data da Doação', 'trim|min_length[1]|max_length[255]');
 			
 			if (!$this->form_validation->run()){
@@ -122,8 +119,7 @@ class Doacao extends CI_Controller {
 					'scripts' =>array(
 						'plugins/datatables.net/js/jquery.dataTables.min.js',
 						'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js',				
-					),					
-
+					),			
 				);							
 
 				$this->load->view('layout/header',$data);
@@ -152,7 +148,7 @@ class Doacao extends CI_Controller {
 	
 	public function del($id = Null){
 
-		if(!$id || !$this->core_model->get_by_id('animal', array('id' => $id))){
+		if(!$id || !$this->core_model->get_by_id('doacao', array('id' => $id))){
 
 			$this->session->set_flashdata('error', 'Cadastro não encontrado!');
 			redirect($this->router->fetch_class());
@@ -164,7 +160,7 @@ class Doacao extends CI_Controller {
 			);
 	
 			$this->db->where('id', $id);
-			if ($this->db->update('animal', $data)) {       
+			if ($this->db->update('doacao', $data)) {       
 				$this->session->set_flashdata('sucesso', 'Cadastro excluído com sucesso!');				
 			}
 		}
