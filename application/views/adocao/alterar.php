@@ -76,7 +76,7 @@
                                             <?= form_error('nome_animal', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                         <div class="col-md-3 mb-20">
-                                            <label>Sexo</label> </br>
+                                            <label>Sexo</label></br>
                                             <select name="sexo_animal" id="sexo_animal" value="<?= (isset($adocao) ? $adocao->sexo_animal : set_value('sexo_animal')); ?>">
                                                 <option value="macho">Macho</option>
                                                 <option value="femea">Fêmea</option>
@@ -85,14 +85,7 @@
                                             <?= form_error('sexo_animal', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-4 mb-20">
-                                            <label>Data de Resgate</label>
-                                            <input type="text" class="form-control" id="data_resgate" name="data_resgate" value="<?= (isset($adocao) ? $adocao->data_resgate : set_value('data_resgate')); ?>">
-                                            <?= form_error('data_resgate', '<div class="text-danger">', '</div>'); ?>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
+                                   <div class="form-group row">
                                         <div class="col-md-3 mb-20">
                                             <label for="cep">CEP:</label>
                                             <div class="input-group mb-3">

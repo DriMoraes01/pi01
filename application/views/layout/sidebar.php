@@ -13,12 +13,13 @@
                     <div class="nav-item">
                         <a href="<?= base_url('home'); ?>"><i class="ik ik-home"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Home</span></a>
                     </div>
-                    <div class="nav-item">
-                        <a href="<?= base_url('pessoa'); ?>"><i class="ik ik-home"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Home</span></a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="<?= base_url('voluntario'); ?>"><i class="fas fa-file-invoice-dollar"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Voluntários</span> <span class="badge badge-success"></span></a>
-                    </div>
+                    <div class="nav-item has-sub">
+                        <a href="javascript:void(0)"><i class="ik ik-layers"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Pessoas</span></a>
+                        <div class="submenu-content">
+                            <a href="<?= base_url('pessoa'); ?>"><i class="ik ik-home"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Pessoas</span></a>
+                            <a href="<?= base_url('voluntario'); ?>"><i class="fas fa-file-invoice-dollar"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Voluntários</span> <span class="badge badge-success"></span></a>                           
+                        </div>
+                    </div>                   
                     <div class="nav-item">
                         <a href="<?= base_url('animal'); ?>"><i class="ik ik-file-text"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Animais</span> <span class="badge badge-success"></span></a>
                     </div>

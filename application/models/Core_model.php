@@ -37,8 +37,23 @@ class Core_model extends CI_Model{
 
     }
 
-    public function insert($table = NULL, $data = NULL)
-    {
+    public function get_by_voluntario(){
+        $this->db->select('*');
+        $this->db->from('pessoa p');             
+        $this->db->where('p.voluntario', 1);       
+        $this->db->order_by('p.id');       
+
+        $query = $this->db->get();       
+            
+        if ($query->num_rows() >= 1) {            
+            return $query->result();
+        }
+        return false;
+    }
+        
+
+    public function insert($table = NULL, $data = NULL){
+
         if($table && $this->db->table_exists($table) && is_array($data)){
 
             $this->db->insert($table, $data);
@@ -51,6 +66,7 @@ class Core_model extends CI_Model{
                 $this->session->set_flashdata('error', 'Não foi possível salvar os dados');
             }
         }else{
+
             return FALSE;
         }
 
@@ -145,44 +161,14 @@ class Core_model extends CI_Model{
         
     }
 
-    public function getContratos(){
-
-        $this->db->select('*');
-        $this->db->from('contratos c');             
-        $this->db->where('c.excluido', 0);       
-        $this->db->order_by('c.id');       
-
-        $query = $this->db->get();       
-            
-        if ($query->num_rows() >= 1) {            
-            return $query->result();
-        }
-        return false;
-
-    }    
-    
+      
     public function totUsers(){
         $query = $this->db->query('select * from users u 
         where u.active = 1');
 
         return (int) $query->num_rows();  
 
-    } 
-
-    public function detalhes(){
-
-        $this->db->select('m.nome_empresa, m.data_vencto');
-        $this->db->from('mensalidades m');
-        $this->db->where('m.ativa', 1);
-        $this->db->order_by('m.data_vencto'); 
-        
-        $query = $this->db->get();
-        if($query->num_rows() >= 1) {
-            return $query->row();
-        }
-        return false;  
-
-     }  
+    }   
 
      public function getPessoas(){
         $this->db->select('*');
@@ -198,22 +184,10 @@ class Core_model extends CI_Model{
         return false;
     }   
     
-    public function getRamais(){
-        $this->db->select('*');
-        $this->db->from('ramais_paco r');             
-        $this->db->where('r.excluido', 0);       
-        $this->db->order_by('r.id');       
+}   
+    
+    
 
-        $query = $this->db->get();       
-            
-        if ($query->num_rows() >= 1) {            
-            return $query->result();
-        }
-        return false;
-    } 
-    
-    
-}
 
     
     
