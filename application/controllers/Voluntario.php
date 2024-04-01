@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('Ação não permitida');
 
-class Adocao extends CI_Controller {	
+class Voluntario extends CI_Controller {	
 
 	public function __construct()
 	{
@@ -18,10 +18,10 @@ class Adocao extends CI_Controller {
 	public function index()
 	{			
 		$data = array(
-			'titulo' => 'Adoções Cadastradas',
-			'sub_titulo' => 'Listando as adoções cadastradas no sistema',
+			'titulo' => 'Voluntários Cadastrados',
+			'sub_titulo' => 'Listando os voluntários cadastrados no sistema',
 			'icone_view' => 'ik ik-user',			
-			'adocoes' => $this->core_model->get_by_id('adocao', array('excluido' => 0)),				
+			'voluntarios' => $this->core_model->get_by_id('pessoas', array('excluido' => 0)),				
 			'styles' => array(
 				'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
 			),	
@@ -32,7 +32,7 @@ class Adocao extends CI_Controller {
 		);
 		
 		$this->load->view('layout/header',$data);
-		$this->load->view('adocao/index');
+		$this->load->view('voluntario/index');
 		$this->load->view('layout/footer');		
 
 	}

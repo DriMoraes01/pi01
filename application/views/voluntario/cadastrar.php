@@ -36,55 +36,25 @@
                         <div class="card-body">
                             <form name="form_core" method="POST">
                                 <div class="form-group row">
-                                    <div class="col-md-4 mb-20">
-                                        <label>Nome do Adotante</label>
-                                        <input type="text" class="form-control" id="nome_adotante" name="nome_adotante" value="<?= set_value('nome_adotante'); ?>">
-                                        <?= form_error('nome_adotante', '<div class="text-danger">', '</div>'); ?>
-                                    </div>
-                                    <div class="col-md-2 mb-20">
-                                        <label>CPF</label>
-                                        <input type="text" class="form-control" id="cpf" name="cpf" value="<?= set_value('cpf'); ?>">
-                                        <?= form_error('cpf', '<div class="text-danger">', '</div>'); ?>
-                                    </div>
-                                    <div class="col-md-2 mb-20">
-                                        <label>Data de Adoção</label>
-                                        <input type="date" class="form-control" id="data_adocao" name="data_adocao" value="<?= set_value('data_adocao'); ?>">
-                                        <?= form_error('data_adocao', '<div class="text-danger">', '</div>'); ?>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-4 mb-20">
-                                        <label>E-mail</label>
-                                        <input type="text" class="form-control" id="email" name="email" value="<?= set_value('email'); ?>">
-                                        <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
-                                    </div>
-                                    <div class="col-md-2 mb-20">
-                                        <label>Celular</label>
-                                        <input type="text" class="form-control" id="celular" name="celular" value="<?= set_value('celular'); ?>">
-                                        <?= form_error('celular', '<div class="text-danger">', '</div>'); ?>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
                                     <div class="col-md-2 mb-20">
                                         <label>Tipo de Animal</label>
-                                        <input type="text" class="form-control" id="tipo_animal" name="tipo_animal" value="<?= set_value('tipo_animal'); ?>" placeholder="Gato">
-                                        <?= form_error('tipo_animal', '<div class="text-danger">', '</div>'); ?>
+                                        <input type="text" class="form-control" id="animal" name="animal" value="<?= set_value('animal'); ?>" placeholder="Gato">
+                                        <?= form_error('animal', '<div class="text-danger">', '</div>'); ?>
                                     </div>
                                     <div class="col-md-2 mb-20">
-                                        <label>Nome do Animal</label>
-                                        <input type="text" class="form-control" id="nome_animal" name="nome_animal" value="<?= set_value('nome_animal'); ?>">
-                                        <?= form_error('nome_animal', '<div class="text-danger">', '</div>'); ?>
+                                        <label>Data de Resgate</label>
+                                        <input type="date" class="form-control" id="data_resgate" name="data_resgate" value="<?= set_value('data_resgate'); ?>">
+                                        <?= form_error('data_resgate', '<div class="text-danger">', '</div>'); ?>
                                     </div>
                                     <div class="col-md-2 ">
-                                        <label for="sexo_animal">Sexo</label></br>
-                                        <select name="sexo_animal" id="sexo_animal">
+                                        <label for="sexo">Sexo</label></br>
+                                        <select name="sexo" id="sexo">
                                             <option value="macho">Macho</option>
                                             <option value="femea">Fêmea</option>
                                         </select>
                                         <small></small>
-                                        <?= form_error('sexo_animal', '<div class="text-danger">', '</div>'); ?>
+                                        <?= form_error('sexo', '<div class="text-danger">', '</div>'); ?>
                                     </div>
-
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-3 mb-20">
