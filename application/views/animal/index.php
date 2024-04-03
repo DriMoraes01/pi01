@@ -76,6 +76,7 @@
                                                         <th class="text-center">Sexo</th>
                                                         <th class="text-center">Raça</th>
                                                         <th class="text-center">Porte</th>
+                                                        <th class="text-center">Castrado</th>
                                                         <th class="text-center">Data de Cadastro</th>
                                                         <th class="text-center">Foto</th>
                                                         <th class="text-center">Obs</th>
@@ -91,6 +92,13 @@
                                                                 <td class="text-center"><?= $animal->sexo; ?></td>
                                                                 <td class="text-center"><?= $animal->raca; ?></td>
                                                                 <td class="text-center"><?= $animal->porte; ?></td>
+                                                                <td class="text-center">
+                                                                    <?php if ($animal->castrado == '0') : ?>
+                                                                        <?= "Não"; ?>
+                                                                    <?php else: ?>
+                                                                        <?= "Sim"; ?>
+                                                                    <?php endif; ?>    
+                                                                </td>
                                                                 <td class="text-center"><?= formata_data_banco_sem_hora($animal->data_cadastro); ?></td>
                                                                 <td class="text-center"><?= $animal->foto_animal; ?></td>
                                                                 <td class="text-center"><?= $animal->observacao; ?></td>

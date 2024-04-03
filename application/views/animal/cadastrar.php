@@ -67,6 +67,8 @@
                                             <small></small>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="form-group row">
                                     <div class="col-md-2 ">
                                         <div class="form-group">
                                             <label for="raca">Raça:</label>
@@ -83,7 +85,18 @@
                                                 <option value="grande">Grande</option>
                                                 <?= form_error('porte', '<div class="text-danger">', '</div>'); ?>
                                             </select>
-                                            <small></small>                                           
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="castrado">Castrado</label>
+                                            <select name="castrado" id="castrado">
+                                                <option value="1">Sim</option>
+                                                <option value="0">Não</option>
+                                                <?= form_error('castrado', '<div class="text-danger">', '</div>'); ?>
+                                            </select>
+                                            <small></small>
                                         </div>
                                     </div>
                                 </div>

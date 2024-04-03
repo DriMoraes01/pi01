@@ -70,8 +70,7 @@
                                         <div class="table-responsive-sm">
                                             <table class="table data-table table-sm pl-20 pr-20">
                                                 <thead>
-                                                    <tr>
-                                                        <th class="text-center">#</th>
+                                                    <tr>                                                      
                                                         <th class="text-center">Nome</th>
                                                         <th class="text-center">CPF</th>
                                                         <th class="text-center">Celular</th>
@@ -81,12 +80,13 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php if (isset($voluntarios)) : ?>
-                                                        <?php foreach ($voluntarios as $voluntario) : ?>                                                        
-                                                                <td class="text-center"><?= mb_strtoupper($voluntario->nome); ?></td>
-                                                                <td class="text-center"><?= $voluntario->cpf; ?></td>
-                                                                <td class="text-center"><?= $voluntario->celular; ?></td>
-                                                                <td class="text-center"><?= $voluntario->email ?></td>
-                                                                <td class="text-center"><?= $voluntario->observacao; ?></td>
+                                                        <?php foreach ($voluntarios as $voluntario) : ?>                                                
+                                                                
+                                                            <td class="text-center"><?= mb_strtoupper($voluntario->nome); ?></td>
+                                                            <td class="text-center"><?= $voluntario->cpf; ?></td>
+                                                            <td class="text-center"><?= $voluntario->celular; ?></td>
+                                                            <td class="text-center"><?= $voluntario->email ?></td>
+                                                            <td class="text-center"><?= $voluntario->observacao; ?></td>
                                                             </tr>
                                                             <div class="modal fade" id="categoria-<?= $voluntario->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
                                                                 <div class="modal-dialog modal-dialog-centered" role="document" id="categoria-<?= $voluntario->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
