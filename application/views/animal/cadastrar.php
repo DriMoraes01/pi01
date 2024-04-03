@@ -37,13 +37,17 @@
                             <form name="form_core" method="POST">
                                 <div class="form-group row">
                                     <div class="col-md-2 mb-20">
-                                        <div class="form-group">Data de Cadastro:</label>
+                                        <div class="form-group">Data de Cadastro</label>
                                             <input type="date" class="form-control" id="data_cadastro" name="data_cadastro">
                                             <?= form_error('data_cadastro', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
-
+                                    <div class="col-md-2 mb-20">Tipo de Animal</label>
+                                        <input type="text" class="form-control" id="tipo_animal" name="tipo_animal">
+                                        <?= form_error('tipo_animal', '<div class="text-danger">', '</div>'); ?>
+                                    </div>
                                 </div>
+                        
                                 <div class="form-group row">
                                     <div class="col-md-2 mb-20">
                                         <label for="nome">Nome do Animal</label>
@@ -51,78 +55,78 @@
                                         <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
                                     </div>
                                     <div class="col-md-2 mb-20">
-                                        <label for="cor">Cor:</label>
+                                        <label for="cor">Cor</label>
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Preto" id="cor" name="cor">
+                                            <input type="text" class="form-control" placeholder="Preto" id="cor" name="cor" style="text-transform: uppercase;">
                                             <?= form_error('cor', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
-                                    <div class="col-md-2 mt-20">
+                                    <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="sexo">Sexo:</label>
+                                            <label for="sexo">Sexo</label>
                                             <select name="sexo" id="sexo">
-                                                <option value="macho">Macho</option>
-                                                <option value="femea">Fêmea</option>
+                                                <option value="Macho">Macho</option>
+                                                <option value="Fêmea">Fêmea</option>
                                             </select>
                                             <small></small>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-md-2 ">
-                                        <div class="form-group">
-                                            <label for="raca">Raça:</label>
-                                            <input type="text" class="form-control" id="raca" name="raca">
-                                            <?= form_error('raca', '<div class="text-danger">', '</div>'); ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label for="porte">Porte:</label>
-                                            <select name="porte" id="porte">
-                                                <option value="pequeno">Pequeno</option>
-                                                <option value="medio">Médio</option>
-                                                <option value="grande">Grande</option>
-                                                <?= form_error('porte', '<div class="text-danger">', '</div>'); ?>
-                                            </select>
-                                            <small></small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label for="castrado">Castrado</label>
-                                            <select name="castrado" id="castrado">
-                                                <option value="1">Sim</option>
-                                                <option value="0">Não</option>
-                                                <?= form_error('castrado', '<div class="text-danger">', '</div>'); ?>
-                                            </select>
-                                            <small></small>
-                                        </div>
+                            <div class="form-group row">
+                                <div class="col-md-2 ">
+                                    <div class="form-group">
+                                        <label for="raca">Raça</label>
+                                        <input type="text" class="form-control" id="raca" name="raca" style="text-transform: uppercase;">
+                                        <?= form_error('raca', '<div class="text-danger">', '</div>'); ?>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="obs">Observação:</label>
-                                            <input type="text" class="form-control" id="obs" name="obs">
-                                            <?= form_error('obs', '<div class="text-danger">', '</div>'); ?>
-                                        </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="porte">Porte</label>
+                                        <select name="porte" id="porte">
+                                            <option value="pequeno">Pequeno</option>
+                                            <option value="medio">Médio</option>
+                                            <option value="grande">Grande</option>
+                                            <?= form_error('porte', '<div class="text-danger">', '</div>'); ?>
+                                        </select>
+                                        <small></small>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-md-6 ml-20">
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                            <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info ml-20">Voltar</a>
-                                        </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="castrado">Castrado</label>
+                                        <select name="castrado" id="castrado">
+                                            <option value="1">Sim</option>
+                                            <option value="0">Não</option>
+                                            <?= form_error('castrado', '<div class="text-danger">', '</div>'); ?>
+                                        </select>
+                                        <small></small>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="obs">Observação:</label>
+                                        <input type="text" class="form-control" id="obs" name="obs">
+                                        <?= form_error('obs', '<div class="text-danger">', '</div>'); ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6 ml-20">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                        <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info ml-20">Voltar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-
                 </div>
+
             </div>
         </div>
     </div>
+</div>
 </div>

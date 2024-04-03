@@ -45,17 +45,25 @@
                                         <label>Nome</label>
                                         <input type="text" class="form-control" id="nome" name="nome" value="<?= set_value('nome'); ?>" style="text-transform: uppercase;">
                                         <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
-                                    </div>                                    
-                                    <div class="col-md-2 mt-10">
+                                    </div>
+                                    <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="sexo">Sexo:</label>
+                                            <label for="sexo">Sexo</label>
                                             <select name="sexo" id="sexo">
-                                                <option value="masculino">Masculino</option>
-                                                <option value="feminino">Feminino</option>
-                                                <option value="outro">Prefiro não Dizer</option>
+                                                <option value="Masculino">Masculino</option>
+                                                <option value="Feminino">Feminino</option>
+                                                <option value="Outro">Prefiro não Dizer</option>
                                             </select>
                                             <small></small>
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="voluntario">É Voluntário</label> <br>
+                                        <select name="voluntario" id="voluntario">
+                                            <option value="1">Sim</option>
+                                            <option value="0">Não</option>                                           
+                                        </select>
+                                        <small></small>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -149,7 +157,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                         </form>
                     </div>
                 </div>

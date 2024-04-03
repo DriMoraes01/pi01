@@ -41,33 +41,51 @@
                                             <input type="text" class="form-control" id="nome" name="nome" value="<?= (isset($animal) ? $animal->nome : set_value('nome')); ?>" style="text-transform: uppercase;">
                                             <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="castrado">Castrado</label>
+                                            <select name="castrado" id="castrado">
+                                                <option value="1">Sim</option>
+                                                <option value="0">Não</option>
+                                                <?= form_error('castrado', '<div class="text-danger">', '</div>'); ?>
+                                            </select>
+                                            <small></small>
+                                        </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="cor">Cor:</label>
+                                                <label for="cor">Cor</label>
                                                 <input type="text" class="form-control" id="cor" name="cor" value="<?= (isset($animal) ? $animal->cor : set_value('cor')); ?>">
                                                 <?= form_error('cor', '<div class="text-danger">', '</div>'); ?>
                                                 <small></small>
                                             </div>
                                         </div>
                                         <div class="col-md-2 mb-20">
-                                            <label for="raca">Raça:</label>
+                                            <label for="raca">Raça</label>
                                             <input type="text" id="raca" class="form-control" name="raca" value="<?= (isset($animal) ? $animal->raca : set_value('raca')); ?>">
                                             <?= form_error('raca', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="porte">Porte:</label>
+                                                <label for="porte">Porte</label>
                                                 <input type="text" class="form-control" id="porte" name="porte" value="<?= (isset($animal) ? $animal->porte : set_value('porte')); ?>">
                                                 <?= form_error('porte', '<div class="text-danger">', '</div>'); ?>
                                                 <small></small>
                                             </div>
                                         </div>
-
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="sexo">Sexo</label>
+                                                <select name="sexo" id="sexo">
+                                                    <option value="Macho">Macho</option>
+                                                    <option value="Fêmea">Fêmea</option>
+                                                </select>
+                                                <small></small>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="observacao">Observação:</label>
                                                 <input type="text" class="form-control" id="observacao" name="observacao" value="<?= (isset($animal) ? $animal->observacao : set_value('observacao')); ?>">
