@@ -22,10 +22,12 @@ class Home extends CI_Controller {
 		$this->load->model('home_model');
 		$data = array(
 			'titulo' => 'Home',
-			'totContas' => $this->home_model->totContas(),
-			'totUsers' => $this->home_model->totUsers(),
-			'totSistema' => '1',
-			'total_mensalidades' => $this->home_model->valorContas(),				
+			'totAnimais' => $this->home_model->totAnimais(),
+			'totVoluntarios' => $this->home_model->totVoluntarios(),			
+			'totDoacoes' => $this->home_model->totDoacoes(),
+			'totAdocoes' => $this->home_model->totAdocoes(),
+			'totResgates' => $this->home_model->totResgates(),
+			'totUsers' => $this->home_model->totUsers(),				
 			
 			'icone_view' => 'fas fa-dollar-sign',
 			'styles' => array(

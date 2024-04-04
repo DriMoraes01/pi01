@@ -32,9 +32,6 @@
                             </div>
                         </div>
 
-
-
-
                         <?php if($message = $this->session->flashdata('sucesso')) : ?>
 
                                 <div class="row">

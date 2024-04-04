@@ -78,9 +78,8 @@ class Usuarios extends CI_Controller {
 				}
   
 				redirect($this->router->fetch_class());	
-			}				
+			}		
 
-			
 
 			$data = array(
 				'titulo' => 'Cadastrar usuário',
