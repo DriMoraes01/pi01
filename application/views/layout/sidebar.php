@@ -21,16 +21,16 @@
                         </div>
                     </div>
                     <div class="nav-item">
-                        <a href="<?= base_url('animal'); ?>"><i class="ik ik-star"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Animais</span> <span class="badge badge-success"></span></a>
+                        <a href="<?= base_url('animal'); ?>"><i class="ik ik-star-on"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Animais</span> <span class="badge badge-success"></span></a>
                     </div>
                     <div class="nav-item">
-                        <a href="<?= base_url('adocao'); ?>"><i class="ik ik-file-text"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Adoção</span> <span class="badge badge-success"></span></a>
+                        <a href="<?= base_url('adocao'); ?>"><i class="ik ik-sun"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Adoção</span> <span class="badge badge-success"></span></a>
                     </div>
                     <div class="nav-item">
-                        <a href="<?= base_url('doacao'); ?>"><i class="ik ik-file-text"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Doação</span> <span class="badge badge-success"></span></a>
+                        <a href="<?= base_url('doacao'); ?>"><i class="ik ik-heart-on"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Doação</span> <span class="badge badge-success"></span></a>
                     </div>
                     <div class="nav-item">
-                        <a href="<?= base_url('resgate'); ?>"><i class="ik ik-file-text"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Resgate de Animais</span> <span class="badge badge-success"></span></a>
+                        <a href="<?= base_url('resgate'); ?>"><i class="ik ik-truck"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Resgate de Animais</span> <span class="badge badge-success"></span></a>
                     </div>
                     <?php if ($this->ion_auth->is_admin()) : ?>
                         <div class="nav-lavel">Administração</div>

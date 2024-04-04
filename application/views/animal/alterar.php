@@ -66,10 +66,14 @@
                                             <?= form_error('raca', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                         <div class="col-md-2">
-                                            <div class="form-group">
+                                             <div class="form-group">
                                                 <label for="porte">Porte</label>
-                                                <input type="text" class="form-control" id="porte" name="porte" value="<?= (isset($animal) ? $animal->porte : set_value('porte')); ?>">
-                                                <?= form_error('porte', '<div class="text-danger">', '</div>'); ?>
+                                                <select name="porte" id="porte">                                                    
+                                                    <option value="Pequeno">Pequeno</option>
+                                                    <option value="Médio">Médio</option>
+                                                    <option value="Grande">Grande</option>
+                                                    <?= form_error('porte', '<div class="text-danger">', '</div>'); ?>
+                                                </select>
                                                 <small></small>
                                             </div>
                                         </div>
