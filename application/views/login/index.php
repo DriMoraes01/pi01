@@ -12,7 +12,7 @@
                         <div class="authentication-form mx-auto">
                             <div class="logo-justify">
                                 <a class="header-brand" href="javascript:void">                            
-                                <span style="color: #444444; font-family: 'Fjalla One', sans-serif; font-size: 30px;">Account System</span>
+                                <span style="color: #444444; font-family: 'Fjalla One', sans-serif; font-size: 30px;">HelpOnPets</span>
                                 </a>
                             </div>
                             <?php if($message = $this->session->flashdata('sucesso')) : ?>

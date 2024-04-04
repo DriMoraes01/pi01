@@ -57,12 +57,11 @@
 
                         <?php endif; ?>
 
-
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
                                     <?php if ($this->ion_auth->is_admin()) : ?>
-                                        <div class="card-header d-block"><a data-toggle="tooltip" data-placement="right" title="Cadastrar <?= $this->router->fetch_class(); ?>" class="btn bg-blue float-right text-white" href="<?= base_url($this->router->fetch_class() . '/cadastrar/'); ?>" data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>">+ Novo</a></div>
+                                        <div class="card-header d-block"></a></div>
                                     <?php else : ?>
                                         <div class="card-header d-block"></div>
                                     <?php endif; ?>

@@ -33,7 +33,7 @@
                         <a href="<?= base_url('resgate'); ?>"><i class="ik ik-truck"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Resgate de Animais</span> <span class="badge badge-success"></span></a>
                     </div>
                     <?php if ($this->ion_auth->is_admin()) : ?>
-                        <div class="nav-lavel">Administração</div>
+                        <div class="nav-lavel"><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 16px;">Administração</span></div>
                         <div class="nav-item <?php echo ($this->router->fetch_class() == 'usuarios' && $this->router->fetch_method() == 'index' ? 'active' : ''); ?>">
                             <a href="<?= base_url('usuarios'); ?>"><i class="fas fa-users"></i><span style="color: #f2f3ef; font-family: 'Roboto', sans-serif; font-size: 14px;">Usuários</span> <span class="badge badge-success"></span></a>
                         </div>
