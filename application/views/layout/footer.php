@@ -1,7 +1,7 @@
 <div class="container">
     <footer class="footer">
         <div class="w-100 clearfix">
-            <span class="text-center text-sm-center d-md-inline-block">Copyright © <?php echo date('Y') ?> ThemeKit v2.0. All Rights Reserved.</span>
+            <span class="float-sm-right mt-1 mt-sm-0 text-center">Copyright © <?php echo date('Y') ?> ThemeKit v2.0. All Rights Reserved.</span>
             <!-- <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Customizado <i class="fas fa-code text-dark"></i> by <a href="javascript:void" class="text-dark">Adriele</a></span> -->
         </div>
     </footer>
@@ -21,6 +21,9 @@
                     <div class="apps-wrap">
                         <div class="app-item">
                             <a href="<?= base_url('home'); ?>"><i class="ik ik-home"></i><span>Home</span></a>
+                        </div>
+                        <div class="app-item">
+                            <a href="<?= base_url('pessoa'); ?>"><i class="fas fa-users"></i><span>Pessoas</span></a>
                         </div>
                         <div class="app-item">
                             <a href="<?= base_url('voluntario'); ?>"><i class="fas fa-users"></i><span>Voluntários</span></a>

@@ -21,10 +21,10 @@ class Home_model extends CI_Model{
     }
 
     public function totDoacoes(){
-       
+
         $this->db->select("FORMAT(SUM(valor),2,'de_DE') as valor_doacoes");
 
-        return $this->db->get('doacao')->row();       
+        return $this->db->get('doacao')->row();  
         
     }
 

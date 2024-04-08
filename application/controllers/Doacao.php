@@ -19,7 +19,7 @@ class Doacao extends CI_Controller {
 	{			
 		$data = array(
 			'titulo' => 'Doações Cadastradas',
-			'sub_titulo' => 'Listando os animais cadastrados no sistema',
+			'sub_titulo' => 'Listando as doações cadastradas no sistema',
 			'icone_view' => 'ik ik-user',			
 			'doacoes' => $this->core_model->get_all('doacao', array('excluido' => 0)),				
 			'styles' => array(
@@ -30,10 +30,7 @@ class Doacao extends CI_Controller {
 				'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js',				
 			),	
 		);
-		
-		/*echo '<pre>';
-		print_r($data['resgates']);
-		exit();*/
+				
 		
 		$this->load->view('layout/header',$data);
 		$this->load->view('doacao/index');
@@ -54,7 +51,7 @@ class Doacao extends CI_Controller {
 		$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[20]|required');
 		$this->form_validation->set_rules('email ', 'E-mail', 'trim|min_length[1]|max_length[10]');		
 		$this->form_validation->set_rules('data_doacao', 'Data Da Doação', 'trim|min_length[1]|max_length[10]');
-		//$this->form_validation->set_rules('excluido', 'Excluido', 'exact_length[1]');
+		
 		
 		if (!$this->form_validation->run()) {
 

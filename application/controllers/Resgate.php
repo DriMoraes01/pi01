@@ -149,7 +149,7 @@ class Resgate extends CI_Controller {
 				$data['bairro'] = $this->input->post('bairro');
 				$data['localidade'] = $this->input->post('localidade');
 				$data['uf'] = $this->input->post('uf');
-				$data['observacao'] = $this->input->post('obs');
+				$data['observacao'] = $this->input->post('observacao');
 				$data['sexo'] = $this->input->post('sexo');										
 
 				$data = html_escape($data);				
