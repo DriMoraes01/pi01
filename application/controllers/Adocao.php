@@ -47,7 +47,7 @@ class Adocao extends CI_Controller {
 
 		$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[30]');
 		$this->form_validation->set_rules('nome_adotante', 'Nome do Adotante', 'trim|min_length[1]|max_length[20]');
-		$this->form_validation->set_rules('email', 'Email', 'trim|min_length[1]|max_length[20]');
+		$this->form_validation->set_rules('email', 'Email', 'trim|min_length[1]|max_length[255]');
 		$this->form_validation->set_rules('celular', 'Celular', 'trim|min_length[1]|max_length[20]');		
 		$this->form_validation->set_rules('nome_animal', 'Nome de Animal', 'trim|min_length[1]|max_length[30]');
 		$this->form_validation->set_rules('sexo_animal', 'Sexo do Animal', 'trim|min_length[1]|max_length[30]');
@@ -120,7 +120,7 @@ class Adocao extends CI_Controller {
 
 			$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[30]');
 			$this->form_validation->set_rules('nome_adotante', 'Nome do Adotante', 'trim|min_length[1]|max_length[20]');
-			$this->form_validation->set_rules('email', 'Email', 'trim|min_length[1]|max_length[20]');
+			$this->form_validation->set_rules('email', 'Email', 'trim|min_length[1]|max_length[255]');
 			$this->form_validation->set_rules('celular', 'Celular', 'trim|min_length[1]|max_length[20]');
 			$this->form_validation->set_rules('nome_animal', 'Nome de Animal', 'trim|min_length[1]|max_length[30]');
 			$this->form_validation->set_rules('sexo_animal', 'Sexo do Animal', 'trim|min_length[1]|max_length[30]');

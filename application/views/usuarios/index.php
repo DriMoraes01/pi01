@@ -44,20 +44,20 @@
 
             <?php endif; ?>
 
-            <?php if ($message = $this->session->flashdata('error')) : ?>
+           <!-- <//?php if ($message = $this->session->flashdata('error')) : ?>
 
                 <div class="row">
                     <div class="col-md-12">
                         <div class="alert bg-danger alert-danger text-white alert-dismissible fade show" role="alert">
-                            <strong><?= $message ?></strong>
+                            <strong><//?= $message ?></strong>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <i class="ik ik-x"></i>
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-            <?php endif; ?>
+           <!-- <//?php endif; ?> -->
 
 
 

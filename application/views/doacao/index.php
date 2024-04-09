@@ -42,18 +42,18 @@
                                 </div>
                             </div>
 
-                        <?php elseif ($message = $this->session->flashdata('error')) : ?>
+                            <!--   <//?php elseif ($message = $this->session->flashdata('error')) : ?>
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="alert bg-danger alert-danger text-white alert-dismissible fade show" role="alert">
-                                        <strong><?= $message ?></strong>
+                                        <strong><//?= $message ?></strong>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <i class="ik ik-x"></i>
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                         <?php endif; ?>
 
@@ -62,7 +62,7 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <?php if ($this->ion_auth->is_admin()) : ?>
-                                        <div class="card-header d-block"><a data-toggle="tooltip" data-placement="right" title="Cadastrar<?= $this->router->fetch_class(); ?>" class="btn bg-blue float-right text-white" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>">+ Novo</a></div>
+                                        <div class="card-header d-block"><a data-toggle="tooltip" data-placement="right" title="Cadastrar <?= $this->router->fetch_class(); ?>" class="btn bg-blue float-right text-white" href="<?= base_url($this->router->fetch_class() . '/cadastrar/'); ?>" data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>">+ Novo</a></div>
                                     <?php else : ?>
                                         <div class="card-header d-block"></div>
                                     <?php endif; ?>
@@ -73,7 +73,7 @@
                                                     <tr>
                                                         <th class="text-center">#</th>
                                                         <th class="text-center">Nome</th>
-                                                        <th class="text-center">Valor</th>                                                        
+                                                        <th class="text-center">Valor</th>
                                                         <th class="text-center">E-mail</th>
                                                         <th class="text-center">Data da Doação</th>
                                                         <th class="nosort text-right pr-25">Ações</th>
@@ -85,8 +85,8 @@
                                                             <tr>
                                                                 <td class="text-center"><?= $doacao->id; ?></td>
                                                                 <td class="text-center"><?= mb_strtoupper($doacao->nome); ?></td>
-                                                                <td class="text-center">R$ &nbsp;<?= $doacao->valor; ?></td>   
-                                                                <td class="text-center"><?= $doacao->email; ?></td>                                                                           
+                                                                <td class="text-center">R$ &nbsp;<?= $doacao->valor; ?></td>
+                                                                <td class="text-center"><?= $doacao->email; ?></td>
                                                                 <td class="text-center"><?= formata_data_banco_sem_hora($doacao->data_doacao); ?></td>
                                                                 <td class="nosort text-right pr-25">
                                                                     <div class="table-actions">

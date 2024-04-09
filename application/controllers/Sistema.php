@@ -17,9 +17,9 @@ class Sistema extends CI_Controller {
 	
 	public function index()
 	{		
-		$this->form_validation->set_rules('sistema_nome', 'Nome','trim|required|min_length[5]|max_length[100]');	
-		$this->form_validation->set_rules('sistema_site_url', 'URL do site','trim|required|valid_url|max_length[100]');	
-		$this->form_validation->set_rules('sistema_email', 'E-mail de contato','trim|required|valid_email|max_length[255]');		
+		$this->form_validation->set_rules('sistema_nome', 'Nome','trim|min_length[5]|max_length[100]');	
+		$this->form_validation->set_rules('sistema_site_url', 'URL do site','trim|valid_url|max_length[100]');	
+		$this->form_validation->set_rules('sistema_email', 'E-mail de contato','trim|valid_email|max_length[255]');		
 		
 
 		if($this->form_validation->run()){

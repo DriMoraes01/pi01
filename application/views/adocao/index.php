@@ -41,19 +41,19 @@
                                     </div>
                                 </div>
                             </div>
-
-                        <?php elseif ($message = $this->session->flashdata('error')) : ?>
+                            <!--    
+                        <//?php elseif ($message = $this->session->flashdata('error')) : ?>
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="alert bg-danger alert-danger text-white alert-dismissible fade show" role="alert">
-                                        <strong><?= $message ?></strong>
+                                        <strong><//?= $message ?></strong>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <i class="ik ik-x"></i>
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                         <?php endif; ?>
 
@@ -73,10 +73,11 @@
                                                     <tr>
                                                         <th class="text-center">#</th>
                                                         <th class="text-center">Nome</th>
+                                                        <th class="text-center">CPF</th>
+                                                        <th class="text-center">Endereço</th>
                                                         <th class="text-center">Tipo de Animal</th>
                                                         <th class="text-center">Nome do Animal</th>
                                                         <th class="text-center">Sexo do Animal</th>
-                                                        <th class="text-center">Endereço do Adotante</th>
                                                         <th class="text-center">Data da Adoção</th>
                                                         <th class="text-center">Observação</th>
                                                         <th class="nosort text-right pr-25">Ações</th>
@@ -88,10 +89,11 @@
                                                             <tr>
                                                                 <td class="text-center"><?= $adocao->id; ?></td>
                                                                 <td class="text-center"><?= mb_strtoupper($adocao->nome_adotante); ?></td>
+                                                                <td class="text-center"><?= $adocao->cpf; ?></td>
+                                                                <td class="text-center"><?= $adocao->logradouro . ',&nbsp;' . $adocao->numero . '&nbsp;-&nbsp;' . $adocao->bairro . '&nbsp;-&nbsp;' . $adocao->localidade; ?></td>
                                                                 <td class="text-center"><?= $adocao->tipo_animal; ?></td>
                                                                 <td class="text-center"><?= mb_strtoupper($adocao->nome_animal); ?></td>
-                                                                <td class="text-center"><?= $adocao->sexo; ?></td>
-                                                                <td class="text-center"><?= $adocao->logradouro . ',&nbsp;' . $adocao->numero . '&nbsp;-&nbsp;' . $adocao->bairro . '&nbsp;-&nbsp;' . $adocao->localidade; ?></td>
+                                                                <td class="text-center"><?= $adocao->sexo_animal; ?></td>
                                                                 <td class="text-center"><?= formata_data_banco_sem_hora($adocao->data_adocao); ?></td>
                                                                 <td class="text-center"><?= $adocao->observacao; ?></td>
                                                                 <td class="nosort text-right pr-25">

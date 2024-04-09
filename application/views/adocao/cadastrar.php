@@ -78,8 +78,8 @@
                                     <div class="col-md-2 ">
                                         <label for="sexo_animal">Sexo</label></br>
                                         <select name="sexo_animal" id="sexo_animal">
-                                            <option value="macho">Macho</option>
-                                            <option value="femea">Fêmea</option>
+                                            <option value="Macho">Macho</option>
+                                            <option value="Fêmea">Fêmea</option>
                                         </select>
                                         <small></small>
                                         <?= form_error('sexo_animal', '<div class="text-danger">', '</div>'); ?>

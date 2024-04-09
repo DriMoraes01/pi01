@@ -41,20 +41,19 @@
                                     </div>
                                 </div>
                             </div>
-
-                        <?php elseif ($message = $this->session->flashdata('error')) : ?>
+                            <!--    
+                        <//?php elseif ($message = $this->session->flashdata('error')) : ?>
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="alert bg-danger alert-danger text-white alert-dismissible fade show" role="alert">
-                                        <strong><?= $message ?></strong>
+                                        <strong><//?= $message ?></strong>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <i class="ik ik-x"></i>
                                         </button>
                                     </div>
                                 </div>
-                            </div>
-
+                            </div> -->
                         <?php endif; ?>
 
 
@@ -62,7 +61,7 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <?php if ($this->ion_auth->is_admin()) : ?>
-                                        <div class="card-header d-block"><a data-toggle="tooltip" data-placement="right" title="Cadastrar<?= $this->router->fetch_class(); ?>" class="btn bg-blue float-right text-white" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>">+ Novo</a></div>
+                                        <div class="card-header d-block"><a data-toggle="tooltip" data-placement="right" title="Cadastrar <?= $this->router->fetch_class(); ?>" class="btn bg-blue float-right text-white" href="<?= base_url($this->router->fetch_class() . '/cadastrar/'); ?>" data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>">+ Novo</a></div>
                                     <?php else : ?>
                                         <div class="card-header d-block"></div>
                                     <?php endif; ?>
@@ -95,9 +94,9 @@
                                                                 <td class="text-center">
                                                                     <?php if ($animal->castrado == '0') : ?>
                                                                         <?= "Não"; ?>
-                                                                    <?php else: ?>
+                                                                    <?php else : ?>
                                                                         <?= "Sim"; ?>
-                                                                    <?php endif; ?>    
+                                                                    <?php endif; ?>
                                                                 </td>
                                                                 <td class="text-center"><?= formata_data_banco_sem_hora($animal->data_cadastro); ?></td>
                                                                 <td class="text-center"><?= $animal->foto_animal; ?></td>

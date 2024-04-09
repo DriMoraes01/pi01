@@ -49,7 +49,7 @@ class Doacao extends CI_Controller {
 		$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]|required');		
 		$this->form_validation->set_rules('valor', 'Valor', 'trim|min_length[1]|max_length[10]');
 		$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[20]|required');
-		$this->form_validation->set_rules('email ', 'E-mail', 'trim|min_length[1]|max_length[10]');		
+		$this->form_validation->set_rules('email', 'E-mail', 'trim|min_length[1]|max_length[255]');		
 		$this->form_validation->set_rules('data_doacao', 'Data Da Doação', 'trim|min_length[1]|max_length[10]');
 		
 		

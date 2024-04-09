@@ -78,8 +78,8 @@
                                         <div class="col-md-3 mb-20">
                                             <label>Sexo</label></br>
                                             <select name="sexo_animal" id="sexo_animal" value="<?= (isset($adocao) ? $adocao->sexo_animal : set_value('sexo_animal')); ?>">
-                                                <option value="macho">Macho</option>
-                                                <option value="femea">Fêmea</option>
+                                                <option value="Macho">Macho</option>
+                                                <option value="Fêmea">Fêmea</option>
                                             </select>
                                             <small></small>
                                             <?= form_error('sexo_animal', '<div class="text-danger">', '</div>'); ?>

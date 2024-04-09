@@ -19,9 +19,9 @@ class Resgate extends CI_Controller {
 	{			
 		$data = array(
 			'titulo' => 'Resgates Cadastrados',
-			'sub_titulo' => 'Listando as pessoas cadastradas no sistema',
+			'sub_titulo' => 'Listando resgates realizados',
 			'icone_view' => 'ik ik-user',			
-			'resgates' => $this->core_model->get_by_id('resgate_animal', array('excluido' => 0)),				
+			'resgates' => $this->core_model->get_all('resgate_animal', array('excluido' => 0)),				
 			'styles' => array(
 				'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
 			),	
