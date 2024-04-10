@@ -42,7 +42,7 @@
                                 </div>
                             </div>
 
-                       <!-- <//?//php elseif ($message = $this->session->flashdata('error')) : ?>
+                            <!-- <//?//php elseif ($message = $this->session->flashdata('error')) : ?>
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -71,8 +71,9 @@
                                             <table class="table data-table table-sm pl-20 pr-20">
                                                 <thead>
                                                     <tr>
-                                                        <th class="text-center">#</th>
+                                                        <th class="text-center">Foto</th>
                                                         <th class="text-center">Nome</th>
+                                                        <th class="text-center">Data de Nascimento</th>
                                                         <th class="text-center">Endereço</th>
                                                         <th class="text-center">Celular</th>
                                                         <th class="text-center">E-mail</th>
@@ -84,13 +85,14 @@
                                                     <?php if (isset($pessoas)) : ?>
                                                         <?php foreach ($pessoas as $pessoa) : ?>
                                                             <tr>
-                                                                <td class="text-center"><?= $pessoa->id; ?></td>
+                                                                <td class="text-center"><img width="100" height="100" src="<?= base_url($pessoa->foto) ?>" alt="Imagem da Pessoa"></td> 
                                                                 <td class="text-center"><?= mb_strtoupper($pessoa->nome); ?></td>
-                                                               <td class="text-center"><?= $pessoa->logradouro . ',&nbsp;' . $pessoa->numero . '&nbsp;-&nbsp;' . $pessoa->bairro . '&nbsp;-&nbsp;' . $pessoa->localidade; ?></td>
+                                                                <td class="text-center"><?= formata_data_banco_sem_hora($pessoa->data_nascimento); ?></td>
+                                                                <td class="text-center"><?= $pessoa->logradouro . ',&nbsp;' . $pessoa->numero . '&nbsp;-&nbsp;' . $pessoa->bairro . '&nbsp;-&nbsp;' . $pessoa->localidade; ?></td>
                                                                 <td class="text-center"><?= $pessoa->celular; ?></td>
                                                                 <td class="text-center"><?= $pessoa->email; ?></td>
-                                                                <td class="text-center"><?= formata_data_banco_sem_hora($pessoa->data_cadastro); ?></td>                                                             
-                                                                <td class="nosort text-right pr-25"> 
+                                                                <td class="text-center"><?= formata_data_banco_sem_hora($pessoa->data_cadastro); ?></td>
+                                                                <td class="nosort text-right pr-25">
                                                                     <div class="table-actions">
                                                                         <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $pessoa->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a>
                                                                         <button type="button" data-toggle="modal" data-target="#categoria-<?= $pessoa->id; ?>" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" class="btn btn-icon btn-danger"><i class="ik ik-trash-2"></i></button>

@@ -41,14 +41,19 @@
                                             <input type="text" class="form-control" id="cpf" name="cpf" value="<?= (isset($pessoa) ? $pessoa->cpf : set_value('cpf')); ?>">
                                             <?= form_error('cpf', '<div class="text-danger">', '</div>'); ?>
                                         </div>
-                                        <div class="col-md-4 mb-20">
+                                        <div class="col-md-3 mb-20">
                                             <label>Nome</label>
                                             <input type="text" class="form-control" id="nome" name="nome" value="<?= (isset($pessoa) ? $pessoa->nome : set_value('nome')); ?>" style="text-transform: uppercase;">
                                             <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
-                                        </div>                                        
-                                        <div class="col-md-3 mb-20">
+                                        </div>
+                                        <div class="col-md-2 mb-20">
+                                            <label for="data_nascimento">Data de Nascimento</label>
+                                            <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" value="<?= (isset($pessoa) ? $pessoa->data_nascimento : set_value('data_nascimento')); ?>">
+                                            <?= form_error('data_nascimento', '<div class="text-danger">', '</div>'); ?>
+                                        </div>
+                                        <div class="col-md-2 mb-20">
                                             <label>Sexo</label>
-                                            <input type="text" class="form-control" name="sexo" id="sexo" value="<?= (isset($pessoa) ? $pessoa->sexo : set_value('sexo')); ?>" disabled>
+                                            <input type="text" class="form-control" name="sexo" id="sexo" value="<?= (isset($pessoa) ? $pessoa->sexo : set_value('sexo')); ?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -106,7 +111,7 @@
                                             <?= form_error('bairro', '<div class="text-danger">', '</div>'); ?>
                                             <small></small>
                                         </div>
-                                    </div>                           
+                                    </div>
                                     <div class="form-group row">
                                         <div class="col-md-3 ml-20">
                                             <div class="form-group">
@@ -127,9 +132,17 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="data_cadastro">Data de Cadastro:</label>
-                                                <input type="text" class="form-control" id="uf" name="uf" value="<?= (isset($pessoa) ?formata_data_banco_sem_hora($pessoa->data_cadastro) : set_value('data_cadastro')); ?>" disabled>
+                                                <input type="date" class="form-control" id="data_cadastro" name="data_cadastro" value="<?= (isset($pessoa) ? formata_data_banco_sem_hora($pessoa->data_cadastro) : set_value('data_cadastro')); ?>">
                                                 <?= form_error('data_cadastro', '<div class="text-danger">', '</div>'); ?>
                                                 <small></small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="foto">Foto:</label>
+                                                <input type="file" class="form-control" id="foto" name="foto">
+                                                <img id="preview" width="250" src="#" style="display: none;" />
+                                                <?= form_error('foto', '<div class="text-danger">', '</div>'); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -140,16 +153,16 @@
                                             </div>
                                         </div>
                                     <?php endif; ?>
-                                    <?php endforeach; ?>
-                                    <div class="form-group row">
-                                        <div class="col-md-12 ml-20">
-                                            <button type="submit" class="btn btn-primary mr-2">Salvar</button>
-                                            <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info">Voltar</a>
-                                        </div>
+                                <?php endforeach; ?>
+                                <div class="form-group row">
+                                    <div class="col-md-12 ml-20">
+                                        <button type="submit" class="btn btn-primary mr-2">Salvar</button>
+                                        <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info">Voltar</a>
                                     </div>
+                                </div>
                                 </form>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
+                            </div>
+                        </div>
+                </div>
             </div>
+        </div>

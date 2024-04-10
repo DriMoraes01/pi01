@@ -62,8 +62,7 @@ class Pessoa extends CI_Controller {
 		$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]|required');
 		$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]|required');		
 		$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[20]');
-		
-		
+		$this->form_validation->set_rules('data_nascimento', 'Data de Nascimento', 'trim|min_length[1]|max_length[20]');
 		
 		if (!$this->form_validation->run()) {
 
@@ -98,7 +97,9 @@ class Pessoa extends CI_Controller {
 			$data['localidade'] = $this->input->post('localidade');
 			$data['uf'] = $this->input->post('uf');
 			$data['data_cadastro'] = $this->input->post('data_cadastro');
-			$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');					
+			$data['data_nascimento'] = $this->input->post('data_nascimento');
+			$data['voluntario'] = $this->input->post('voluntario');			
+			//$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');					
 
 			$data = html_escape($data);				
 
@@ -119,9 +120,10 @@ class Pessoa extends CI_Controller {
 			redirect($this->router->fetch_class());
 
 		}else{
+			
 			$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[14]|required');
 			$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]|required');
-			//$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[5]|max_length[10]|required');
+			$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[5]|max_length[10]|required');
 			$this->form_validation->set_rules('celular', 'Celular', 'trim|min_length[9]|max_length[14]|required');
 			$this->form_validation->set_rules('email', 'E-mail', 'trim|min_length[1]|max_length[255]');
 			$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[9]|required');
@@ -131,10 +133,10 @@ class Pessoa extends CI_Controller {
 			$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[100]|required');
 			$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]|required');
 			$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]|required');
-			//$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[20]');
-		
-		
-				
+			$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[20]');
+			$this->form_validation->set_rules('data_nascimento', 'Data de Nascimento', 'trim|min_length[1]|max_length[20]');
+			$this->form_validation->set_rules('observacao', 'Observacao', 'trim|min_length[1]|max_length[3000]');
+			
 			if (!$this->form_validation->run()){
 
 				$data = array(
@@ -159,7 +161,7 @@ class Pessoa extends CI_Controller {
 			}else{
 				$data['cpf'] = $this->input->post('cpf');
 				$data['nome'] = $this->input->post('nome');				
-				//$data['sexo'] = $this->input->post('sexo');
+				$data['sexo'] = $this->input->post('sexo');
 				$data['celular'] = $this->input->post('celular');
 				$data['email'] = $this->input->post('email');
 				$data['cep'] = $this->input->post('cep');
@@ -169,7 +171,9 @@ class Pessoa extends CI_Controller {
 				$data['bairro'] = $this->input->post('bairro');
 				$data['localidade'] = $this->input->post('localidade');
 				$data['uf'] = $this->input->post('uf');
-				//$data['data_cadastro'] = $this->input->post('data_cadastro');
+				$data['data_cadastro'] = $this->input->post('data_cadastro');
+				$data['voluntario'] = $this->input->post('voluntario');
+				$data['data_nascimento'] = $this->input->post('data_nascimento');	
 				$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');						
 				
 				$data = html_escape($data);				
@@ -205,7 +209,27 @@ class Pessoa extends CI_Controller {
 		}
 		
 		redirect($this->router->fetch_class());
-	} 	
+	}
+
+	private function do_upload()
+	{
+		$config['upload_path']          = './uploads/';
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['max_size']             = 5000;
+		$config['overwrite']             = true;
+
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload('foto')) {
+			$error = array('error' => $this->upload->display_errors());
+
+			return $error;
+		} else {
+			$data = array('upload_data' => $this->upload->data());
+
+			return $data;
+		}
+	}
 
 }
 	

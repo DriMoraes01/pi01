@@ -41,10 +41,15 @@
                                         <input type="text" class="form-control" id="cpf" name="cpf" value="<?= set_value('cpf'); ?>" placeholder="111.111.111-01">
                                         <?= form_error('cpf', '<div class="text-danger">', '</div>'); ?>
                                     </div>
-                                    <div class="col-md-4 mb-20">
+                                    <div class="col-md-3 mb-20">
                                         <label>Nome</label>
                                         <input type="text" class="form-control" id="nome" name="nome" value="<?= set_value('nome'); ?>" style="text-transform: uppercase;">
                                         <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
+                                    </div>
+                                    <div class="col-md-2 mb-20">
+                                        <label>Data de Nascimento</label>
+                                        <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" value="<?= set_value('data_nascimento'); ?>">
+                                        <?= form_error('data_nascimento', '<div class="text-danger">', '</div>'); ?>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
@@ -61,7 +66,7 @@
                                         <label for="voluntario">É Voluntário</label> <br>
                                         <select name="voluntario" id="voluntario">
                                             <option value="1">Sim</option>
-                                            <option value="0">Não</option>                                           
+                                            <option value="0">Não</option>
                                         </select>
                                         <small></small>
                                     </div>
@@ -69,20 +74,20 @@
                                 <div class="form-group row">
                                     <div class="col-md-3 ">
                                         <div class="form-group">
-                                            <label for="celular">Celular:</label>
+                                            <label for="celular">Celular</label>
                                             <input type="text" class="form-control" id="celular" name="celular" placeholder="(99)99999-9999">
                                             <?= form_error('celular', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="uf">E-mail:</label>
+                                            <label for="uf">E-mail</label>
                                             <input type="email" class="form-control" id="email" name="email">
                                             <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
                                     <div class="col-md-3 mb-20">
-                                        <label for="cep">CEP:</label>
+                                        <label for="cep">CEP</label>
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" placeholder="00000-000" id="cep" name="cep" maxlength="9" onblur="pesquisacep(this.value)">
                                             <div class="input-group-append">
@@ -95,14 +100,14 @@
                                 <div class="form-group row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="logradouro">Logradouro:</label>
+                                            <label for="logradouro">Logradouro</label>
                                             <input type="text" class="form-control" id="logradouro" name="logradouro">
                                             <?= form_error('logradouro', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
                                     <div class="col-md-1">
                                         <div class="form-group">
-                                            <label for="numero">N°:</label>
+                                            <label for="numero">N°</label>
                                             <input type="text" class="form-control" id="numero" name="numero">
                                             <?= form_error('numero', '<div class="text-danger">', '</div>'); ?>
                                             <small></small>
@@ -110,13 +115,13 @@
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="complemento">Complemento:</label>
+                                            <label for="complemento">Complemento</label>
                                             <input type="text" class="form-control" id="complemento" name="complemento">
                                         </div>
                                     </div>
                                     <div class="col-md-3 ml-20">
                                         <div class="form-group">
-                                            <label for="bairro">Bairro:</label>
+                                            <label for="bairro">Bairro</label>
                                             <input type="text" class="form-control" id="bairro" name="bairro">
                                             <?= form_error('bairro', '<div class="text-danger">', '</div>'); ?>
                                             <small></small>
@@ -124,9 +129,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-md-3 ml-20">
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="localidade">Cidade:</label>
+                                            <label for="localidade">Cidade</label>
                                             <input type="text" class="form-control" id="localidade" name="localidade">
                                             <?= form_error('localidade', '<div class="text-danger">', '</div>'); ?>
                                             <small></small>
@@ -134,7 +139,7 @@
                                     </div>
                                     <div class="col-md-1">
                                         <div class="form-group">
-                                            <label for="uf">UF:</label>
+                                            <label for="uf">UF</label>
                                             <input type="text" class="form-control" id="uf" name="uf">
                                             <?= form_error('uf', '<div class="text-danger">', '</div>'); ?>
                                             <small></small>
@@ -142,10 +147,18 @@
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="data_cadastro">Data de Cadastro:</label>
+                                            <label for="data_cadastro">Data de Cadastro</label>
                                             <input type="date" class="form-control" id="data_cadastro" name="data_cadastro">
                                             <?= form_error('data_cadastro', '<div class="text-danger">', '</div>'); ?>
                                             <small></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="foto">Foto:</label>
+                                            <input type="file" class="form-control" id="foto" name="foto">
+                                            <img id="preview" width="250" src="#" style="display: none;" />
+                                            <?= form_error('foto', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
                                 </div>
