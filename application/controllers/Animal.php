@@ -22,6 +22,7 @@ class Animal extends CI_Controller
 			'sub_titulo' => 'Listando os animais cadastrados no sistema',
 			'icone_view' => 'ik ik-user',
 			'animais' => $this->core_model->getAnimais(),
+			'fotos' => $this->core_model->getFotoAnimal(),
 			'styles' => array(
 				'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',
 			),

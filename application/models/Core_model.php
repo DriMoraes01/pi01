@@ -167,8 +167,23 @@ class Core_model extends CI_Model{
             return $query->result();
         }
         return false;
+    }
+
+    public function getFotoAnimal()
+    {
+        $this->db->select('foto');
+        $this->db->from('foto_animal fa');
+        $this->db->where('fa.excluido', 0);
+        $this->db->distinct('fa.id_animal');
+        $this->db->order_by('fa.id');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() >= 1) {
+            return $query->result();
+        }
+        return false;
     }   
-    
 }   
     
     
