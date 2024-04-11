@@ -139,17 +139,7 @@
                                             <?= form_error('obs', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="foto">Foto:</label>
-                                            <input type="file" class="form-control" id="foto" name="foto">
-                                            <img id="preview" width="250" src="#" style="display: none;"/>
-                                            <?= form_error('foto', '<div class="text-danger">', '</div>'); ?>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div>                                
                                 <div class="form-group row">
                                     <div class="col-md-6 ml-20">
                                         <div class="form-group">

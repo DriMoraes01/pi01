@@ -136,15 +136,7 @@
                                                 <?= form_error('data_cadastro', '<div class="text-danger">', '</div>'); ?>
                                                 <small></small>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="foto">Foto:</label>
-                                                <input type="file" class="form-control" id="foto" name="foto">
-                                                <img id="preview" width="250" src="#" style="display: none;" />
-                                                <?= form_error('foto', '<div class="text-danger">', '</div>'); ?>
-                                            </div>
-                                        </div>
+                                        </div>                                        
                                     </div>
                                     <?php if (isset($pessoa)) : ?>
                                         <div class="form-group row">

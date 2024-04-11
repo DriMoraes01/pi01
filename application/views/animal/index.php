@@ -76,9 +76,8 @@
                                                         <th class="text-center">Raça</th>
                                                         <th class="text-center">Porte</th>
                                                         <th class="text-center">Castrado</th>
-                                                        <th class="text-center">Data de Cadastro</th>
-                                                        <th class="text-center">Foto</th>
-                                                        <th class="text-center">Obs</th>
+                                                        <th class="text-center">Data de Cadastro</th>                                                       
+                                                        <th class="text-center">Observação</th>
                                                         <th class="nosort text-right pr-25">Ações</th>
                                                     </tr>
                                                 </thead>
@@ -98,8 +97,8 @@
                                                                         <?= "Sim"; ?>
                                                                     <?php endif; ?>
                                                                 </td>
-                                                                <td class="text-center"><?= formata_data_banco_sem_hora($animal->data_cadastro); ?></td>
-                                                                <td class="text-center"><img width="100" height="100" src="<?= base_url($animal->foto_animal) ?>" alt="Imagem animal"></td>
+                                                                <td class="text-center"><?= formata_data_banco_sem_hora($animal->data_cadastro); ?></td>                                                               
+                                                                <!--<td class="text-center"><img width="100" height="100" src="<//?= base_url($animal->foto_animal) ?>" alt="Imagem animal"></td> -->
                                                                 <td class="text-center"><?= $animal->observacao; ?></td>
 
                                                                 <td class="nosort text-right pr-25">

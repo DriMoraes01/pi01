@@ -71,7 +71,7 @@
                                             <table class="table data-table table-sm pl-20 pr-20">
                                                 <thead>
                                                     <tr>
-                                                        <th class="text-center">Foto</th>
+                                                        <th class="text-center">#</th>
                                                         <th class="text-center">Nome</th>
                                                         <th class="text-center">Data de Nascimento</th>
                                                         <th class="text-center">Endereço</th>
@@ -85,7 +85,7 @@
                                                     <?php if (isset($pessoas)) : ?>
                                                         <?php foreach ($pessoas as $pessoa) : ?>
                                                             <tr>
-                                                                <td class="text-center"><img width="100" height="100" src="<?= base_url($pessoa->foto) ?>" alt="Imagem da Pessoa"></td> 
+                                                                <td class="text-center"><?= $pessoa->id; ?></td>
                                                                 <td class="text-center"><?= mb_strtoupper($pessoa->nome); ?></td>
                                                                 <td class="text-center"><?= formata_data_banco_sem_hora($pessoa->data_nascimento); ?></td>
                                                                 <td class="text-center"><?= $pessoa->logradouro . ',&nbsp;' . $pessoa->numero . '&nbsp;-&nbsp;' . $pessoa->bairro . '&nbsp;-&nbsp;' . $pessoa->localidade; ?></td>

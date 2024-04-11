@@ -104,13 +104,13 @@ class Animal extends CI_Controller
 						'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js',
 					),
 				);
-				$this->session->set_flashdata('error', 'Erro no upload da foto!' . trim($foto['error']));
+				/*$this->session->set_flashdata('error', 'Erro no upload da foto!' . trim($foto['error']));
 				$this->load->view('layout/header', $data);
 				$this->load->view('animal/cadastrar');
 				$this->load->view('layout/footer');
-				return;
+				return;*/
 			}
-			$data['foto_animal'] = '/uploads/' . $foto['upload_data']['file_name'];
+			/*$data['foto_animal'] = '/uploads/' . $foto['upload_data']['file_name'];*/			
 
 			$this->core_model->insert('animal', $data);
 			$this->session->set_flashdata('sucesso', 'Animal cadastrado com sucesso!');
@@ -134,7 +134,8 @@ class Animal extends CI_Controller
 			$this->form_validation->set_rules('porte', 'Porte', 'trim|min_length[1]|max_length[10]');
 			$this->form_validation->set_rules('cor', 'Cor', 'trim|min_length[1]|max_length[9]');
 			$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
-			$this->form_validation->set_rules('foto_animal', 'Foto do Animal', 'trim|min_length[1]|max_length[255]');
+
+			/*$this->form_validation->set_rules('foto_animal', 'Foto do Animal', 'trim|min_length[1]|max_length[255]');*/
 
 			if (!$this->form_validation->run()) {
 
@@ -163,7 +164,8 @@ class Animal extends CI_Controller
 				$data['porte'] = $this->input->post('porte');
 				$data['cor'] = $this->input->post('cor');
 				$data['observacao'] = $this->input->post('observacao');
-				$data['foto_animal'] = $this->input->post('foto_animal');
+				$data['castrado'] = $this->input->post('castrado');
+				/*$data['foto_animal'] = $this->input->post('foto_animal');*/
 
 				$data = html_escape($data);
 

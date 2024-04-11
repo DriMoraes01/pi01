@@ -105,7 +105,7 @@ class Core_model extends CI_Model{
     public function getAnimais(){
         $this->db->select('*');
         $this->db->from('animal a');
-        $this->db->where('a.excluido', 0);
+        $this->db->where('a.excluido', 0);                      
         $this->db->order_by('a.id');   
 
         $query = $this->db->get();
