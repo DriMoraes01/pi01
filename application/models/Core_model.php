@@ -131,8 +131,9 @@ class Core_model extends CI_Model{
     public function getAnimal(){
         $this->db->select('*');
         $this->db->from('animal');
+        $this->db->where('animal.excluido', 0);
         $this->db->join('foto_animal', 'foto_animal.id = animal.id');
-        $this->db->where('excluido', 0);
+        $this->db->where('foto_animal.excluido', 0);
         $query = $this->db->get();
          if ($query->num_rows() >= 1) {
             return $query->result();
