@@ -89,15 +89,7 @@ class Core_model extends CI_Model{
         }  
     }
  
-    /*
-    public function update($table = NULL,  $table1 = NULL, $data = NULL, $condition = NULL)
-    {
-         if ($this->db->update($table && $table1, $data, $condition)){
-            $this->session->set_flashdata('sucesso', 'Dados atualizados com sucesso!');  
-        }
-    } 
-    */
-    
+     
     
     public function AlterarSenha($table = NULL, $data = NULL, $condition = NULL)
     {
@@ -114,10 +106,10 @@ class Core_model extends CI_Model{
     
     public function getAnimais(){
         $this->db->select('*');
-        $this->db->from('animal a');
-
-        $this->db->where('a.excluido', 0);                      
-        $this->db->order_by('a.id');   
+        $this->db->from('animal');
+        $this->db->join('foto_animal', 'animal.id_animal = foto_animal.id_animal');
+        $this->db->where('animal.excluido', 0);                      
+        $this->db->order_by('animal.id_animal');   
 
         $query = $this->db->get();
         if ($query->num_rows() >= 1) {
@@ -126,23 +118,23 @@ class Core_model extends CI_Model{
         }
         return false;
     }
-    
 
-    public function getAnimal(){
-        $this->db->select('*');
-        $this->db->from('animal');
-        $this->db->where('animal.excluido', 0);
-        $this->db->join('foto_animal', 'foto_animal.id = animal.id');
-        $this->db->where('foto_animal.excluido', 0);
+    public function getFotos()
+    {
+        $this->db->select('foto');
+        $this->db->from('foto_animal fa');
+        $this->db->where('fa.excluido', 0);
+        $this->db->order_by('fa.id');
+
         $query = $this->db->get();
-         if ($query->num_rows() >= 1) {
+        if ($query->num_rows() >= 1) {
             return $query->result();
             //return $query->row();
         }
         return false;
     }
 
-
+    
     public function delete($table = NULL, $condition = NULL)
     {
         if($table && $this->db->table_exists($table) && is_array($condition)){
@@ -199,10 +191,10 @@ class Core_model extends CI_Model{
     public function getFotoAnimal()
     {
         $this->db->select('foto');
-        $this->db->from('foto_animal fa');
-        $this->db->where('fa.excluido', 0);
+        $this->db->from('foto_animal');
+        $this->db->where('foto_animal.excluido', 0);
        // $this->db->distinct('fa.id_animal');
-        $this->db->order_by('fa.id');
+        $this->db->order_by('foto_animal.id');
 
         $query = $this->db->get();
 
@@ -210,7 +202,9 @@ class Core_model extends CI_Model{
             return $query->result();
         }
         return false;
-    }   
+    }
+
+   
 }   
     
     

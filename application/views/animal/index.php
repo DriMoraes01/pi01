@@ -84,7 +84,7 @@
                                                 <tbody>
                                                     <?php if (isset($animais)) : ?>
                                                         <?php foreach ($animais as $animal) : ?>
-                                                           <!-- <//?php if (isset($fotos)) : ?>
+                                                        <!--   <//?php if (isset($fotos)) : ?>
                                                                 <//?php foreach ($fotos as $foto) : ?> -->
                                                                     <tr>
                                                                         <td class="text-center"><img width="30" height="30" src="<?= base_url($animal->foto) ?>"></td>
@@ -129,10 +129,10 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                               <!-- <//?php endforeach; ?>
+                                                              <!--   <//?php endforeach; ?>
                                                             <//?php endif; ?> -->
-                                                        <?php endforeach; ?>
-                                                    <?php endif; ?>
+                                                      <?php endforeach; ?> 
+                                                    <?php endif; ?> 
                                                 </tbody>
                                             </table>
                                         </div>

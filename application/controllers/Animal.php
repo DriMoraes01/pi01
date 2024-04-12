@@ -21,8 +21,8 @@ class Animal extends CI_Controller
 			'titulo' => 'Animais Cadastrados',
 			'sub_titulo' => 'Listando os animais cadastrados no sistema',
 			'icone_view' => 'ik ik-user',
-			'animais' => $this->core_model->getAnimal(),
-			//'fotos' => $this->core_model->getFotoAnimal(),
+			'animais' => $this->core_model->getAnimais(),			
+			//'fotos' => $this->core_model->getFotos(),
 			'styles' => array(
 				'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',
 			),
@@ -36,7 +36,7 @@ class Animal extends CI_Controller
 		echo '<pre>';
 		print_r($data['animais']);
 		exit(); */
-
+		
 		$this->load->view('layout/header', $data);
 		$this->load->view('animal/index');
 		$this->load->view('layout/footer');
@@ -184,7 +184,7 @@ class Animal extends CI_Controller
 	public function del($id = Null)
 	{
 
-		if (!$id || !$this->core_model->get_by_id('animal', array('id' => $id))) {
+		if (!$id || !$this->core_model->get_by_id('animal', array('id_animal' => $id))) {
 
 			$this->session->set_flashdata('error', 'Cadastro não encontrado!');
 			redirect($this->router->fetch_class());
@@ -198,9 +198,8 @@ class Animal extends CI_Controller
 			var_dump($data);
 			exit;*/
 
-			$this->db->where('id', $id);
+			$this->db->where('id_animal', $id);
 			if ($this->db->update('animal', $data)) {
-
 				$this->db->update('foto_animal', $data);
 				$this->session->set_flashdata('sucesso', 'Cadastro excluído com sucesso!');
 			}
@@ -229,4 +228,6 @@ class Animal extends CI_Controller
 			return $data;
 		}
 	}
+
+	
 }
