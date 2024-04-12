@@ -21,8 +21,8 @@ class Animal extends CI_Controller
 			'titulo' => 'Animais Cadastrados',
 			'sub_titulo' => 'Listando os animais cadastrados no sistema',
 			'icone_view' => 'ik ik-user',
-			'animais' => $this->core_model->getAnimais(),
-			'fotos' => $this->core_model->getFotoAnimal(),
+			'animais' => $this->core_model->getAnimal(),
+			//'fotos' => $this->core_model->getFotoAnimal(),
 			'styles' => array(
 				'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',
 			),
@@ -32,9 +32,10 @@ class Animal extends CI_Controller
 			),
 		);
 
-		/*echo '<pre>';
-		print_r($data['resgates']);
-		exit();*/
+		/*
+		echo '<pre>';
+		print_r($data['animais']);
+		exit(); */
 
 		$this->load->view('layout/header', $data);
 		$this->load->view('animal/index');
@@ -193,9 +194,14 @@ class Animal extends CI_Controller
 			$data = array(
 				'excluido' => 1
 			);
+			/*
+			var_dump($data);
+			exit;*/
 
 			$this->db->where('id', $id);
 			if ($this->db->update('animal', $data)) {
+
+				$this->db->update('foto_animal', $data);
 				$this->session->set_flashdata('sucesso', 'Cadastro excluído com sucesso!');
 			}
 		}
