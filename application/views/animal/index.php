@@ -87,7 +87,7 @@
                                                         <!--   <//?php if (isset($fotos)) : ?>
                                                                 <//?php foreach ($fotos as $foto) : ?> -->
                                                                     <tr>
-                                                                        <td class="text-center"><img width="30" height="30" src="<?= base_url($animal->foto) ?>"></td>
+                                                                        <td class="text-center"><img width="50" height="50" class="rounded-circle" src="<?= base_url($animal->foto) ?>"></td>
                                                                         <td class="text-center"><?= mb_strtoupper($animal->nome); ?></td>
                                                                         <td class="text-center"><?= $animal->sexo; ?></td>
                                                                         <td class="text-center"><?= $animal->raca; ?></td>

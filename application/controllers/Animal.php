@@ -92,6 +92,7 @@ class Animal extends CI_Controller
 
 			$data = html_escape($data);
 
+			/*
 			$foto = $this->do_upload();
 			if (array_key_exists('error', $foto)) {
 
@@ -110,8 +111,7 @@ class Animal extends CI_Controller
 				$this->load->view('layout/header', $data);
 				$this->load->view('animal/cadastrar');
 				$this->load->view('layout/footer');
-				return;*/
-			}
+				return;
 			/*$data['foto_animal'] = '/uploads/' . $foto['upload_data']['file_name'];*/			
 
 			$this->core_model->insert('animal', $data);
@@ -124,7 +124,7 @@ class Animal extends CI_Controller
 	public function alterar($id = NULL)
 	{
 		//atualizando
-		if (!$this->core_model->get_by_id('animal', array('id' => $id))) {
+		if (!$this->core_model->get_by_id('animal', array('id_animal' => $id))) {
 
 			$this->session->set_flashdata('error', 'Cadastro não encontrado!');
 			redirect($this->router->fetch_class());
@@ -134,7 +134,7 @@ class Animal extends CI_Controller
 			$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[5]|max_length[10]');
 			$this->form_validation->set_rules('raca', 'Raça', 'trim|min_length[1]|max_length[20]');
 			$this->form_validation->set_rules('porte', 'Porte', 'trim|min_length[1]|max_length[10]');
-			$this->form_validation->set_rules('cor', 'Cor', 'trim|min_length[1]|max_length[9]');
+			$this->form_validation->set_rules('cor', 'Cor', 'trim|min_length[1]|max_length[20]');
 			$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
 
 			/*$this->form_validation->set_rules('foto_animal', 'Foto do Animal', 'trim|min_length[1]|max_length[255]');*/
@@ -144,7 +144,7 @@ class Animal extends CI_Controller
 				$data = array(
 					'titulo' => 'Editar Cadastro',
 					'icone_view' => 'ik ik-user',
-					'animais' => $this->core_model->get_by_id('animal', array('id' => $id)),
+					'animais' => $this->core_model->get_by_id('animal', array('id_animal' => $id)),
 					'styles' => array(
 						'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',
 					),
@@ -172,7 +172,7 @@ class Animal extends CI_Controller
 				$data = html_escape($data);
 
 
-				$this->core_model->update('animal', $data, array('id' => $id));
+				$this->core_model->update('animal', $data, array('id_animal' => $id));
 
 				$this->session->set_flashdata('sucesso', 'Dados atualizados com sucesso!');
 				redirect($this->router->fetch_class());

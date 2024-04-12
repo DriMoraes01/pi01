@@ -111,9 +111,9 @@
                                         <div class="form-group">
                                             <label for="porte">Porte</label>
                                             <select name="porte" id="porte">
-                                                <option value="pequeno">Pequeno</option>
-                                                <option value="medio">Médio</option>
-                                                <option value="grande">Grande</option>
+                                                <option value="Pequeno">Pequeno</option>
+                                                <option value="Médio">Médio</option>
+                                                <option value="Grande">Grande</option>
                                                 <?= form_error('porte', '<div class="text-danger">', '</div>'); ?>
                                             </select>
                                             <small></small>

@@ -101,7 +101,7 @@
                                     <?php if (isset($animal)) : ?>
                                         <div class="form-group row">
                                             <div class="col-md-12">
-                                                <input type="hidden" class="form-control" name="id" value="<?= $animal->id; ?>">
+                                                <input type="hidden" class="form-control" name="id" value="<?= $animal->id_animal; ?>">
                                             </div>
                                         </div>
                                     <?php endif; ?>
