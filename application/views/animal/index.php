@@ -84,55 +84,55 @@
                                                 <tbody>
                                                     <?php if (isset($animais)) : ?>
                                                         <?php foreach ($animais as $animal) : ?>
-                                                        <!--   <//?php if (isset($fotos)) : ?>
+                                                            <!--   <//?php if (isset($fotos)) : ?>
                                                                 <//?php foreach ($fotos as $foto) : ?> -->
-                                                                    <tr>
-                                                                        <td class="text-center"><img width="50" height="50" class="rounded-circle" src="<?= base_url($animal->foto) ?>"></td>
-                                                                        <td class="text-center"><?= mb_strtoupper($animal->nome); ?></td>
-                                                                        <td class="text-center"><?= $animal->sexo; ?></td>
-                                                                        <td class="text-center"><?= $animal->raca; ?></td>
-                                                                        <td class="text-center"><?= $animal->porte; ?></td>
-                                                                        <td class="text-center">
-                                                                            <?php if ($animal->castrado == '0') : ?>
-                                                                                <?= "Não"; ?>
-                                                                            <?php else : ?>
-                                                                                <?= "Sim"; ?>
-                                                                            <?php endif; ?>
-                                                                        </td>
-                                                                        <td class="text-center"><?= formata_data_banco_sem_hora($animal->data_cadastro); ?></td>
-                                                                        <!--<td class="text-center"><img width="100" height="100" src="<//?= base_url($animal->foto_animal) ?>" alt="Imagem animal"></td> -->
-                                                                        <td class="text-center"><?= $animal->observacao; ?></td>
+                                                            <tr>
+                                                                <td class="text-center"><img width="50" height="50" class="rounded-circle" src="<?= base_url($animal->foto) ?>"></td>
+                                                                <td class="text-center"><?= mb_strtoupper($animal->nome); ?></td>
+                                                                <td class="text-center"><?= $animal->sexo; ?></td>
+                                                                <td class="text-center"><?= $animal->raca; ?></td>
+                                                                <td class="text-center"><?= $animal->porte; ?></td>
+                                                                <td class="text-center">
+                                                                    <?php if ($animal->castrado == '0') : ?>
+                                                                        <?= "Não"; ?>
+                                                                    <?php else : ?>
+                                                                        <?= "Sim"; ?>
+                                                                    <?php endif; ?>
+                                                                </td>
+                                                                <td class="text-center"><?= formata_data_banco_sem_hora($animal->data_cadastro); ?></td>
+                                                                <!--<td class="text-center"><img width="100" height="100" src="<//?= base_url($animal->foto_animal) ?>" alt="Imagem animal"></td> -->
+                                                                <td class="text-center"><?= $animal->observacao; ?></td>
 
-                                                                        <td class="nosort text-right pr-25">
-                                                                            <div class="table-actions">
-                                                                                <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $animal->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a>
-                                                                                <button type="button" data-toggle="modal" data-target="#categoria-<?= $animal->id; ?>" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" class="btn btn-icon btn-danger"><i class="ik ik-trash-2"></i></button>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <div class="modal fade" id="categoria-<?= $animal->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
-                                                                        <div class="modal-dialog modal-dialog-centered" role="document" id="categoria-<?= $animal->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header">
-                                                                                    <h5 class="modal-title" id="exampleModalCenterLabel"><i class="fas fa-exclamation-triangle text-danger"></i>&nbsp;Tem certeza que quer excluir?</h5>
-                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                        <span aria-hidden="true">&times;</span>
-                                                                                    </button>
-                                                                                </div>
-                                                                                <div class="modal-body">
-                                                                                    <p>Para apagar o registro, clique em <strong>Sim, excluir</strong> </p>
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <button data-toggle="tooltip" data-placement="bottom" title="Cancelar Exclusão" type="button" class="btn btn-secondary" data-dismiss="modal">Não, voltar</button>
-                                                                                    <a data-toggle="tooltip" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/del/' . $animal->id; ?> " class="btn btn-danger">Sim, excluir</a>
-                                                                                </div>
-                                                                            </div>
+                                                                <td class="nosort text-right pr-25">
+                                                                    <div class="table-actions">
+                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $animal->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a>                                                                         
+                                                                        <button type="button" data-toggle="modal" data-target="#categoria-<?= $animal->id; ?>" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" class="btn btn-icon btn-danger"><i class="ik ik-trash-2"></i></button>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <div class="modal fade" id="categoria-<?= $animal->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered" role="document" id="categoria-<?= $animal->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="exampleModalCenterLabel"><i class="fas fa-exclamation-triangle text-danger"></i>&nbsp;Tem certeza que quer excluir?</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p>Para apagar o registro, clique em <strong>Sim, excluir</strong> </p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button data-toggle="tooltip" data-placement="bottom" title="Cancelar Exclusão" type="button" class="btn btn-secondary" data-dismiss="modal">Não, voltar</button>
+                                                                            <a data-toggle="tooltip" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/del/' . $animal->id; ?> " class="btn btn-danger">Sim, excluir</a>
                                                                         </div>
                                                                     </div>
-                                                              <!--   <//?php endforeach; ?>
+                                                                </div>
+                                                            </div>
+                                                            <!--   <//?php endforeach; ?>
                                                             <//?php endif; ?> -->
-                                                      <?php endforeach; ?> 
-                                                    <?php endif; ?> 
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
                                                 </tbody>
                                             </table>
                                         </div>

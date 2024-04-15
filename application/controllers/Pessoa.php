@@ -133,12 +133,13 @@ class Pessoa extends CI_Controller {
 			$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[100]|required');
 			$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]|required');
 			$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]|required');
-			$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[20]');
+			$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[20]|required');
 			$this->form_validation->set_rules('data_nascimento', 'Data de Nascimento', 'trim|min_length[1]|max_length[20]');
 			$this->form_validation->set_rules('observacao', 'Observacao', 'trim|min_length[1]|max_length[3000]');
 			
 			if (!$this->form_validation->run()){
-
+						
+				
 				$data = array(
 					'titulo' => 'Editar Cadastro',					
 					'icone_view' => 'ik ik-user',						
@@ -151,10 +152,10 @@ class Pessoa extends CI_Controller {
 						'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js',				
 					),					
 
-				);			
+				);		
 				
 
-				$this->load->view('layout/header',$data);
+				$this->load->view('layout/header', $data);
 				$this->load->view('pessoa/alterar');
 				$this->load->view('layout/footer');
 
@@ -178,11 +179,14 @@ class Pessoa extends CI_Controller {
 				
 				$data = html_escape($data);				
 	
-				$this->core_model->update('pessoa', $data, array('id' => $id));
-
-
-				$this->session->set_flashdata('sucesso', 'Dados atualizados com sucesso!');
-				redirect($this->router->fetch_class()); 				
+				if (!$this->core_model->update('pessoa', $data, array('id' => $id))){
+					$this->session->set_flashdata('erro', 'Dados  não foram atualizados');
+					redirect($this->router->fetch_class()); 	
+				} else {
+					$this->session->set_flashdata('sucesso', 'Dados atualizados com sucesso!');
+					redirect($this->router->fetch_class());
+				}
+								 				
 			}		
 		}	
 		
