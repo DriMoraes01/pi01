@@ -55,6 +55,14 @@
                                             <label>Sexo</label>
                                             <input type="text" class="form-control" name="sexo" id="sexo" value="<?= (isset($pessoa) ? $pessoa->sexo : set_value('sexo')); ?>">
                                         </div>
+                                        <div class="form-group">
+                                            <label for="voluntario">É Voluntário</label> <br>
+                                            <select name="voluntario" id="voluntario">
+                                                <option value="1">Sim</option>
+                                                <option value="0">Não</option>
+                                            </select>
+                                            <small></small>
+                                        </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-3">
@@ -129,14 +137,14 @@
                                                 <small></small>
                                             </div>
                                         </div>
-                                       <div class="col-md-2">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="data_cadastro">Data de Cadastro:</label>
                                                 <input type="date" class="form-control" id="data_cadastro" name="data_cadastro" value="<?= (isset($pessoa) ? formata_data_banco_sem_hora($pessoa->data_cadastro) : set_value('data_cadastro')); ?>">
                                                 <?= form_error('data_cadastro', '<div class="text-danger">', '</div>'); ?>
                                                 <small></small>
                                             </div>
-                                        </div>                                
+                                        </div>
                                     </div>
                                     <?php if (isset($pessoa)) : ?>
                                         <div class="form-group row">

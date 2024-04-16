@@ -55,7 +55,7 @@
                                     <div class="form-group row">
                                         <div class="col-md-2 mb-20">
                                             <label>E-mail</label>
-                                            <input type="text" class="form-control" id="email" name="email" value="<?= (isset($adocao) ? $adocao->email : set_value('email')); ?>">
+                                            <input type="email" class="form-control" id="email" name="email" value="<?= (isset($adocao) ? $adocao->email : set_value('email')); ?>">
                                             <?= form_error('email', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                         <div class="col-md-2 mb-20">

@@ -21,7 +21,7 @@ class Adocao extends CI_Controller {
 			'titulo' => 'Adoções Cadastradas',
 			'sub_titulo' => 'Listando as adoções cadastradas no sistema',
 			'icone_view' => 'ik ik-user',			
-			'adocoes' => $this->core_model->get_by_id('adocao', array('excluido' => 0)),				
+			'adocoes' => $this->core_model->get_all('adocao', array('excluido' => 0)),				
 			'styles' => array(
 				'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
 			),	
@@ -31,6 +31,11 @@ class Adocao extends CI_Controller {
 			),	
 		);
 		
+		/*
+		echo '<pre>';
+		print_r($data['adocoes']);
+		exit; */
+
 		$this->load->view('layout/header',$data);
 		$this->load->view('adocao/index');
 		$this->load->view('layout/footer');		
