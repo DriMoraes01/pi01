@@ -61,11 +61,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
-                                    <?php if ($this->ion_auth->is_admin()) : ?>
-                                        <div class="card-header d-block"><a data-toggle="tooltip" data-placement="right" title="Cadastrar <?= $this->router->fetch_class(); ?>" class="btn bg-blue float-right text-white" href="<?= base_url($this->router->fetch_class() . '/cadastrar/'); ?>" data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>">+ Novo</a></div>
-                                    <?php else : ?>
-                                        <div class="card-header d-block"></div>
-                                    <?php endif; ?>
+                                    <div class="card-header d-block"><a data-toggle="tooltip" data-placement="right" title="Cadastrar <?= $this->router->fetch_class(); ?>" class="btn bg-blue float-right text-white" href="<?= base_url($this->router->fetch_class() . '/cadastrar/'); ?>">+ Novo</a></div>
+
                                     <div class="card-body">
                                         <div class="table-responsive-sm">
                                             <table class="table data-table table-sm pl-20 pr-20">
@@ -90,7 +87,7 @@
                                                                 <td class="text-center"><?= formata_data_banco_sem_hora($doacao->data_doacao); ?></td>
                                                                 <td class="nosort text-right pr-25">
                                                                     <div class="table-actions">
-                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $doacao->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a>
+                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $doacao->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i><a data-toggle="tooltip" data-placement="bottom" title="Visualizar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/visualizar/' . $doacao->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-eye text-info"></i></a></a>
                                                                         <button type="button" data-toggle="modal" data-target="#categoria-<?= $doacao->id; ?>" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" class="btn btn-icon btn-danger"><i class="ik ik-trash-2"></i></button>
                                                                     </div>
                                                                 </td>

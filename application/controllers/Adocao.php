@@ -210,7 +210,36 @@ class Adocao extends CI_Controller {
 		}
 		
 		redirect($this->router->fetch_class());
-	} 	
+	}
+
+	public function visualizar($id_adocao = NULL)
+	{
+
+		if (!$id_adocao) {
+			$this->session->set_flashdata('error', 'Adoção não ocorreu!');
+			redirect($this->router->fetch_class());
+		}
+
+		//carrega a página de visualização do usuário
+
+		$data = array(
+			'titulo' => 'Visualizar Adoção',
+			'sub_titulo' => 'Chegou a hora de visualizar a adoção',
+			'icone_view' => 'ik ik-user',
+			'adocoes' => $this->core_model->get_by_id('adocao', array('id' => $id_adocao))
+		);
+
+
+		if (!isset($data['adocoes'])) {
+			$this->session->set_flashdata('error', 'Adoção não encontrada!');
+			redirect('home');
+		}
+
+		$this->load->view('layout/header', $data);
+		$this->load->view('adocao/visualizar');
+		$this->load->view('layout/footer');
+	}
+
 
 }
 	

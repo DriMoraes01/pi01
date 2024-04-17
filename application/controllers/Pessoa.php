@@ -235,6 +235,34 @@ class Pessoa extends CI_Controller {
 		}
 	}
 
+	public function visualizar($id_pessoa = NULL)
+	{
+
+		if (!$id_pessoa) {
+			$this->session->set_flashdata('error', 'Cadastro não existe!');
+			redirect($this->router->fetch_class());
+		}
+
+		//carrega a página de visualização do usuário
+
+		$data = array(
+			'titulo' => 'Visualizar pessoa',
+			'sub_titulo' => 'Chegou a hora de visualizar o cadastro',
+			'icone_view' => 'ik ik-user',
+			'pessoas' => $this->core_model->get_by_id('pessoa', array('id' => $id_pessoa)));
+
+		
+
+		if (!isset($data['pessoas'])) {
+			$this->session->set_flashdata('error', 'Usuário não encontrado!');
+			redirect('home');
+		}
+
+		$this->load->view('layout/header', $data);
+		$this->load->view('pessoa/visualizar');
+		$this->load->view('layout/footer');
+	}
+
 }
 	
 		

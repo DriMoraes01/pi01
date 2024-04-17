@@ -163,7 +163,35 @@ class Doacao extends CI_Controller {
 		}
 		
 		redirect($this->router->fetch_class());
-	} 	
+	}
+
+	public function visualizar($id_doacao = NULL)
+	{
+
+		if (!$id_doacao) {
+			$this->session->set_flashdata('error', 'Doação não existe!');
+			redirect($this->router->fetch_class());
+		}
+
+		//carrega a página de visualização do usuário
+
+		$data = array(
+			'titulo' => 'Visualizar doação',
+			'sub_titulo' => 'Chegou a hora de visualizar a doação',
+			'icone_view' => 'ik ik-user',
+			'doacoes' => $this->core_model->get_by_id('doacao', array('id' => $id_doacao))
+		);
+
+
+		if (!isset($data['doacoes'])) {
+			$this->session->set_flashdata('error', 'Doação não encontrada!');
+			redirect('home');
+		}
+
+		$this->load->view('layout/header', $data);
+		$this->load->view('doacao/visualizar');
+		$this->load->view('layout/footer');
+	}
 
 }
 	

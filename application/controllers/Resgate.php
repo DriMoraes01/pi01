@@ -184,8 +184,35 @@ class Resgate extends CI_Controller {
 		}
 		
 		redirect($this->router->fetch_class());
-	} 	
+	}
 
+	public function visualizar($id_resgate = NULL)
+	{
+
+		if (!$id_resgate) {
+			$this->session->set_flashdata('error', 'Resgate não ocorreu!');
+			redirect($this->router->fetch_class());
+		}
+
+		//carrega a página de visualização do usuário
+
+		$data = array(
+			'titulo' => 'Visualizar Resgate',
+			'sub_titulo' => 'Chegou a hora de visualizar o resgate',
+			'icone_view' => 'ik ik-user',
+			'resgates' => $this->core_model->get_by_id('resgate_animal', array('id' => $id_resgate))
+		);
+
+
+		if (!isset($data['resgates'])) {
+			$this->session->set_flashdata('error', 'Resgate não encontrado!');
+			redirect('home');
+		}
+
+		$this->load->view('layout/header', $data);
+		$this->load->view('resgate/visualizar');
+		$this->load->view('layout/footer');
+	}
 }
 	
 		
