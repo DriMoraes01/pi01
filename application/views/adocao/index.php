@@ -70,14 +70,10 @@
                                                     <tr>
                                                         <th class="text-center">#</th>
                                                         <th class="text-center">Nome</th>
-                                                        <th class="text-center">CPF</th>
-                                                        <th class="text-center">Endereço</th>
-                                                        <th class="text-center">Tipo de Animal</th>
+                                                        <th class="text-center">CPF</th>                                       <th class="text-center">Tipo de Animal</th>
                                                         <th class="text-center">Nome do Animal</th>
                                                         <th class="text-center">Sexo do Animal</th>
-                                                        <th class="text-center">Data da Adoção</th>
-                                                        <th class="text-center">Observação</th>
-                                                        <th class="nosort text-right pr-25">Ações</th>
+                                                        <th class="text-center">Data da Adoção</th>                                       <th class="nosort text-center pr-100">Ações</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -86,16 +82,15 @@
                                                             <tr>
                                                                 <td class="text-center"><?= $adocao->id; ?></td>
                                                                 <td class="text-center"><?= mb_strtoupper($adocao->nome_adotante); ?></td>
-                                                                <td class="text-center"><?= $adocao->cpf; ?></td>
-                                                                <td class="text-center"><?= $adocao->logradouro . ',&nbsp;' . $adocao->numero . '&nbsp;-&nbsp;' . $adocao->bairro . '&nbsp;-&nbsp;' . $adocao->localidade; ?></td>
+                                                                <td class="text-center"><?= $adocao->cpf; ?></td>                               
                                                                 <td class="text-center"><?= $adocao->tipo_animal; ?></td>
                                                                 <td class="text-center"><?= mb_strtoupper($adocao->nome_animal); ?></td>
                                                                 <td class="text-center"><?= $adocao->sexo_animal; ?></td>
                                                                 <td class="text-center"><?= formata_data_banco_sem_hora($adocao->data_adocao); ?></td>
-                                                                <td class="text-center"><?= $adocao->observacao; ?></td>
+                                                                </td>
                                                                 <td class="nosort text-right pr-25">
                                                                     <div class="table-actions">
-                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $adocao->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i><a data-toggle="tooltip" data-placement="bottom" title="Visualizar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/visualizar/' . $adocao->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-eye text-info"></i></a></a>
+                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Visualizar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/visualizar/' . $adocao->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-eye text-info"></i><a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $adocao->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a></a>
                                                                         <button type="button" data-toggle="modal" data-target="#categoria-<?= $adocao->id; ?>" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" class="btn btn-icon btn-danger"><i class="ik ik-trash-2"></i></button>
                                                                     </div>
                                                                 </td>

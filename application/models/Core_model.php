@@ -119,17 +119,18 @@ class Core_model extends CI_Model{
         return false;
     }
 
-    public function getFotos()
+    public function get_by_foto($id_animal = Null)
     {
         $this->db->select('foto');
-        $this->db->from('foto_animal fa');
-        $this->db->where('fa.excluido', 0);
-        $this->db->order_by('fa.id');
+        $this->db->from('foto_animal');
+        //$this->db->where('foto_animal.excluido', 0);
+        $this->db->where('foto_animal.id_animal', $id_animal);
+        $this->db->order_by('foto_animal.id_animal');
 
         $query = $this->db->get();
         if ($query->num_rows() >= 1) {
-            return $query->result();
-            //return $query->row();
+            //return $query->result();
+            return $query->row();
         }
         return false;
     }
@@ -190,21 +191,34 @@ class Core_model extends CI_Model{
 
     public function getFotoAnimal()
     {
-        $this->db->select('foto');
-        $this->db->from('foto_animal');
-        $this->db->where('foto_animal.excluido', 0);
-       // $this->db->distinct('fa.id_animal');
-        $this->db->order_by('foto_animal.id');
+        $this->db->select('*');
+        $this->db->from('animal');
+        $this->db->join('foto_animal', 'animal.id_animal = foto_animal.id_animal');
+        $this->db->where('animal.excluido', 0);
+        $this->db->order_by('animal.id_animal');
 
         $query = $this->db->get();
-
         if ($query->num_rows() >= 1) {
-            return $query->result();
+            //return $query->result();
+            return $query->row();
         }
         return false;
     }
 
-   
+    public function visualizar($table = NULL, $condition = NULL)
+    {
+        if ($table && $this->db->table_exists($table) && is_array($condition)) {
+
+
+            $this->db->where($condition);
+            $this->db->limit(1);
+
+            return $this->db->get($table)->result();
+        } else {
+            return FALSE;
+        }
+    }
+
 }   
     
     

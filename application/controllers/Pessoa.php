@@ -61,8 +61,8 @@ class Pessoa extends CI_Controller {
 		$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[100]|required');
 		$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]|required');
 		$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]|required');		
-		$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[20]');
-		$this->form_validation->set_rules('data_nascimento', 'Data de Nascimento', 'trim|min_length[1]|max_length[20]');
+		$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[20]|required');
+		$this->form_validation->set_rules('data_nascimento', 'Data de Nascimento', 'trim|min_length[1]|max_length[20]|required');
 		
 		if (!$this->form_validation->run()) {
 
@@ -134,7 +134,7 @@ class Pessoa extends CI_Controller {
 			$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]|required');
 			$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]|required');
 			$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[20]|required');
-			$this->form_validation->set_rules('data_nascimento', 'Data de Nascimento', 'trim|min_length[1]|max_length[20]');
+			$this->form_validation->set_rules('data_nascimento', 'Data de Nascimento', 'trim|min_length[1]|max_length[20]|required');
 			$this->form_validation->set_rules('observacao', 'Observacao', 'trim|min_length[1]|max_length[3000]');
 			
 			if (!$this->form_validation->run()){

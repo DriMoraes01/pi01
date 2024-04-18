@@ -74,15 +74,12 @@
                                                         <th class="text-center">Porte</th>
                                                         <th class="text-center">Castrado</th>
                                                         <th class="text-center">Data de Cadastro</th>
-                                                        <th class="text-center">Observação</th>
                                                         <th class="nosort text-right pr-25">Ações</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php if (isset($animais)) : ?>
                                                         <?php foreach ($animais as $animal) : ?>
-                                                            <!--   <//?php if (isset($fotos)) : ?>
-                                                                <//?php foreach ($fotos as $foto) : ?> -->
                                                             <tr>
                                                                 <td class="text-center"><img width="50" height="50" class="rounded-circle" src="<?= base_url($animal->foto) ?>"></td>
                                                                 <td class="text-center"><?= mb_strtoupper($animal->nome); ?></td>
@@ -98,11 +95,11 @@
                                                                 </td>
                                                                 <td class="text-center"><?= formata_data_banco_sem_hora($animal->data_cadastro); ?></td>
                                                                 <!--<td class="text-center"><img width="100" height="100" src="<//?= base_url($animal->foto_animal) ?>" alt="Imagem animal"></td> -->
-                                                                <td class="text-center"><?= $animal->observacao; ?></td>
 
-                                                                <td class="nosort text-right pr-25">
+                                                                <td class="nosort text-right pr-100">
                                                                     <div class="table-actions">
-                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $animal->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a>
+                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Visualizar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/visualizar/' . $animal->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-eye text-info"></i>
+                                                                            <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $animal->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a></a>
                                                                         <button type="button" data-toggle="modal" data-target="#categoria-<?= $animal->id; ?>" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" class="btn btn-icon btn-danger"><i class="ik ik-trash-2"></i></button>
                                                                     </div>
                                                                 </td>

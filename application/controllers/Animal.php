@@ -229,5 +229,36 @@ class Animal extends CI_Controller
 		}
 	}
 
+	public function visualizar($id_animal = NULL)
+	{
+
+		if (!$id_animal) {
+			$this->session->set_flashdata('error', 'Cadastro não existe!');
+			redirect($this->router->fetch_class());
+		}
+
+		//carrega a página de visualização do usuário
+
+		$data = array(
+			'titulo' => 'Visualizar animal',
+			'sub_titulo' => 'Chegou a hora de visualizar o cadastro',
+			'icone_view' => 'ik ik-user',
+			'animais' => $this->core_model->get_by_id('animal', array('id_animal' => $id_animal)),
+			'fotos' => $this->core_model->visualizar('foto_animal', array('id_animal' => $id_animal))
+		);
+		/*
+		echo '<pre>';
+		var_dump($data['fotos']);
+		exit;*/
+
+		if (!isset($data['animais'])) {
+			$this->session->set_flashdata('error', 'Animal não encontrado!');
+			redirect('home');
+		}
+
+		$this->load->view('layout/header', $data);
+		$this->load->view('animal/visualizar');
+		$this->load->view('layout/footer');
+	}
 	
 }

@@ -50,20 +50,20 @@ class Adocao extends CI_Controller {
 			redirect($this->router->fetch_class());	
 		}
 
-		$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[30]');
-		$this->form_validation->set_rules('nome_adotante', 'Nome do Adotante', 'trim|min_length[1]|max_length[20]');
+		$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[30]|required');
+		$this->form_validation->set_rules('nome_adotante', 'Nome do Adotante', 'trim|min_length[1]|max_length[20]|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|min_length[1]|max_length[255]');
-		$this->form_validation->set_rules('celular', 'Celular', 'trim|min_length[1]|max_length[20]');		
-		$this->form_validation->set_rules('nome_animal', 'Nome de Animal', 'trim|min_length[1]|max_length[30]');
-		$this->form_validation->set_rules('sexo_animal', 'Sexo do Animal', 'trim|min_length[1]|max_length[30]');
-		$this->form_validation->set_rules('tipo_animal', 'Tipo de Animal', 'trim|min_length[1]|max_length[30]');
-		$this->form_validation->set_rules('data_adocao', 'Data da Adoção', 'trim|min_length[1]|max_length[30]');
-		$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[10]');
-		$this->form_validation->set_rules('logradouro', 'Logradouro', 'trim|min_length[1]|max_length[255]');
-		$this->form_validation->set_rules('numero', 'Número', 'trim|min_length[1]|max_length[10]');
-		$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[100]');		
-		$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]');
-		$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]');
+		$this->form_validation->set_rules('celular', 'Celular', 'trim|min_length[1]|max_length[20]|required');		
+		$this->form_validation->set_rules('nome_animal', 'Nome de Animal', 'trim|min_length[1]|max_length[30]|required');
+		$this->form_validation->set_rules('sexo_animal', 'Sexo do Animal', 'trim|min_length[1]|max_length[30]|required');
+		$this->form_validation->set_rules('tipo_animal', 'Tipo de Animal', 'trim|min_length[1]|max_length[30]|required');
+		$this->form_validation->set_rules('data_adocao', 'Data da Adoção', 'trim|min_length[1]|max_length[30]|required');
+		$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[10]|required');
+		$this->form_validation->set_rules('logradouro', 'Logradouro', 'trim|min_length[1]|max_length[255]|required');
+		$this->form_validation->set_rules('numero', 'Número', 'trim|min_length[1]|max_length[10]|required');
+		$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[100]|required');		
+		$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]|required');
+		$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]|required');
 		$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
 		
 		if (!$this->form_validation->run()) {
@@ -123,20 +123,20 @@ class Adocao extends CI_Controller {
 
 		}else{
 
-			$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[30]');
-			$this->form_validation->set_rules('nome_adotante', 'Nome do Adotante', 'trim|min_length[1]|max_length[20]');
+			$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[30]|required');
+			$this->form_validation->set_rules('nome_adotante', 'Nome do Adotante', 'trim|min_length[1]|max_length[20]|required');
 			$this->form_validation->set_rules('email', 'Email', 'trim|min_length[1]|max_length[255]');
-			$this->form_validation->set_rules('celular', 'Celular', 'trim|min_length[1]|max_length[20]');
-			$this->form_validation->set_rules('nome_animal', 'Nome de Animal', 'trim|min_length[1]|max_length[30]');
-			$this->form_validation->set_rules('sexo_animal', 'Sexo do Animal', 'trim|min_length[1]|max_length[30]');
-			$this->form_validation->set_rules('tipo_animal', 'Tipo de Animal', 'trim|min_length[1]|max_length[30]');
-			$this->form_validation->set_rules('data_adocao', 'Data da Adoção', 'trim|min_length[1]|max_length[30]');
-			$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[10]');
-			$this->form_validation->set_rules('logradouro', 'Logradouro', 'trim|min_length[1]|max_length[255]');
-			$this->form_validation->set_rules('numero', 'Número', 'trim|min_length[1]|max_length[10]');
-			$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[100]');
-			$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]');
-			$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]');
+			$this->form_validation->set_rules('celular', 'Celular', 'trim|min_length[1]|max_length[20]|required');
+			$this->form_validation->set_rules('nome_animal', 'Nome de Animal', 'trim|min_length[1]|max_length[30]|required');
+			$this->form_validation->set_rules('sexo_animal', 'Sexo do Animal', 'trim|min_length[1]|max_length[30]|required');
+			$this->form_validation->set_rules('tipo_animal', 'Tipo de Animal', 'trim|min_length[1]|max_length[30]|required');
+			$this->form_validation->set_rules('data_adocao', 'Data da Adoção', 'trim|min_length[1]|max_length[30]|required');
+			$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[10]|required');
+			$this->form_validation->set_rules('logradouro', 'Logradouro', 'trim|min_length[1]|max_length[255]|required');
+			$this->form_validation->set_rules('numero', 'Número', 'trim|min_length[1]|max_length[10]|required');
+			$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[100]|required');
+			$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]|required');
+			$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]|required');
 			$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
 				
 		

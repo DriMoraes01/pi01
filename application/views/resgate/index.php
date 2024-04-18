@@ -42,18 +42,18 @@
                                 </div>
                             </div>
 
-                            <!-- <//?//php elseif ($message = $this->session->flashdata('error')) : ?>
+                        <?php elseif ($message = $this->session->flashdata('error')) : ?>
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="alert bg-danger alert-danger text-white alert-dismissible fade show" role="alert">
-                                        <strong><//?= $message ?></strong>
+                                        <strong></ /?=$message ?></strong>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <i class="ik ik-x"></i>
                                         </button>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
 
                         <?php endif; ?>
 
@@ -73,8 +73,7 @@
                                                         <th class="text-center">Sexo</th>
                                                         <th class="text-center">Endereço</th>
                                                         <th class="text-center">Data de Resgate</th>
-                                                        <th class="text-center">Observação</th>
-                                                        <th class="nosort text-right pr-25">Ações</th>
+                                                        <th class="nosort text-center pr-25">Ações</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -86,10 +85,9 @@
                                                                 <td class="text-center"><?= $resgate->sexo; ?></td>
                                                                 <td class="text-center"><?= $resgate->logradouro . ',&nbsp;' . $resgate->numero . '&nbsp;-&nbsp;' . $resgate->bairro . '&nbsp;-&nbsp;' . $resgate->localidade; ?></td>
                                                                 <td class="text-center"><?= formata_data_banco_sem_hora($resgate->data_resgate); ?></td>
-                                                                <td class="text-center"><?= $resgate->observacao; ?></td>
-                                                                <td class="nosort text-right pr-25">
+                                                                <td class="nosort text-right pr-50">
                                                                     <div class="table-actions">
-                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $resgate->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i><a data-toggle="tooltip" data-placement="bottom" title="Visualizar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/visualizar/' . $resgate->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-eye text-info"></i></a></a>
+                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Visualizar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/visualizar/' . $resgate->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-eye text-info"></i><a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $resgate->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a></a>
                                                                         <button type="button" data-toggle="modal" data-target="#categoria-<?= $resgate->id; ?>" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" class="btn btn-icon btn-danger"><i class="ik ik-trash-2"></i></button>
                                                                     </div>
                                                                 </td>

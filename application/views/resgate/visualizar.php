@@ -38,22 +38,22 @@
                                     <div class="form-group row">
                                         <div class="col-md-2 mb-20">
                                             <label>Tipo de Animal</label>
-                                            <input type="text" class="form-control" id="animal" name="animal" value="<?= isset($resgate) ? $resgate->animal : ''; ?>" readonly>                                           
+                                            <input type="text" class="form-control" id="animal" name="animal" value="<?= isset($resgate) ? $resgate->animal : ''; ?>" readonly>
                                         </div>
                                         <div class="col-md-4 mb-20">
                                             <label>Data de Resgate</label>
-                                            <input type="text" class="form-control" id="data_resgate" name="data_resgate" value="<?= isset($resgate) ? $resgate->data_resgate : ''; ?>" readonly>                                            
+                                            <input type="text" class="form-control" id="data_resgate" name="data_resgate" value="<?= isset($resgate) ? $resgate->data_resgate : ''; ?>" readonly>
                                         </div>
                                         <div class="col-md-3 mb-20">
                                             <label>Sexo</label> </br>
-                                            <input type="text" name="sexo" id="sexo" value="<?= isset($resgate) ? $resgate->sexo :''; ?>" readonly>                                        
+                                            <input type="text" name="sexo" id="sexo" value="<?= isset($resgate) ? $resgate->sexo : ''; ?>" readonly class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-3 mb-20">
                                             <label for="cep">CEP:</label>
                                             <div class="input-group mb-3">
-                                                <input type="text" class="form-control" id="cep" name="cep" maxlength="9" value="<?= isset($resgate) ? $resgate->cep : ''; ?>" readonly>                                       
+                                                <input type="text" class="form-control" id="cep" name="cep" maxlength="9" value="<?= isset($resgate) ? $resgate->cep : ''; ?>" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -61,41 +61,37 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="logradouro">Logradouro:</label>
-                                                <input type="text" class="form-control" id="logradouro" name="logradouro" value="<?= isset($resgate) ? $resgate->logradouro : ''; ?>" readonly>                                       
+                                                <input type="text" class="form-control" id="logradouro" name="logradouro" value="<?= isset($resgate) ? $resgate->logradouro : ''; ?>" readonly>
                                             </div>
                                         </div>
                                         <div class="col-md-1">
                                             <div class="form-group">
                                                 <label for="numero">N°:</label>
-                                                <input type="text" class="form-control" id="numero" name="numero" value="<?= isset($resgate) ? $resgate->numero : ''; ?>" readonly>                                      
+                                                <input type="text" class="form-control" id="numero" name="numero" value="<?= isset($resgate) ? $resgate->numero : ''; ?>" readonly>
                                             </div>
-                                        </div>                                       
+                                        </div>
                                         <div class="col-md-3 ml-20">
                                             <label>Bairro</label>
-                                            <input type="text" class="form-control" id="bairro" name="bairro" value="<?= isset($resgate) ? $resgate->bairro :''; ?>" readonly>                                            
+                                            <input type="text" class="form-control" id="bairro" name="bairro" value="<?= isset($resgate) ? $resgate->bairro : ''; ?>" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="localidade">Cidade:</label>
-                                                <input type="text" class="form-control" id="localidade" name="localidade" value="<?= isset($resgate) ? $resgate->localidade : ''; ?>" readonly>                                                
+                                                <input type="text" class="form-control" id="localidade" name="localidade" value="<?= isset($resgate) ? $resgate->localidade : ''; ?>" readonly>
                                             </div>
                                         </div>
                                         <div class="col-md-1">
                                             <div class="form-group">
                                                 <label for="uf">UF:</label>
-                                                <input type="text" class="form-control" id="uf" name="uf" value="<?= (isset($resgate) ? $resgate->uf : set_value('uf')); ?>">
-                                                <?= form_error('uf', '<div class="text-danger">', '</div>'); ?>
-                                                <small></small>
+                                                <input type="text" class="form-control" id="uf" name="uf" value="<?= isset($resgate) ? $resgate->uf : ''; ?>" readonly>
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="observacao">Observação</label>
-                                                <input type="text" class="form-control" id="observacao" name="observacao" value="<?= (isset($resgate) ? $resgate->observacao : set_value('observacao')); ?>">
-                                                <?= form_error('observacao', '<div class="text-danger">', '</div>'); ?>
-                                                <small></small>
+                                                <input type="text" class="form-control" id="observacao" name="observacao" value="<?= isset($resgate) ? $resgate->observacao : ''; ?>" readonly>
                                             </div>
                                         </div>
                                     </div>

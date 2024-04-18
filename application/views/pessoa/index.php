@@ -70,12 +70,11 @@
                                                     <tr>
                                                         <th class="text-center">#</th>
                                                         <th class="text-center">Nome</th>
-                                                        <th class="text-center">Data de Nascimento</th>
-                                                        <th class="text-center">Endereço</th>
+                                                        <th class="text-center">Data de Nascimento</th>                                       
                                                         <th class="text-center">Celular</th>
                                                         <th class="text-center">E-mail</th>
                                                         <th class="text-center">Data de Cadastro</th>
-                                                        <th class="nosort text-right pr-30">Ações</th>
+                                                        <th class="nosort text-center pr-30">Ações</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -84,15 +83,14 @@
                                                             <tr>
                                                                 <td class="text-center"><?= $pessoa->id; ?></td>
                                                                 <td class="text-center"><?= mb_strtoupper($pessoa->nome); ?></td>
-                                                                <td class="text-center"><?= formata_data_banco_sem_hora($pessoa->data_nascimento); ?></td>
-                                                                <td class="text-center"><?= $pessoa->logradouro . ',&nbsp;' . $pessoa->numero . '&nbsp;-&nbsp;' . $pessoa->bairro . '&nbsp;-&nbsp;' . $pessoa->localidade; ?></td>
+                                                                <td class="text-center"><?= formata_data_banco_sem_hora($pessoa->data_nascimento); ?></td>                              
                                                                 <td class="text-center"><?= $pessoa->celular; ?></td>
                                                                 <td class="text-center"><?= $pessoa->email; ?></td>
                                                                 <td class="text-center"><?= formata_data_banco_sem_hora($pessoa->data_cadastro); ?></td>
-                                                                <td class="nosort text-right pr-25">
+                                                                <td class="nosort text-center pr-100">
                                                                     <div class="table-actions">
-                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $pessoa->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i><a data-toggle="tooltip" data-placement="bottom" title="Visualizar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/visualizar/' . $pessoa->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-eye text-info"></i></a></a>
-                                                                            <button type="button" data-toggle="modal" data-target="#categoria-<?= $pessoa->id; ?>" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" class="btn btn-icon btn-danger"><i class="ik ik-trash-2"></i></button>
+                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Visualizar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/visualizar/' . $pessoa->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-eye text-info"></i><a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $pessoa->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a></a>
+                                                                        <button type="button" data-toggle="modal" data-target="#categoria-<?= $pessoa->id; ?>" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" class="btn btn-icon btn-danger"><i class="ik ik-trash-2"></i></button>
                                                                     </div>
                                                                 </td>
                                                             </tr>

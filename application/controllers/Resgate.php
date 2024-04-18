@@ -45,16 +45,16 @@ class Resgate extends CI_Controller {
 			redirect($this->router->fetch_class());	
 		}
 
-		$this->form_validation->set_rules('animal', 'Tipo de Animal', 'trim|min_length[1]|max_length[30]');
-		$this->form_validation->set_rules('data_resgate', 'Data do Resgate', 'trim|min_length[1]|max_length[20]');		
-		$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[10]');
-		$this->form_validation->set_rules('logradouro', 'Logradouro', 'trim|min_length[1]|max_length[255]');
-		$this->form_validation->set_rules('numero', 'Número', 'trim|min_length[1]|max_length[10]');
-		$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[100]');		
-		$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]');
-		$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]');
+		$this->form_validation->set_rules('animal', 'Tipo de Animal', 'trim|min_length[1]|max_length[30]|required');
+		$this->form_validation->set_rules('data_resgate', 'Data do Resgate', 'trim|min_length[1]|max_length[20]|required');		
+		$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[10]|required');
+		$this->form_validation->set_rules('logradouro', 'Logradouro', 'trim|min_length[1]|max_length[255]|required');
+		$this->form_validation->set_rules('numero', 'Número', 'trim|min_length[1]|max_length[10]|required');
+		$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[100]|required');		
+		$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]|required');
+		$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]|required');
 		$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
-		$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[1]|max_length[10]');
+		$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[1]|max_length[10]|required');
 		
 		if (!$this->form_validation->run()) {
 
@@ -87,11 +87,16 @@ class Resgate extends CI_Controller {
 			$data['observacao'] = $this->input->post('observacao');
 			$data['sexo'] = $this->input->post('sexo');							
 
-			$data = html_escape($data);				
-
-			$this->core_model->insert('resgate_animal', $data);
-			$this->session->set_flashdata('sucesso', 'Resgate cadastrado com sucesso!');
-			redirect($this->router->fetch_class());	
+			$data = html_escape($data);	
+			
+			if($this->core_model->insert('resgate_animal', $data)){
+				$this->session->set_flashdata('sucesso', 'Resgate cadastrado com sucesso!');
+				redirect($this->router->fetch_class());	
+			}else{
+				$this->session->set_flashdata('erro', 'Resgate não cadastrado!');
+				redirect($this->router->fetch_class());
+			}		
+			
 		}	
 
 	}	
@@ -106,7 +111,7 @@ class Resgate extends CI_Controller {
 			redirect($this->router->fetch_class());
 
 		}else{
-			$this->form_validation->set_rules('animal', 'Tipo de Animal', 'trim|min_length[1]|max_length[30]');
+			$this->form_validation->set_rules('animal', 'Tipo de Animal', 'trim|min_length[1]|max_length[30]|required');
 			$this->form_validation->set_rules('data_resgate', 'Data do Resgate', 'trim|min_length[1]|max_length[20]');
 			$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[9]');
 			$this->form_validation->set_rules('logradouro', 'Logradouro', 'trim|min_length[1]|max_length[255]');
@@ -154,10 +159,13 @@ class Resgate extends CI_Controller {
 
 				$data = html_escape($data);				
 	
-				$this->core_model->update('resgate_animal', $data, array('id' => $id));
-
-				$this->session->set_flashdata('sucesso', 'Dados atualizados com sucesso!');
-				redirect($this->router->fetch_class()); 				
+				if($this->core_model->update('resgate_animal', $data, array('id' => $id))){
+					$this->session->set_flashdata('sucesso', 'Dados atualizados com sucesso!');
+					redirect($this->router->fetch_class()); 
+				}else{
+					$this->session->set_flashdata('erro', 'Dados atualizados com sucesso!');
+					redirect($this->router->fetch_class()); 
+				}								
 			}		
 		}	
 		
