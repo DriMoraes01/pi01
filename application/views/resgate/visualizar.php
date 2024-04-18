@@ -69,22 +69,17 @@
                                                 <label for="numero">N°:</label>
                                                 <input type="text" class="form-control" id="numero" name="numero" value="<?= isset($resgate) ? $resgate->numero : ''; ?>" readonly>                                      
                                             </div>
-                                        </div>
-                                        <!-- parei aqui -->
+                                        </div>                                       
                                         <div class="col-md-3 ml-20">
                                             <label>Bairro</label>
-                                            <input type="text" class="form-control" id="bairro" name="bairro" value="<?= (isset($resgate) ? $resgate->bairro : set_value('bairro')); ?>">
-                                            <?= form_error('bairro', '<div class="text-danger">', '</div>'); ?>
-                                            <small></small>
+                                            <input type="text" class="form-control" id="bairro" name="bairro" value="<?= isset($resgate) ? $resgate->bairro :''; ?>" readonly>                                            
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="localidade">Cidade:</label>
-                                                <input type="text" class="form-control" id="localidade" name="localidade" value="<?= (isset($resgate) ? $resgate->localidade : set_value('localidade')); ?>">
-                                                <?= form_error('localidade', '<div class="text-danger">', '</div>'); ?>
-                                                <small></small>
+                                                <input type="text" class="form-control" id="localidade" name="localidade" value="<?= isset($resgate) ? $resgate->localidade : ''; ?>" readonly>                                                
                                             </div>
                                         </div>
                                         <div class="col-md-1">
