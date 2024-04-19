@@ -103,12 +103,17 @@ class Pessoa extends CI_Controller {
 
 			$data = html_escape($data);				
 
+			
+			if(!(isset($data))){
+				redirect($this->router->fetch_class());
+
+			}
+
 			$this->core_model->insert('pessoa', $data);
 			$this->session->set_flashdata('sucesso', 'Pessoa cadastrada com sucesso!');
 			redirect($this->router->fetch_class());	
-		}	
-
-	}	
+	}
+}
 
 
 	public function alterar($id = NULL)
@@ -178,15 +183,10 @@ class Pessoa extends CI_Controller {
 				$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');						
 				
 				$data = html_escape($data);				
-	
-				if (!$this->core_model->update('pessoa', $data, array('id' => $id))){
-					$this->session->set_flashdata('erro', 'Dados  não foram atualizados');
-					redirect($this->router->fetch_class()); 	
-				} else {
-					$this->session->set_flashdata('sucesso', 'Dados atualizados com sucesso!');
-					redirect($this->router->fetch_class());
-				}
-								 				
+
+				$this->core_model->update('pessoa', $data, array('id' => $id));
+				$this->session->set_flashdata('erro', 'Dados  não foram atualizados');
+				redirect($this->router->fetch_class());				 				
 			}		
 		}	
 		
@@ -215,6 +215,7 @@ class Pessoa extends CI_Controller {
 		redirect($this->router->fetch_class());
 	}
 
+	/*
 	private function do_upload()
 	{
 		$config['upload_path']          = './uploads/';
@@ -234,7 +235,7 @@ class Pessoa extends CI_Controller {
 			return $data;
 		}
 	}
-
+*/
 	public function visualizar($id_pessoa = NULL)
 	{
 
@@ -249,14 +250,7 @@ class Pessoa extends CI_Controller {
 			'titulo' => 'Visualizar pessoa',
 			'sub_titulo' => 'Chegou a hora de visualizar o cadastro',
 			'icone_view' => 'ik ik-user',
-			'pessoas' => $this->core_model->get_by_id('pessoa', array('id' => $id_pessoa)));
-
-		
-
-		if (!isset($data['pessoas'])) {
-			$this->session->set_flashdata('error', 'Usuário não encontrado!');
-			redirect('home');
-		}
+			'pessoas' => $this->core_model->get_by_id('pessoa', array('id' => $id_pessoa)));		
 
 		$this->load->view('layout/header', $data);
 		$this->load->view('pessoa/visualizar');

@@ -42,18 +42,19 @@
                                 </div>
                             </div>
 
-                        <?php elseif ($message = $this->session->flashdata('error')) : ?>
+                            <!--    
+                        <//?php elseif ($message = $this->session->flashdata('error')) : ?>
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="alert bg-danger alert-danger text-white alert-dismissible fade show" role="alert">
-                                        <strong><?= $message ?></strong>
+                                        <strong><//?= $message ?></strong>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <i class="ik ik-x"></i>
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                         <?php endif; ?>
 
@@ -70,7 +71,7 @@
                                                     <tr>
                                                         <th class="text-center">#</th>
                                                         <th class="text-center">Nome</th>
-                                                        <th class="text-center">Data de Nascimento</th>                                       
+                                                        <th class="text-center">Data de Nascimento</th>
                                                         <th class="text-center">Celular</th>
                                                         <th class="text-center">E-mail</th>
                                                         <th class="text-center">Data de Cadastro</th>
@@ -83,7 +84,7 @@
                                                             <tr>
                                                                 <td class="text-center"><?= $pessoa->id; ?></td>
                                                                 <td class="text-center"><?= mb_strtoupper($pessoa->nome); ?></td>
-                                                                <td class="text-center"><?= formata_data_banco_sem_hora($pessoa->data_nascimento); ?></td>                              
+                                                                <td class="text-center"><?= formata_data_banco_sem_hora($pessoa->data_nascimento); ?></td>
                                                                 <td class="text-center"><?= $pessoa->celular; ?></td>
                                                                 <td class="text-center"><?= $pessoa->email; ?></td>
                                                                 <td class="text-center"><?= formata_data_banco_sem_hora($pessoa->data_cadastro); ?></td>

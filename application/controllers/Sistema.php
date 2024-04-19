@@ -46,8 +46,7 @@ class Sistema extends CI_Controller {
 
 				'titulo' => 'Editar informações do sistema',
 				'sub_titulo' => 'Chegou a hora de editar as informações do sistema',
-				'icone_view' => 'ik ik-settings',
-				
+				'icone_view' => 'ik ik-settings',				
 				'sistema' => $this->core_model->get_by_id('sistema', array('sistema_id' => 1)),			
 			);		
 	

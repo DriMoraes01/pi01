@@ -20,7 +20,7 @@ class Adocao extends CI_Controller {
 		$data = array(
 			'titulo' => 'Adoções Cadastradas',
 			'sub_titulo' => 'Listando as adoções cadastradas no sistema',
-			'icone_view' => 'ik ik-user',			
+			'icone_view' => 'ik ik-sun',			
 			'adocoes' => $this->core_model->get_all('adocao', array('excluido' => 0)),				
 			'styles' => array(
 				'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
@@ -70,7 +70,7 @@ class Adocao extends CI_Controller {
 
 			$data = array(
 				'titulo' => 'Cadastrar Adoção',				
-				'icone_view' => 'ik ik-user',	
+				'icone_view' => 'ik ik-sun',	
 				'styles' => array(
 					'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
 				),
@@ -145,7 +145,7 @@ class Adocao extends CI_Controller {
 
 				$data = array(
 					'titulo' => 'Editar Cadastro',					
-					'icone_view' => 'ik ik-user',						
+					'icone_view' => 'ik ik-sun',						
 					'adocoes' => $this->core_model->get_by_id('adocao', array('id' => $id)),
 					'styles' => array(
 						'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
@@ -179,10 +179,13 @@ class Adocao extends CI_Controller {
 				$data['uf'] = $this->input->post('uf');
 				$data['observacao'] = $this->input->post('observacao');								
 
-				$data = html_escape($data);				
+				$data = html_escape($data);
+
+				if (!(isset($data))) {
+					redirect($this->router->fetch_class());
+				}
 	
 				$this->core_model->update('adocao', $data, array('id' => $id));
-
 				$this->session->set_flashdata('sucesso', 'Dados atualizados com sucesso!');
 				redirect($this->router->fetch_class()); 				
 			}		
@@ -225,7 +228,7 @@ class Adocao extends CI_Controller {
 		$data = array(
 			'titulo' => 'Visualizar Adoção',
 			'sub_titulo' => 'Chegou a hora de visualizar a adoção',
-			'icone_view' => 'ik ik-user',
+			'icone_view' => 'ik ik-sun',
 			'adocoes' => $this->core_model->get_by_id('adocao', array('id' => $id_adocao))
 		);
 

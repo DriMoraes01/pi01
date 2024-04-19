@@ -20,7 +20,7 @@ class Doacao extends CI_Controller {
 		$data = array(
 			'titulo' => 'Doações Cadastradas',
 			'sub_titulo' => 'Listando as doações cadastradas no sistema',
-			'icone_view' => 'ik ik-user',			
+			'icone_view' => 'ik ik-heart-on',			
 			'doacoes' => $this->core_model->get_all('doacao', array('excluido' => 0)),				
 			'styles' => array(
 				'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
@@ -57,7 +57,7 @@ class Doacao extends CI_Controller {
 
 			$data = array(
 				'titulo' => 'Cadastrar Doação',				
-				'icone_view' => 'ik ik-user',	
+				'icone_view' => 'ik ik-heart-on',	
 				'styles' => array(
 					'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
 				),					
@@ -79,7 +79,11 @@ class Doacao extends CI_Controller {
 			$data['email'] = $this->input->post('email');
 			$data['data_doacao'] = $this->input->post('data_doacao');				
 
-			$data = html_escape($data);				
+			$data = html_escape($data);
+
+			if (!(isset($data))) {
+				redirect($this->router->fetch_class());
+			}
 
 			$this->core_model->insert('doacao', $data);
 			$this->session->set_flashdata('sucesso', 'Doação cadastrada com sucesso!');
@@ -108,7 +112,7 @@ class Doacao extends CI_Controller {
 
 				$data = array(
 					'titulo' => 'Editar Cadastro',					
-					'icone_view' => 'ik ik-user',						
+					'icone_view' => 'ik ik-heart-on',						
 					'doacoes' => $this->core_model->get_by_id('doacao', array('id' => $id)),
 					'styles' => array(
 						'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',				
@@ -178,7 +182,7 @@ class Doacao extends CI_Controller {
 		$data = array(
 			'titulo' => 'Visualizar doação',
 			'sub_titulo' => 'Chegou a hora de visualizar a doação',
-			'icone_view' => 'ik ik-user',
+			'icone_view' => 'ik ik-heart-on',
 			'doacoes' => $this->core_model->get_by_id('doacao', array('id' => $id_doacao))
 		);
 

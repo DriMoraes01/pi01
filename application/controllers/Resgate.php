@@ -87,15 +87,15 @@ class Resgate extends CI_Controller {
 			$data['observacao'] = $this->input->post('observacao');
 			$data['sexo'] = $this->input->post('sexo');							
 
-			$data = html_escape($data);	
-			
-			if($this->core_model->insert('resgate_animal', $data)){
-				$this->session->set_flashdata('sucesso', 'Resgate cadastrado com sucesso!');
-				redirect($this->router->fetch_class());	
-			}else{
-				$this->session->set_flashdata('erro', 'Resgate não cadastrado!');
+			$data = html_escape($data);
+
+			if (!(isset($data))) {
 				redirect($this->router->fetch_class());
-			}		
+			}
+
+			$this->core_model->insert('resgate_animal', $data);
+			$this->session->set_flashdata('sucesso', 'Resgate cadastrado com sucesso!');
+			redirect($this->router->fetch_class());	
 			
 		}	
 
@@ -211,11 +211,11 @@ class Resgate extends CI_Controller {
 			'resgates' => $this->core_model->get_by_id('resgate_animal', array('id' => $id_resgate))
 		);
 
-
+		/*
 		if (!isset($data['resgates'])) {
 			$this->session->set_flashdata('error', 'Resgate não encontrado!');
 			redirect('home');
-		}
+		} */
 
 		$this->load->view('layout/header', $data);
 		$this->load->view('resgate/visualizar');

@@ -104,8 +104,12 @@ class Animal extends CI_Controller
 				$this->load->view('animal/cadastrar');
 				$this->load->view('layout/footer');
 				return;
-			/*$data['foto_animal'] = '/uploads/' . $foto['upload_data']['file_name'];*/			
+			/*$data['foto_animal'] = '/uploads/' . $foto['upload_data']['file_name'];*/
 
+			if (!(isset($data))) {
+				redirect($this->router->fetch_class());
+			}
+			
 			$this->core_model->insert('animal', $data);
 			$this->session->set_flashdata('sucesso', 'Animal cadastrado com sucesso!');
 			redirect($this->router->fetch_class());
