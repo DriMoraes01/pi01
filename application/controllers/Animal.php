@@ -20,9 +20,8 @@ class Animal extends CI_Controller
 		$data = array(
 			'titulo' => 'Animais Cadastrados',
 			'sub_titulo' => 'Listando os animais cadastrados no sistema',
-			'icone_view' => 'ik ik-user',
+			'icone_view' => 'ik ik-star-on',
 			'animais' => $this->core_model->getAnimais(),			
-			//'fotos' => $this->core_model->getFotos(),
 			'styles' => array(
 				'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',
 			),
@@ -31,11 +30,6 @@ class Animal extends CI_Controller
 				'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js',
 			),
 		);
-
-		/*
-		echo '<pre>';
-		print_r($data['animais']);
-		exit(); */
 		
 		$this->load->view('layout/header', $data);
 		$this->load->view('animal/index');
@@ -57,13 +51,13 @@ class Animal extends CI_Controller
 		$this->form_validation->set_rules('cor', 'Cor', 'trim|min_length[1]|max_length[9]');
 		$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[10]|required');
 		$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
-		//$this->form_validation->set_rules('excluido', 'Excluido', 'exact_length[1]');
+		
 
 		if (!$this->form_validation->run()) {
 
 			$data = array(
 				'titulo' => 'Cadastrar Animal',
-				'icone_view' => 'ik ik-user',
+				'icone_view' => 'ik ik-star-on',
 				'styles' => array(
 					'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',
 				),
@@ -86,9 +80,7 @@ class Animal extends CI_Controller
 			$data['data_cadastro'] = $this->input->post('data_cadastro');
 			$data['observacao'] = $this->input->post('observacao');
 			$data['castrado'] = $this->input->post('castrado');
-			$data['tipo_animal'] = $this->input->post('tipo_animal');
-			//$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');
-			//$data['excluido'] = $this->input->post('excluido');			
+			$data['tipo_animal'] = $this->input->post('tipo_animal');			
 
 			$data = html_escape($data);
 
@@ -136,14 +128,13 @@ class Animal extends CI_Controller
 			$this->form_validation->set_rules('porte', 'Porte', 'trim|min_length[1]|max_length[10]');
 			$this->form_validation->set_rules('cor', 'Cor', 'trim|min_length[1]|max_length[20]');
 			$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
-
-			/*$this->form_validation->set_rules('foto_animal', 'Foto do Animal', 'trim|min_length[1]|max_length[255]');*/
+		
 
 			if (!$this->form_validation->run()) {
 
 				$data = array(
 					'titulo' => 'Editar Cadastro',
-					'icone_view' => 'ik ik-user',
+					'icone_view' => 'ik ik-star-on',
 					'animais' => $this->core_model->get_by_id('animal', array('id_animal' => $id)),
 					'styles' => array(
 						'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',
@@ -199,8 +190,8 @@ class Animal extends CI_Controller
 			exit;*/
 
 			$this->db->where('id_animal', $id);
+			
 			if ($this->db->update('animal', $data)) {
-				$this->db->update('foto_animal', $data);
 				$this->session->set_flashdata('sucesso', 'Cadastro excluído com sucesso!');
 			}
 		}
@@ -237,12 +228,12 @@ class Animal extends CI_Controller
 			redirect($this->router->fetch_class());
 		}
 
-		//carrega a página de visualização do usuário
+		//carrega a página de visualização do animal
 
 		$data = array(
 			'titulo' => 'Visualizar animal',
 			'sub_titulo' => 'Chegou a hora de visualizar o cadastro',
-			'icone_view' => 'ik ik-user',
+			'icone_view' => 'ik ik-star-on',
 			'animais' => $this->core_model->get_by_id('animal', array('id_animal' => $id_animal)),
 			'fotos' => $this->core_model->visualizar('foto_animal', array('id_animal' => $id_animal))
 		);

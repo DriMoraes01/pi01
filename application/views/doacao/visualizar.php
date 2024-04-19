@@ -55,7 +55,7 @@
                                         <div class="col-md-2 mt-10">
                                             <div class="form-group">
                                                 <label for="data_doacao">Data da Doação</label>
-                                                <input type="text" class="form-control" id="data_doacao" name="data_doacao" value="<?= isset($doacao) ? $doacao->data_doacao : ''; ?>" readonly="">                                                
+                                                <input type="text" class="form-control" id="data_doacao" name="data_doacao" value="<?= isset($doacao) ? formata_data_banco_sem_hora($doacao->data_doacao) : ''; ?>" readonly="">                                                
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-10">

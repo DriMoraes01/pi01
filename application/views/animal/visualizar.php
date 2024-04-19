@@ -47,35 +47,67 @@
                                     <div class="form-group row">
                                         <div class="col-md-4 mb-20">
                                             <label for="nome">Nome do Animal</label>
-                                            <input type="text" class="form-control" id="nome" name="nome" value="<?= (isset($animal) ? $animal->nome : set_value('nome')); ?>" style="text-transform: uppercase;">
-                                            <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
+                                            <input type="text" class="form-control" id="nome" name="nome" value="<?= isset($animal) ? $animal->nome : ''; ?>" style="text-transform: uppercase;" readonly>
                                         </div>
                                         <div class="form-group">
-                                            <label for="castrado">Castrado</label>
-                                            <select name="castrado" id="castrado">
-                                                <option value="1">Sim</option>
-                                                <option value="0">Não</option>
-                                                <?= form_error('castrado', '<div class="text-danger">', '</div>'); ?>
-                                            </select>
-                                            <small></small>
-                                        </div>
-                                    </div>
-                                    
-
-                                    <?php if (isset($animal)) : ?>
-                                        <div class="form-group row">
-                                            <div class="col-md-12">
-                                                <input type="hidden" class="form-control" name="id" value="<?= $animal->id_animal; ?>">
+                                            <div class="col-md-6 mb-20">
+                                                <div class="form-group">
+                                                    <label for="castrado">Castrado</label>
+                                                    <?php if (($animal->castrado == '0')) : ?>
+                                                        <input type="text" class="form-control" name="castrado" id="castrado" value="<?= 'Não'; ?>" readonly>
+                                                    <?php else : ?>
+                                                        <input type="text" class="form-control" name="castrado" id="castrado" value="<?= 'Sim'; ?>" readonly>
+                                                    <?php endif; ?>
+                                                </div>    
+                                            </div>
                                             </div>
                                         </div>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                                <div class="form-group row">
-                                    <div class="col-md-12 ml-20">
-                                        <button type="submit" class="btn btn-primary mr-2">Salvar</button>
-                                        <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info">Voltar</a>
+                                        <div class="form-group row">
+                                            <div class="col-md-1">
+                                                <div class="form-group">
+                                                    <label for="cor">Cor</label>
+                                                    <input type="text" class="form-control" id="cor" name="cor" value="<?= isset($animal) ? $animal->cor : ''; ?>" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 mb-20">
+                                                <label for="raca">Raça</label>
+                                                <input type="text" id="raca" class="form-control" name="raca" value="<?= isset($animal) ? $animal->raca : ''; ?>" readonly>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="porte">Porte</label>
+                                                    <input type="text" id="porte" class="form-control" name="porte" value="<?= isset($animal) ? $animal->porte : ''; ?>" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="sexo">Sexo</label>
+                                                    <input type="text" id="sexo" class="form-control" name="sexo" value="<?= isset($animal) ? $animal->sexo : ''; ?>" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="observacao">Observação:</label>
+                                                    <input type="text" class="form-control" id="observacao" name="observacao" value="<?= isset($animal) ? $animal->observacao : ''; ?>" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php if (isset($animal)) : ?>
+                                            <div class="form-group row">
+                                                <div class="col-md-12">
+                                                    <input type="hidden" class="form-control" name="id" value="<?= $animal->id_animal; ?>">
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                    <div class="form-group row">
+                                        <div class="col-md-12 ml-20">
+                                            <button type="submit" class="btn btn-primary mr-2">Salvar</button>
+                                            <a href="<?= base_url($this->router->fetch_class()); ?>" class="btn btn-info">Voltar</a>
+                                        </div>
                                     </div>
-                                </div>
                                 </form>
                             </div>
                         </div>
