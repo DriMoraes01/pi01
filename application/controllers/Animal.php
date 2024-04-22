@@ -9,10 +9,10 @@ class Animal extends CI_Controller
 		parent::__construct();
 
 		//chama o controller login se o usuário não estiver logado
-		/*if (!$this->ion_auth->logged_in())
+		if (!$this->ion_auth->logged_in())
 		{
 			redirect('login');
-		}*/
+		}
 	}
 
 	public function index()
@@ -188,10 +188,7 @@ class Animal extends CI_Controller
 
 			$data = array(
 				'excluido' => 1
-			);
-			/*
-			var_dump($data);
-			exit;*/
+			);			
 
 			$this->db->where('id_animal', $id);
 			
@@ -241,11 +238,7 @@ class Animal extends CI_Controller
 			'animais' => $this->core_model->get_by_id('animal', array('id_animal' => $id_animal)),
 			'fotos' => $this->core_model->visualizar('foto_animal', array('id_animal' => $id_animal))
 		);
-		/*
-		echo '<pre>';
-		var_dump($data['fotos']);
-		exit;*/
-
+		
 		if (!isset($data['animais'])) {
 			$this->session->set_flashdata('error', 'Animal não encontrado!');
 			redirect('home');

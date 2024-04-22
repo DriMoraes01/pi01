@@ -8,10 +8,10 @@ class Adocao extends CI_Controller {
 		parent:: __construct();
 
 		//chama o controller login se o usuário não estiver logado
-		/*if (!$this->ion_auth->logged_in())
+		if (!$this->ion_auth->logged_in())
 		{
 			redirect('login');
-		}*/
+		}
 
 	}
 	
@@ -29,12 +29,8 @@ class Adocao extends CI_Controller {
 				'plugins/datatables.net/js/jquery.dataTables.min.js',
 				'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js',				
 			),	
-		);
+		);	
 		
-		/*
-		echo '<pre>';
-		print_r($data['adocoes']);
-		exit; */
 
 		$this->load->view('layout/header',$data);
 		$this->load->view('adocao/index');

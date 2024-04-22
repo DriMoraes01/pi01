@@ -8,10 +8,10 @@ class Voluntario extends CI_Controller {
 		parent:: __construct();
 
 		//chama o controller login se o usuário não estiver logado
-		/*if (!$this->ion_auth->logged_in())
+		if (!$this->ion_auth->logged_in())
 		{
 			redirect('login');
-		}*/
+		}
 
 	}
 	
@@ -33,15 +33,10 @@ class Voluntario extends CI_Controller {
 		
 		$this->load->view('layout/header',$data);
 		$this->load->view('voluntario/index');
-		$this->load->view('layout/footer');		
+		$this->load->view('layout/footer');	
 
-		/*echo "<pre>";
-		var_dump('voluntarios');*/
-
-	}
 		
-	
-	
+	}
 
 
 }

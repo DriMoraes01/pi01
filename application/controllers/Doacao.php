@@ -8,10 +8,10 @@ class Doacao extends CI_Controller {
 		parent:: __construct();
 
 		//chama o controller login se o usuário não estiver logado
-		/*if (!$this->ion_auth->logged_in())
+		if (!$this->ion_auth->logged_in())
 		{
 			redirect('login');
-		}*/
+		}
 
 	}
 	

@@ -66,7 +66,7 @@
 
                                     <div class="card-body">
                                         <div class="table-responsive-sm">
-                                            <table class="table data-table table-sm pl-10 pr-10">
+                                            <table class="table data-table table-sm pl-20 pr-20">
                                                 <thead>
                                                     <tr>
                                                         <th class="text-center">#</th>
