@@ -41,7 +41,7 @@
                                             <input type="text" class="form-control" id="nome" name="nome" value="<?= (isset($animal) ? $animal->nome : set_value('nome')); ?>" style="text-transform: uppercase;">
                                             <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group pr-20">
                                             <label for="castrado">Castrado</label>
                                             <select name="castrado" id="castrado">
                                                 <option value="1">Sim</option>
@@ -49,6 +49,12 @@
                                                 <?= form_error('castrado', '<div class="text-danger">', '</div>'); ?>
                                             </select>
                                             <small></small>
+                                        </div>
+                                        <div class="col-md-2 mb-20">
+                                            <div class="form-group">Data de Cadastro</label>
+                                                <input type="date" class="form-control" id="data_cadastro" name="data_cadastro" value="<?= (isset($animal) ? formata_data_banco_sem_hora($animal->data_cadastro) : set_value('data_cadastro')); ?>">
+                                                <?= form_error('data_cadastro', '<div class="text-danger">', '</div>'); ?>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -66,9 +72,9 @@
                                             <?= form_error('raca', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                         <div class="col-md-2">
-                                             <div class="form-group">
+                                            <div class="form-group">
                                                 <label for="porte">Porte</label>
-                                                <select name="porte" id="porte">                                                    
+                                                <select name="porte" id="porte">
                                                     <option value="Pequeno">Pequeno</option>
                                                     <option value="Médio">Médio</option>
                                                     <option value="Grande">Grande</option>

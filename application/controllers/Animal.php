@@ -132,6 +132,7 @@ class Animal extends CI_Controller
 			$this->form_validation->set_rules('porte', 'Porte', 'trim|min_length[1]|max_length[10]');
 			$this->form_validation->set_rules('cor', 'Cor', 'trim|min_length[1]|max_length[20]');
 			$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
+			$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[255]');
 		
 
 			if (!$this->form_validation->run()) {
@@ -162,6 +163,7 @@ class Animal extends CI_Controller
 				$data['cor'] = $this->input->post('cor');
 				$data['observacao'] = $this->input->post('observacao');
 				$data['castrado'] = $this->input->post('castrado');
+				$data['data_cadastro'] = $this->input->post('data_cadastro');
 				/*$data['foto_animal'] = $this->input->post('foto_animal');*/
 
 				$data = html_escape($data);
