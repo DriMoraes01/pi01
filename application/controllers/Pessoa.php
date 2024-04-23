@@ -98,13 +98,8 @@ class Pessoa extends CI_Controller {
 			$data['voluntario'] = $this->input->post('voluntario');			
 			//$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');					
 
-			$data = html_escape($data);				
-
+			$data = html_escape($data);					
 			
-			if(!(isset($data))){
-				redirect($this->router->fetch_class());
-
-			}
 
 			$this->core_model->insert('pessoa', $data);
 			$this->session->set_flashdata('sucesso', 'Pessoa cadastrada com sucesso!');

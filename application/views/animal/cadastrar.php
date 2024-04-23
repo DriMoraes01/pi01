@@ -28,88 +28,62 @@
                 </div>
             </div>
 
-            <?php if ($message = $this->session->flashdata('sucesso')) : ?>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="alert bg-success alert-success text-white alert-dismissible fade show" role="alert">
-                            <strong><?= $message ?></strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <i class="ik ik-x"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            <?php elseif ($message = $this->session->flashdata('error')) : ?>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="alert bg-danger alert-danger text-white alert-dismissible fade show" role="alert">
-                            <strong><?= $message ?></strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <i class="ik ik-x"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            <?php endif; ?>
-
 
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-body">
-                            <form name="form_core" method="POST" enctype="multipart/form-data">
+                            <form name="form_core" method="POST">
                                 <div class="form-group row">
                                     <div class="col-md-2 mb-20">
-                                        <div class="form-group">Data de Cadastro</label>
-                                            <input type="date" class="form-control" id="data_cadastro" name="data_cadastro">
-                                            <?= form_error('data_cadastro', '<div class="text-danger">', '</div>'); ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 mb-20">Tipo de Animal</label>
-                                        <input type="text" class="form-control" id="tipo_animal" name="tipo_animal">
-                                        <?= form_error('tipo_animal', '<div class="text-danger">', '</div>'); ?>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-md-2 mb-20">
-                                        <label for="nome">Nome do Animal</label>
+                                        <label>Nome do Animal</label>
                                         <input type="text" class="form-control" id="nome" name="nome" value="<?= set_value('nome'); ?>" style="text-transform: uppercase;">
                                         <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
                                     </div>
                                     <div class="col-md-2 mb-20">
-                                        <label for="cor">Cor</label>
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Preto" id="cor" name="cor" style="text-transform: uppercase;">
-                                            <?= form_error('cor', '<div class="text-danger">', '</div>'); ?>
+                                        <label>Raça</label>
+                                        <input type="text" class="form-control" id="raca" name="raca" value=" <?= set_value('raca'); ?>" style="text-transform: uppercase;">
+                                        <?= form_error('raca', '<div class="text-danger">', '</div>'); ?>
+                                    </div>
+                                    <div class="col-md-2 mb-20">
+                                        <label>Cor</label>
+                                        <input type="text" class="form-control" id="cor" name="cor" value=" <?= set_value('cor'); ?>" style="text-transform: uppercase;">
+                                        <?= form_error('cor', '<div class="text-danger">', '</div>'); ?>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="data_cadastro">Data de Cadastro</label>
+                                            <input type="date" class="form-control" id="data_cadastro" name="data_cadastro" value="<?= set_value('porte'); ?>">
+                                            <?= form_error('data_cadastro', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="sexo">Sexo</label>
+                                            <label for="sexo">Sexo</label> <br>
                                             <select name="sexo" id="sexo">
                                                 <option value="Macho">Macho</option>
                                                 <option value="Fêmea">Fêmea</option>
                                             </select>
-                                            <small></small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-2 ">
-                                        <div class="form-group">
-                                            <label for="raca">Raça</label>
-                                            <input type="text" class="form-control" id="raca" name="raca" style="text-transform: uppercase;">
-                                            <?= form_error('raca', '<div class="text-danger">', '</div>'); ?>
+                                            <?= form_error('sexo', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="porte">Porte</label>
+                                            <label for="castrado">Castrado</label> <br>
+                                            <select name="castrado" id="castrado">
+                                                <option value="1">Sim</option>
+                                                <option value="0">Não</option>
+                                                <?= form_error('castrado', '<div class="text-danger">', '</div>'); ?>
+                                            </select>
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="porte">Porte</label> <br>
                                             <select name="porte" id="porte">
                                                 <option value="Pequeno">Pequeno</option>
                                                 <option value="Médio">Médio</option>
@@ -119,27 +93,20 @@
                                             <small></small>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label for="castrado">Castrado</label>
-                                            <select name="castrado" id="castrado">
-                                                <option value="1">Sim</option>
-                                                <option value="0">Não</option>
-                                                <?= form_error('castrado', '<div class="text-danger">', '</div>'); ?>
-                                            </select>
-                                            <small></small>
-                                        </div>
+                                    <div class="col-md-2 mb-20">
+
                                     </div>
+
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="obs">Observação:</label>
-                                            <input type="text" class="form-control" id="obs" name="obs">
-                                            <?= form_error('obs', '<div class="text-danger">', '</div>'); ?>
+                                            <label for="observacao">Observação</label>
+                                            <input type="observacao" class="form-control" id="observacao" name="observacao">
+                                            <!--<//?= form_error('observacao', '<div class="text-danger">', '</div>'); ?> -->
                                         </div>
                                     </div>
-                                </div>                                
+                                </div>
                                 <div class="form-group row">
                                     <div class="col-md-6 ml-20">
                                         <div class="form-group">
@@ -148,22 +115,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
                         </div>
+                        </form>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<script>
-    foto.onchange = evt => {
-        const [file] = foto.files
-        if (file) {
-            preview.src = URL.createObjectURL(file)
-            preview.style.display = 'block';
-        }
-    }
-</script>
