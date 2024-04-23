@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="col-md-2 mb-20">
                                             <div class="form-group">Data de Cadastro</label>
-                                                <input type="text" class="form-control" id="data_cadastro" name="data_cadastro" value="<?= (isset($animal) ? formata_data_banco_sem_hora($animal->data_cadastro) : set_value('data_cadastro')); ?>" readonly>
+                                                <input type="date" class="form-control" id="data_cadastro" name="data_cadastro" value="<?= (isset($animal) ? $animal->data_cadastro : set_value('data_cadastro')); ?>">
                                                 <?= form_error('data_cadastro', '<div class="text-danger">', '</div>'); ?>
                                             </div>
                                         </div>

@@ -68,21 +68,21 @@
                                             <table class="table data-table table-sm pl-20 pr-20">
                                                 <thead>
                                                     <tr>
-                                                        <th class="text-center">#</th>
                                                         <th class="text-center">Nome</th>
-                                                        <th class="text-center">CPF</th>                                       <th class="text-center">Tipo de Animal</th>
+                                                        <th class="text-center">CPF</th>
+                                                        <th class="text-center">Tipo de Animal</th>
                                                         <th class="text-center">Nome do Animal</th>
                                                         <th class="text-center">Sexo do Animal</th>
-                                                        <th class="text-center">Data da Adoção</th>                                       <th class="nosort text-center pr-100">Ações</th>
+                                                        <th class="text-center">Data da Adoção</th>
+                                                        <th class="nosort text-center pr-100">Ações</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php if (isset($adocoes)) : ?>
                                                         <?php foreach ($adocoes as $adocao) : ?>
                                                             <tr>
-                                                                <td class="text-center"><?= $adocao->id; ?></td>
                                                                 <td class="text-center"><?= mb_strtoupper($adocao->nome_adotante); ?></td>
-                                                                <td class="text-center"><?= $adocao->cpf; ?></td>                               
+                                                                <td class="text-center"><?= $adocao->cpf; ?></td>
                                                                 <td class="text-center"><?= $adocao->tipo_animal; ?></td>
                                                                 <td class="text-center"><?= mb_strtoupper($adocao->nome_animal); ?></td>
                                                                 <td class="text-center"><?= $adocao->sexo_animal; ?></td>
