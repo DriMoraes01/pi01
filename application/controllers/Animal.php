@@ -43,14 +43,15 @@ class Animal extends CI_Controller
 			$this->session->set_flashdata('error', 'O campo ID deve estar em branco');
 			redirect($this->router->fetch_class());
 		}
-
-		$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]');
-		$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[5]|max_length[10]');
-		$this->form_validation->set_rules('raca', 'Raça', 'trim|min_length[1]|max_length[20]');
-		$this->form_validation->set_rules('porte', 'Porte', 'trim|min_length[1]|max_length[10]');
-		$this->form_validation->set_rules('cor', 'Cor', 'trim|min_length[1]|max_length[9]');
+		
+		$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]|required');
+		$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[5]|max_length[10]|required');
+		$this->form_validation->set_rules('raca', 'Raça', 'trim|min_length[1]|max_length[20]|required');
+		$this->form_validation->set_rules('porte', 'Porte', 'trim|min_length[1]|max_length[10]|required');
+		$this->form_validation->set_rules('cor', 'Cor', 'trim|min_length[1]|max_length[9]|required');
 		$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[10]|required');
 		$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
+		$this->form_validation->set_rules('tipo_animal ', 'Tipo de Animal', 'trim|min_length[1]|max_length[255]|required');
 		
 
 		if (!$this->form_validation->run()) {

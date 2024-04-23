@@ -1,8 +1,8 @@
 <div class="container">
     <footer class="footer">
         <div class="w-100 clearfix">
-            <span class="float-sm-right mt-1 mt-sm-0 text-center">Copyright © <?php echo date('Y') ?> ThemeKit v2.0. All Rights Reserved.</span>
-            <!-- <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Customizado <i class="fas fa-code text-dark"></i> by <a href="javascript:void" class="text-dark">Adriele</a></span> -->
+            <p class="text-center"> Copyright © <?php echo date('Y') ?> ThemeKit v2.0. All Rights Reserved.</p>
+                <!-- <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Customizado <i class="fas fa-code text-dark"></i> by <a href="javascript:void" class="text-dark">Adriele</a></span> -->
         </div>
     </footer>
 </div>
@@ -37,12 +37,14 @@
                         <div class="app-item">
                             <a href="<?= base_url('resgate'); ?>"><i class="ik ik-truck"></i><span>Resgates de Animais</span></a>
                         </div>
+                        <?php if ($this->ion_auth->is_admin()): ?>
                         <div class="app-item">
                             <a href="<?= base_url('usuarios'); ?>"><i class="fas fa-users"></i><span>Usuários</span></a>
                         </div>
                         <div class="app-item">
-                            <a href="<?= base_url('sistema'); ?>"><i class="ik ik-settings"></i><span>Sistema</span></a>
+                            <a href="<?= base_url('sistema'); ?>"><i class="ik ik-settings"></i><span>Sistema</span></a>                            
                         </div>
+                        </
                     </div>
                 </div>
             </div>

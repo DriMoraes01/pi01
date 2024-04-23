@@ -8,10 +8,10 @@
                             <button type="button" id="navbar-fullscreen" class="nav-link"><i class="ik ik-maximize"></i></button>
                         </div>
                         <div class="top-menu d-flex align-items-center">                  
-                           <?php if ($this->ion_auth->is_admin()): ?>
+                           <!--<//?php if ($this->ion_auth->is_admin()): ?> -->
                            <button type="button" class="nav-link ml-10" id="apps_modal_btn" data-toggle="modal" data-target="#appsModal"><i class="ik ik-grid"></i></button>
                            &nbsp; &nbsp; 
-                           <?php endif; ?>
+                           <!--<//?php endif; ?> -->
                            <?php if ($this->ion_auth->is_admin()): ?>
                             <div class="dropdown">
                                 <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ik ik-user ik-2x text-white"></i></a>

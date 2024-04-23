@@ -40,7 +40,7 @@
                                             <label>Nome do Adotante</label>
                                             <input type="text" class="form-control" id="nome_adotante" name="nome_adotante" value="<?= isset($adocao) ? $adocao->nome_adotante : ''; ?>" readonly>
                                         </div>
-                                        <div class="col-md-4 mb-20">
+                                        <div class="col-md-2 mb-20">
                                             <label>CPF</label>
                                             <input type="text" class="form-control" id="cpf" name="cpf" value="<?= isset($adocao) ? $adocao->cpf : 'cpf'; ?>" readonly>
                                         </div>

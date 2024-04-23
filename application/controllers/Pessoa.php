@@ -29,11 +29,8 @@ class Pessoa extends CI_Controller {
 				'plugins/datatables.net/js/jquery.dataTables.min.js',
 				'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js',				
 			),	
-		);
+		);		
 		
-		/*echo '<pre>';
-		print_r($data['pessoas']);
-		exit();*/
 
 		$this->load->view('layout/header',$data);
 		$this->load->view('pessoa/index');
@@ -138,8 +135,8 @@ class Pessoa extends CI_Controller {
 			$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[100]|required');
 			$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]|required');
 			$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]|required');
-			$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[20]|required');
-			$this->form_validation->set_rules('data_nascimento', 'Data de Nascimento', 'trim|min_length[1]|max_length[20]|required');
+			//$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[20]|required');
+			//$this->form_validation->set_rules('data_nascimento', 'Data de Nascimento', 'trim|min_length[1]|max_length[20]|required');
 			$this->form_validation->set_rules('observacao', 'Observacao', 'trim|min_length[1]|max_length[3000]');
 			
 			if (!$this->form_validation->run()){
@@ -177,9 +174,9 @@ class Pessoa extends CI_Controller {
 				$data['bairro'] = $this->input->post('bairro');
 				$data['localidade'] = $this->input->post('localidade');
 				$data['uf'] = $this->input->post('uf');
-				$data['data_cadastro'] = $this->input->post('data_cadastro');
+				//$data['data_cadastro'] = $this->input->post('data_cadastro');
 				$data['voluntario'] = $this->input->post('voluntario');
-				$data['data_nascimento'] = $this->input->post('data_nascimento');	
+				//$data['data_nascimento'] = $this->input->post('data_nascimento');	
 				$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');						
 				
 				$data = html_escape($data);				

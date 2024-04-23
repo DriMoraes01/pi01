@@ -40,7 +40,7 @@
                                             <label>Tipo de Animal</label>
                                             <input type="text" class="form-control" id="animal" name="animal" value="<?= isset($resgate) ? $resgate->animal : ''; ?>" readonly>
                                         </div>
-                                        <div class="col-md-4 mb-20">
+                                        <div class="col-md-2 mb-20">
                                             <label>Data de Resgate</label>
                                             <input type="text" class="form-control" id="data_resgate" name="data_resgate" value="<?= isset($resgate) ? formata_data_banco_sem_hora($resgate->data_resgate) : ''; ?>" readonly>
                                         </div>

@@ -69,8 +69,7 @@
                             <div class="table-responsive-sm">
                                 <table class="table data-table table-sm pl-20 pr-20">
                                     <thead>
-                                        <tr>
-                                            <th>#</th>
+                                        <tr>                                            
                                             <th>Usuário</th>
                                             <th>E-mail</th>
                                             <th>Nome</th>
@@ -81,8 +80,7 @@
                                     </thead>
                                     <tbody>
                                         <?php foreach ($usuarios as $user) : ?>
-                                            <tr>
-                                                <td><?= $user->id; ?></td>
+                                            <tr>                                                
                                                 <td><?= $user->username; ?></td>
                                                 <td><?= $user->email; ?></td>
                                                 <td><?= $user->first_name; ?></td>

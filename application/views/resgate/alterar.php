@@ -41,9 +41,9 @@
                                             <input type="text" class="form-control" id="animal" name="animal" value="<?= (isset($resgate) ? $resgate->animal : set_value('animal')); ?>">
                                             <?= form_error('animal', '<div class="text-danger">', '</div>'); ?>
                                         </div>
-                                        <div class="col-md-4 mb-20">
+                                        <div class="col-md-2 mb-20">
                                             <label>Data de Resgate</label>
-                                            <input type="text" class="form-control" id="data_resgate" name="data_resgate" value="<?= (isset($resgate) ? $resgate->data_resgate : set_value('data_resgate')); ?>">
+                                            <input type="text" class="form-control" id="data_resgate" name="data_resgate" value="<?= (isset($resgate) ? formata_data_banco_sem_hora($resgate->data_resgate) : set_value('data_resgate')); ?>" readonly>
                                             <?= form_error('data_resgate', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                         <div class="col-md-3 mb-20">

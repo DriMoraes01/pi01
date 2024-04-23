@@ -60,7 +60,7 @@
                                                 <label>Sexo</label>
                                                 <input type="text" class="form-control" name="sexo" id="sexo" value="<?= isset($pessoa) ? $pessoa->sexo : ''; ?>" readonly="">
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group col-md-2 mb-20">
                                                 <label for="voluntario">É Voluntário</label> <br>
                                                 <?php if(($pessoa->voluntario == '0')): ?>
                                                     <input type="text" class="form-control" name="voluntario" id="voluntario"  value="<?= 'Não'; ?>" readonly=""> 
@@ -84,7 +84,7 @@
                                                 <input type="email" id="email" class="form-control" name="email" value="<?= isset($pessoa) ? $pessoa->email :''; ?>" readonly="">                                       
                                             </div>
                                             <div class="col-md-3 mb-20">
-                                                <label for="cep">CEP:</label>
+                                                <label for="cep">CEP</label>
                                                 <div class="input-group mb-3">
                                                     <input type="text" class="form-control" id="cep" name="cep" maxlength="9" value="<?= isset($pessoa) ? $pessoa->cep : ''; ?>" readonly="">                                            
                                                 </div>
@@ -93,21 +93,21 @@
                                         <div class="form-group row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="logradouro">Logradouro:</label>
+                                                    <label for="logradouro">Logradouro</label>
                                                     <input type="text" class="form-control" id="logradouro" name="logradouro" value="<?= isset($pessoa) ? $pessoa->logradouro : ''; ?>" readonly="">                                           
                                                     <small></small>
                                                 </div>
                                             </div>
                                             <div class="col-md-1">
                                                 <div class="form-group">
-                                                    <label for="numero">N°:</label>
+                                                    <label for="numero">N°</label>
                                                     <input type="text" class="form-control" id="numero" name="numero" value="<?= isset($pessoa) ? $pessoa->numero : ''; ?>" readonly="">                                            
                                                     <small></small>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group">
-                                                    <label for="complemento">Complemento:</label>
+                                                    <label for="complemento">Complemento</label>
                                                     <input type="text" class="form-control" id="complemento" name="complemento" value="<?= isset($pessoa) ? $pessoa->complemento : ''; ?>" readonly="">
                                                     <small></small>
                                                 </div>

@@ -112,15 +112,15 @@ class Resgate extends CI_Controller {
 
 		}else{
 			$this->form_validation->set_rules('animal', 'Tipo de Animal', 'trim|min_length[1]|max_length[30]|required');
-			$this->form_validation->set_rules('data_resgate', 'Data do Resgate', 'trim|min_length[1]|max_length[20]');
-			$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[9]');
-			$this->form_validation->set_rules('logradouro', 'Logradouro', 'trim|min_length[1]|max_length[255]');
-			$this->form_validation->set_rules('numero', 'Número', 'trim|min_length[1]|max_length[10]');
-			$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[100]');
-			$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]');
-			$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]');
+			//$this->form_validation->set_rules('data_resgate', 'Data do Resgate', 'trim|min_length[1]|max_length[20]');
+			$this->form_validation->set_rules('cep', 'CEP', 'trim|min_length[8]|max_length[9]|required');
+			$this->form_validation->set_rules('logradouro', 'Logradouro', 'trim|min_length[1]|max_length[255]|required');
+			$this->form_validation->set_rules('numero', 'Número', 'trim|min_length[1]|max_length[10]|required');
+			$this->form_validation->set_rules('bairro', 'Bairro', 'trim|min_length[1]|max_length[100]|required');
+			$this->form_validation->set_rules('localidade', 'Cidade', 'trim|min_length[1]|max_length[50]|required');
+			$this->form_validation->set_rules('uf', 'Estado', 'trim|exact_length[2]|required');
 			$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
-			$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[1]|max_length[10]');			
+			$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[1]|max_length[10]|required');			
 				
 		
 				
@@ -147,7 +147,7 @@ class Resgate extends CI_Controller {
 
 			}else{
 				$data['animal'] = $this->input->post('animal');
-				$data['data_resgate'] = $this->input->post('data_resgate');
+				//$data['data_resgate'] = $this->input->post('data_resgate');
 				$data['cep'] = $this->input->post('cep');
 				$data['logradouro'] = $this->input->post('logradouro');
 				$data['numero'] = $this->input->post('numero');

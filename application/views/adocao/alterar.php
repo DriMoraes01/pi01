@@ -41,12 +41,12 @@
                                             <input type="text" class="form-control" id="nome_adotante" name="nome_adotante" value="<?= (isset($adocao) ? $adocao->nome_adotante : set_value('nome_adotante')); ?>">
                                             <?= form_error('nome_adotante', '<div class="text-danger">', '</div>'); ?>
                                         </div>
-                                        <div class="col-md-4 mb-20">
+                                        <div class="col-md-2 mb-20">
                                             <label>CPF</label>
                                             <input type="text" class="form-control" id="cpf" name="cpf" value="<?= (isset($adocao) ? $adocao->cpf : set_value('cpf')); ?>">
                                             <?= form_error('cpf', '<div class="text-danger">', '</div>'); ?>
                                         </div>
-                                        <div class="col-md-4 mb-20">
+                                        <div class="col-md-2 mb-20">
                                             <label>Data de Adoção</label>
                                             <input type="date" class="form-control" id="data_adocao" name="data_adocao" value="<?= (isset($adocao) ? $adocao->data_adocao : set_value('data_adocao')); ?>">
                                             <?= form_error('data_adocao', '<div class="text-danger">', '</div>'); ?>
