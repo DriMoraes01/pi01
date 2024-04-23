@@ -44,7 +44,7 @@
                         <div class="app-item">
                             <a href="<?= base_url('sistema'); ?>"><i class="ik ik-settings"></i><span>Sistema</span></a>                            
                         </div>
-                        </
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
