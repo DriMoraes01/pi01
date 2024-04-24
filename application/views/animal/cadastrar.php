@@ -34,7 +34,7 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-body">
-                            <form name="form_core" method="POST">
+                            <form name="form_core" method="POST" enctype="multipart/form-data">
                                 <div class="form-group row">
                                     <div class="col-md-2 mb-20">
                                         <label>Tipo de Animal</label>
@@ -107,8 +107,8 @@
                                             <?= form_error('observacao', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
-                                </div>
-                                <!--
+                                </div>  
+                                <!--                             
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <div class="form-group">

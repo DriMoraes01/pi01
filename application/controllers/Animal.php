@@ -269,7 +269,7 @@ class Animal extends CI_Controller
 		redirect($this->router->fetch_class());
 	}
 
-
+	/*
 	private function do_upload()
 	{
 		$config['upload_path']          = './uploads/';
@@ -289,7 +289,37 @@ class Animal extends CI_Controller
 			return $data;
 		}
 	}
+*/
 
+	private function carregarFoto()
+	{
+		$config['upload_path']          = './assets/img/animais/';
+		$config['allowed_types']        = 'gif|jpg|png|jpeg';
+		$config['max_size']             = 5000;
+		$config['overwrite']             = true;
+
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload('foto')) {
+			$error = array('error' => $this->upload->display_errors());
+
+			return $error;
+		} else {
+			$data = array('upload_data' => $this->upload->data());
+
+			return $data;
+		}
+	}
+
+	private function uploadFoto(){
+		$config['upload_path']          = 'assets/img/animais/';
+		$config['max_size']             = 5000;
+		$config['allowed_types']        = 'gif|jpg|png|jpeg';
+
+		$this->load->library('upload', $config);
+
+		
+	}
 
 	public function visualizar($id_animal = NULL)
 	{
