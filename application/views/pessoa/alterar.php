@@ -140,7 +140,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="data_cadastro">Data de Cadastro:</label>
-                                                <input type="text" class="form-control" id="data_cadastro" name="data_cadastro" value="<?= (isset($pessoa) ? formata_data_banco_sem_hora($pessoa->data_cadastro) : set_value('data_cadastro')); ?>" readonly>                                                  
+                                                <input type="date" class="form-control" id="data_cadastro" name="data_cadastro" value="<?= (isset($pessoa) ? $pessoa->data_cadastro : set_value('data_cadastro')); ?>">                                                  
                                                 <?= form_error('data_cadastro', '<div class="text-danger">', '</div>'); ?>
                                                 <small></small>
                                             </div>

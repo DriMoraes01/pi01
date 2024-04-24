@@ -98,14 +98,14 @@
 
                                                                 <td class="nosort text-right pr-100">
                                                                     <div class="table-actions">
-                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Visualizar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/visualizar/' . $animal->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-eye text-info"></i>
-                                                                            <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $animal->id; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a></a>
-                                                                        <button type="button" data-toggle="modal" data-target="#categoria-<?= $animal->id; ?>" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" class="btn btn-icon btn-danger"><i class="ik ik-trash-2"></i></button>
+                                                                        <a data-toggle="tooltip" data-placement="bottom" title="Visualizar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/visualizar/' . $animal->id_animal; ?> " class="btn btn-icon btn-primary"><i class="ik ik-eye text-info"></i>
+                                                                            <a data-toggle="tooltip" data-placement="bottom" title="Editar <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/alterar/' . $animal->id_animal; ?> " class="btn btn-icon btn-primary"><i class="ik ik-edit-2"></i></a></a>
+                                                                        <button type="button" data-toggle="modal" data-target="#categoria-<?= $animal->id_animal; ?>" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" class="btn btn-icon btn-danger"><i class="ik ik-trash-2"></i></button>
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                            <div class="modal fade" id="categoria-<?= $animal->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered" role="document" id="categoria-<?= $animal->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
+                                                            <div class="modal fade" id="categoria-<?= $animal->id_animal; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered" role="document" id="categoria-<?= $animal->id_animal; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="exampleModalCenterLabel"><i class="fas fa-exclamation-triangle text-danger"></i>&nbsp;Tem certeza que quer excluir?</h5>
@@ -118,7 +118,7 @@
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button data-toggle="tooltip" data-placement="bottom" title="Cancelar Exclusão" type="button" class="btn btn-secondary" data-dismiss="modal">Não, voltar</button>
-                                                                            <a data-toggle="tooltip" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/del/' . $animal->id; ?> " class="btn btn-danger">Sim, excluir</a>
+                                                                            <a data-toggle="tooltip" data-placement="bottom" title="Excluir <?= $this->router->fetch_class(); ?>" href="<?= base_url($this->router->fetch_class()) . '/del/' . $animal->id_animal; ?> " class="btn btn-danger">Sim, excluir</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>

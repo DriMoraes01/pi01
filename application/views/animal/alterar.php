@@ -104,6 +104,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!--
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="foto">Foto do Animal</label>
+                                                <input type="file" class="form-control" id="foto" name="foto" value="<//?= (isset($animal) ? $animal->foto : set_value('foto')); ?>">
+                                                <//?= form_error('foto', '<div class="text-danger">', '</div>'); ?>
+                                            </div>
+                                        </div>
+                                    </div> -->
+
                                     <?php if (isset($animal)) : ?>
                                         <div class="form-group row">
                                             <div class="col-md-12">

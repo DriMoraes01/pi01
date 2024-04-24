@@ -37,6 +37,11 @@
                             <form name="form_core" method="POST">
                                 <div class="form-group row">
                                     <div class="col-md-2 mb-20">
+                                        <label>Tipo de Animal</label>
+                                        <input type="text" class="form-control" id="tipo_animal" name="tipo_animal" value="<?= set_value('tipo_animal'); ?>" style="text-transform: uppercase;">
+                                        <?= form_error('tipo_animal', '<div class="text-danger">', '</div>'); ?>
+                                    </div>
+                                    <div class="col-md-2 mb-20">
                                         <label>Nome do Animal</label>
                                         <input type="text" class="form-control" id="nome" name="nome" value="<?= set_value('nome'); ?>" style="text-transform: uppercase;">
                                         <?= form_error('nome', '<div class="text-danger">', '</div>'); ?>
@@ -93,20 +98,26 @@
                                             <small></small>
                                         </div>
                                     </div>
-                                    <div class="col-md-2 mb-20">
-
-                                    </div>
-
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="observacao">Observação</label>
                                             <input type="observacao" class="form-control" id="observacao" name="observacao">
-                                            <!--<//?= form_error('observacao', '<div class="text-danger">', '</div>'); ?> -->
+                                            <?= form_error('observacao', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
                                 </div>
+                                <!--
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="foto">Foto do Animal</label>
+                                            <input type="file" class="form-control" id="foto" name="foto">
+                                            <//?= form_error('foto', '<div class="text-danger">', '</div>'); ?>
+                                        </div>
+                                    </div>
+                                </div> -->
                                 <div class="form-group row">
                                     <div class="col-md-6 ml-20">
                                         <div class="form-group">

@@ -128,7 +128,7 @@ class Animal extends CI_Controller
 		$this->form_validation->set_rules('observacao', 'Observação', 'trim');
 		$this->form_validation->set_rules('castrado', 'Castrado', 'trim|required');
 		$this->form_validation->set_rules('tipo_animal', 'Tipo de Animal', 'trim|required');
-
+		//$this->form_validation->set_rules('foto', 'Foto do Animal', 'trim|required');
 
 
 		if (!$this->form_validation->run()){
@@ -149,31 +149,33 @@ class Animal extends CI_Controller
 			$this->load->view('layout/footer');
 
 		}else{
-			$data = elements(
-				array(
-					'nome',
-					'raca',
-					'cor',
-					'sexo',
-					'porte',
-					'data_cadastro',
-					'observacao',
-					'castrado',
-					'tipo_animal'
-				),
-				$this->input->post()
-			);
-
+			$data['nome'] = $this->input->post('nome');
+			$data['sexo'] = $this->input->post('sexo');
+			$data['raca'] = $this->input->post('raca');
+			$data['porte'] = $this->input->post('porte');
+			$data['cor'] = $this->input->post('cor');
+			$data['data_cadastro'] = $this->input->post('data_cadastro');
+			$data['observacao'] = $this->input->post('observacao');
+			$data['castrado'] = $this->input->post('castrado');
+			$data['tipo_animal'] = $this->input->post('tipo_animal');
+			//$data['foto']  =  $this->input->post('foto');
 
 			$data = html_escape($data);
+			/*
+			echo '<pre>';
+			print_r($data);
+			exit; */
 
-			$this->core_model->insert('animal', $data);
-			$this->session->set_flashdata('sucesso', 'Animal cadastrado com sucesso!');
-			redirect($this->router->fetch_class());	
+				
+
+				$this->core_model->insert('animal', $data);
+				$this->session->set_flashdata('sucesso', 'Animal cadastrado com sucesso!');
+				redirect($this->router->fetch_class());	
+			}
+
 		}
-		
+	
 
-	}
 
 
 	public function alterar($id = NULL)
@@ -193,6 +195,7 @@ class Animal extends CI_Controller
 			$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
 			$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[255]');
 			$this->form_validation->set_rules('castrado', 'castrado', 'exact_length[1]');
+			//$this->form_validation->set_rules('foto', 'Foto do Animal', 'trim');
 
 			if (!$this->form_validation->run()) {
 
@@ -224,11 +227,15 @@ class Animal extends CI_Controller
 				$data['castrado'] = $this->input->post('castrado');
 				$data['data_cadastro'] = $this->input->post('data_cadastro');
 				$data['tipo_animal'] = $this->input->post('tipo_animal');
-				/*$data['foto_animal'] = $this->input->post('foto_animal');*/
+				$data['foto']  =  $this->input->post('foto');
+				
 
 				$data = html_escape($data);
 
+				$foto = $this->do_upload();
 
+				$data['foto'] = '/uploads/' . $foto['upload_data']['file_name'];
+				
 				$this->core_model->update('animal', $data, array('id_animal' => $id));
 
 				$this->session->set_flashdata('sucesso', 'Dados atualizados com sucesso!');
@@ -262,7 +269,7 @@ class Animal extends CI_Controller
 		redirect($this->router->fetch_class());
 	}
 
-/*
+
 	private function do_upload()
 	{
 		$config['upload_path']          = './uploads/';
@@ -282,7 +289,7 @@ class Animal extends CI_Controller
 			return $data;
 		}
 	}
-*/
+
 
 	public function visualizar($id_animal = NULL)
 	{

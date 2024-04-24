@@ -68,8 +68,7 @@
                                         <div class="table-responsive-sm">
                                             <table class="table data-table table-sm pl-20 pr-20">
                                                 <thead>
-                                                    <tr>
-                                                        <th class="text-center">#</th>
+                                                    <tr>                                                        
                                                         <th class="text-center">Nome</th>
                                                         <th class="text-center">Data de Nascimento</th>
                                                         <th class="text-center">Celular</th>
@@ -81,8 +80,7 @@
                                                 <tbody>
                                                     <?php if (isset($pessoas)) : ?>
                                                         <?php foreach ($pessoas as $pessoa) : ?>
-                                                            <tr>
-                                                                <td class="text-center"><?= $pessoa->id; ?></td>
+                                                            <tr>                                                                
                                                                 <td class="text-center"><?= mb_strtoupper($pessoa->nome); ?></td>
                                                                 <td class="text-center"><?= formata_data_banco_sem_hora($pessoa->data_nascimento); ?></td>
                                                                 <td class="text-center"><?= $pessoa->celular; ?></td>
