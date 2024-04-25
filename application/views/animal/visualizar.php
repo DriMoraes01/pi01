@@ -36,13 +36,11 @@
                             <div class="card-body">
                                 <form class="forms-sample" id="form_core" name="form_core" method="POST">
                                     <div class="form-group row">
-                                        <?php foreach ($fotos as $foto) : ?>
-                                            <div class="form-group">
-                                                <div class="col-md-2">
-                                                    <img width="50" height="50" class="rounded-circle" src="<?= base_url($foto->foto) ?>">
-                                                </div>
+                                        <div class="form-group">
+                                            <div class="col-md-2">
+                                                <img width="50" height="50" class="rounded-circle" src="<?= base_url($animal->foto) ?>">
                                             </div>
-                                        <?php endforeach; ?>
+                                        </div>                                       
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-2 mb-20">

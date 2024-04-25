@@ -41,8 +41,8 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                       <!-- <//?php elseif ($message = $this->session->flashdata('error')) : ?>
+
+                            <!-- <//?php elseif ($message = $this->session->flashdata('error')) : ?>
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -69,7 +69,8 @@
                                         <div class="table-responsive-sm">
                                             <table class="table data-table table-sm pl-20 pr-20">
                                                 <thead>
-                                                    <tr>                                                      
+                                                    <tr>
+                                                        <th class="text-center">Foto</th>
                                                         <th class="text-center">Nome</th>
                                                         <th class="text-center">CPF</th>
                                                         <th class="text-center">Celular</th>
@@ -79,8 +80,12 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php if (isset($voluntarios)) : ?>
-                                                        <?php foreach ($voluntarios as $voluntario) : ?>                                                
-                                                                
+                                                        <?php foreach ($voluntarios as $voluntario) : ?>
+                                                            <?php if (isset($voluntario->foto)) : ?>
+                                                                <td class="text-center"><img width="50" height="50" class="rounded-circle" src="<?= base_url($voluntario->foto) ?>"></td>
+                                                            <?php else : ?>
+                                                                <td class="text-center">FOTO</td>
+                                                            <?php endif; ?>
                                                             <td class="text-center"><?= mb_strtoupper($voluntario->nome); ?></td>
                                                             <td class="text-center"><?= $voluntario->cpf; ?></td>
                                                             <td class="text-center"><?= $voluntario->celular; ?></td>

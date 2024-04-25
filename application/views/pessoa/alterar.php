@@ -27,14 +27,25 @@
                     </div>
                 </div>
             </div>
-
+            <?php if ($error = $this->session->flashdata('error')) : ?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert bg-danger alert-danger text-white alert-dismissible fade show" role="alert">
+                            <strong><?= $error; ?></strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <i class="ik ik-x"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
             <div class="row">
                 <div class="col-md-12">
                     <?php foreach ($pessoas as $pessoa) : ?>
                         <div class="card">
                             <div class="card-header"><?= (isset($pessoa) ? '<i class="ik ik-calendar ik-2x"></i>&nbsp;Data da última alteração: &nbsp;' . date("d/m/Y H:i:s", strtotime($pessoa->ultima_alteracao)) : ''); ?></div>
                             <div class="card-body">
-                                <form class="forms-sample" id="form_core" name="form_core" method="POST">
+                                <form class="forms-sample" id="form_core" name="form_core" method="POST" enctype="multipart/form-data">
                                     <div class="form-group row">
                                         <div class="col-md-2 mb-20">
                                             <label>CPF</label>
@@ -140,9 +151,18 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="data_cadastro">Data de Cadastro:</label>
-                                                <input type="date" class="form-control" id="data_cadastro" name="data_cadastro" value="<?= (isset($pessoa) ? $pessoa->data_cadastro : set_value('data_cadastro')); ?>">                                                  
+                                                <input type="date" class="form-control" id="data_cadastro" name="data_cadastro" value="<?= (isset($pessoa) ? $pessoa->data_cadastro : set_value('data_cadastro')); ?>">
                                                 <?= form_error('data_cadastro', '<div class="text-danger">', '</div>'); ?>
                                                 <small></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="foto">Foto</label>
+                                                <input type="file" class="form-control" id="foto" name="foto" value=" <?= set_value('foto'); ?>" required>
+                                                <?= form_error('foto', '<div class="text-danger">', '</div>'); ?>
                                             </div>
                                         </div>
                                     </div>

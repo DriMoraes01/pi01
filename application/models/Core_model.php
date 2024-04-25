@@ -118,23 +118,7 @@ class Core_model extends CI_Model{
         return false;
     }
 
-    public function get_by_foto($id_animal = Null)
-    {
-        $this->db->select('foto');
-        $this->db->from('foto_animal');
-        //$this->db->where('foto_animal.excluido', 0);
-        $this->db->where('foto_animal.id_animal', $id_animal);
-        $this->db->order_by('foto_animal.id_animal');
-
-        $query = $this->db->get();
-        if ($query->num_rows() >= 1) {
-            //return $query->result();
-            return $query->row();
-        }
-        return false;
-    }
-
-    
+       
     public function delete($table = NULL, $condition = NULL)
     {
         if($table && $this->db->table_exists($table) && is_array($condition)){

@@ -29,12 +29,12 @@
                             </div>
                         </div>
 
-                        <?php if ($message = $this->session->flashdata('sucesso')) : ?>
+                        <?php if ($sucesso = $this->session->flashdata('sucesso')) : ?>
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="alert bg-success alert-success text-white alert-dismissible fade show" role="alert">
-                                        <strong><?= $message ?></strong>
+                                        <strong><?= $sucesso; ?></strong>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <i class="ik ik-x"></i>
                                         </button>
@@ -42,12 +42,12 @@
                                 </div>
                             </div>
                         
-                        <?php elseif ($message = $this->session->flashdata('error')) : ?>
+                        <?php elseif ($error = $this->session->flashdata('error')) : ?>
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="alert bg-danger alert-danger text-white alert-dismissible fade show" role="alert">
-                                        <strong><?= $message ?></strong>
+                                        <strong><?= $error; ?></strong>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <i class="ik ik-x"></i>
                                         </button>

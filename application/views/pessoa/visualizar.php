@@ -41,20 +41,27 @@
                                 <div class="card-body">
                                     <form class="forms-sample" name="form_core" method="POST">
                                         <div class="form-group row">
+                                            <div class="form-group">
+                                                <div class="col-md-2">
+                                                    <img width="50" height="50" class="rounded-circle" src="<?= base_url($pessoa->foto) ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
                                             <div class="col-md-2 mb-20">
                                                 <label>CPF</label>
                                                 <input type="text" class="form-control" id="cpf" name="cpf" value="<?= isset($pessoa) ? $pessoa->cpf : ''; ?>" readonly="">
-                                                
+
                                             </div>
                                             <div class="col-md-3 mb-20">
                                                 <label>Nome</label>
                                                 <input type="text" class="form-control" id="nome" name="nome" value="<?= isset($pessoa) ? $pessoa->nome : ''; ?>" style="text-transform: uppercase;" readonly="">
-                                                
+
                                             </div>
                                             <div class="col-md-2 mb-20">
                                                 <label for="data_nascimento">Data de Nascimento</label>
                                                 <input type="text" class="form-control" id="data_nascimento" name="data_nascimento" value="<?= isset($pessoa) ? formata_data_banco_sem_hora($pessoa->data_nascimento) : ''; ?>" readonly="">
-                                                
+
                                             </div>
                                             <div class="col-md-2 mb-20">
                                                 <label>Sexo</label>
@@ -62,31 +69,31 @@
                                             </div>
                                             <div class="form-group col-md-2 mb-20">
                                                 <label for="voluntario">É Voluntário</label> <br>
-                                                <?php if(($pessoa->voluntario == '0')): ?>
-                                                    <input type="text" class="form-control" name="voluntario" id="voluntario"  value="<?= 'Não'; ?>" readonly=""> 
-                                                <?php else: ?>
-                                                     <input type="text" class="form-control" name="voluntario" id="voluntario"  value="<?= 'Sim'; ?>" readonly="">
+                                                <?php if (($pessoa->voluntario == '0')) : ?>
+                                                    <input type="text" class="form-control" name="voluntario" id="voluntario" value="<?= 'Não'; ?>" readonly="">
+                                                <?php else : ?>
+                                                    <input type="text" class="form-control" name="voluntario" id="voluntario" value="<?= 'Sim'; ?>" readonly="">
                                                 <?php endif; ?>
-                                            </div>                                            
+                                            </div>
                                             <small></small>
                                         </div>
-                               
+
                                         <div class="form-group row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="celular">Celular:</label>
                                                     <input type="text" class="form-control" id="celular" name="celular" value="<?= isset($pessoa) ? $pessoa->celular : ''; ?>" readonly="">
-                                                    <small></small>                                           
+                                                    <small></small>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 mb-20">
                                                 <label>Email</label>
-                                                <input type="email" id="email" class="form-control" name="email" value="<?= isset($pessoa) ? $pessoa->email :''; ?>" readonly="">                                       
+                                                <input type="email" id="email" class="form-control" name="email" value="<?= isset($pessoa) ? $pessoa->email : ''; ?>" readonly="">
                                             </div>
                                             <div class="col-md-3 mb-20">
                                                 <label for="cep">CEP</label>
                                                 <div class="input-group mb-3">
-                                                    <input type="text" class="form-control" id="cep" name="cep" maxlength="9" value="<?= isset($pessoa) ? $pessoa->cep : ''; ?>" readonly="">                                            
+                                                    <input type="text" class="form-control" id="cep" name="cep" maxlength="9" value="<?= isset($pessoa) ? $pessoa->cep : ''; ?>" readonly="">
                                                 </div>
                                             </div>
                                         </div>
@@ -94,14 +101,14 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="logradouro">Logradouro</label>
-                                                    <input type="text" class="form-control" id="logradouro" name="logradouro" value="<?= isset($pessoa) ? $pessoa->logradouro : ''; ?>" readonly="">                                           
+                                                    <input type="text" class="form-control" id="logradouro" name="logradouro" value="<?= isset($pessoa) ? $pessoa->logradouro : ''; ?>" readonly="">
                                                     <small></small>
                                                 </div>
                                             </div>
                                             <div class="col-md-1">
                                                 <div class="form-group">
                                                     <label for="numero">N°</label>
-                                                    <input type="text" class="form-control" id="numero" name="numero" value="<?= isset($pessoa) ? $pessoa->numero : ''; ?>" readonly="">                                            
+                                                    <input type="text" class="form-control" id="numero" name="numero" value="<?= isset($pessoa) ? $pessoa->numero : ''; ?>" readonly="">
                                                     <small></small>
                                                 </div>
                                             </div>
@@ -114,7 +121,7 @@
                                             </div>
                                             <div class="col-md-3 ml-20">
                                                 <label>Bairro</label>
-                                                <input type="text" class="form-control" id="bairro" name="bairro" value="<?= isset($pessoa) ? $pessoa->bairro :''; ?>" readonly="">                                        
+                                                <input type="text" class="form-control" id="bairro" name="bairro" value="<?= isset($pessoa) ? $pessoa->bairro : ''; ?>" readonly="">
                                                 <small></small>
                                             </div>
                                         </div>
@@ -129,14 +136,14 @@
                                             <div class="col-md-1">
                                                 <div class="form-group">
                                                     <label for="uf">UF:</label>
-                                                    <input type="text" class="form-control" id="uf" name="uf" value="<?= isset($pessoa) ? $pessoa->uf : ''; ?>" readonly="">                                           
+                                                    <input type="text" class="form-control" id="uf" name="uf" value="<?= isset($pessoa) ? $pessoa->uf : ''; ?>" readonly="">
                                                     <small></small>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label for="data_cadastro">Data de Cadastro:</label>
-                                                    <input type="text" class="form-control" id="data_cadastro" name="data_cadastro" value="<?= isset($pessoa) ? formata_data_banco_sem_hora($pessoa->data_cadastro) : ''; ?>" readonly="">                                            
+                                                    <input type="text" class="form-control" id="data_cadastro" name="data_cadastro" value="<?= isset($pessoa) ? formata_data_banco_sem_hora($pessoa->data_cadastro) : ''; ?>" readonly="">
                                                     <small></small>
                                                 </div>
                                             </div>
@@ -148,16 +155,16 @@
                                                 </div>
                                             </div>
                                         <?php endif; ?>
-                                    
-                                        <?php endforeach; ?>
-                                        <!--<button type="submit" class="btn btn-primary mr-2">Salvar</button> -->
-                                        <a href="<?= base_url('/pessoa'); ?>" class="btn btn-info">Voltar</a>
-                                    <?php endif; ?>
-                                </form>
+
+                                    <?php endforeach; ?>
+                                    <!--<button type="submit" class="btn btn-primary mr-2">Salvar</button> -->
+                                    <a href="<?= base_url('/pessoa'); ?>" class="btn btn-info">Voltar</a>
+                                <?php endif; ?>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
         </div>
 
     </div>

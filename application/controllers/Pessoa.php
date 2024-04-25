@@ -96,16 +96,42 @@ class Pessoa extends CI_Controller {
 			$data['data_cadastro'] = $this->input->post('data_cadastro');
 			$data['data_nascimento'] = $this->input->post('data_nascimento');
 			$data['voluntario'] = $this->input->post('voluntario');			
-			//$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');					
+								
 
-			$data = html_escape($data);					
-			
+			$data = html_escape($data);
+			$foto = $this->carregarFoto();
+
+			if (isset($foto)) {
+				if (array_key_exists('error', $foto)) {
+
+					$data = array(
+						'titulo' => 'Cadastrar Pessoa',
+						'icone_view' => 'ik ik-user',
+						'styles' => array(
+							'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',
+						),
+						'scripts' => array(
+							'plugins/datatables.net/js/jquery.dataTables.min.js',
+							'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js',
+						),
+					);
+					$this->session->set_flashdata('error', 'Erro no upload da foto!' . trim($foto['error']));
+					$this->load->view('layout/header', $data);
+					$this->load->view('pessoa/cadastrar');
+					$this->load->view('layout/footer');
+					return;
+				}
+			}
+
+
+			$data['foto'] = 'assets/img/pessoas/' . $foto['upload_data']['file_name'];
 
 			$this->core_model->insert('pessoa', $data);
 			$this->session->set_flashdata('sucesso', 'Pessoa cadastrada com sucesso!');
-			redirect($this->router->fetch_class());	
+			redirect($this->router->fetch_class());
+		}			
 	}
-}
+
 
 
 	public function alterar($id = NULL)
@@ -174,10 +200,40 @@ class Pessoa extends CI_Controller {
 				$data['data_nascimento'] = $this->input->post('data_nascimento');	
 				$data['ultima_alteracao'] = $this->input->post('ultima_alteracao');						
 				
-				$data = html_escape($data);				
+				$data = html_escape($data);
 
-				$this->core_model->update('pessoa', $data, array('id' => $id));
-				$this->session->set_flashdata('erro', 'Dados  não foram atualizados');
+				$foto = $this->carregarFoto();
+
+				if (isset($foto)) {
+					if (array_key_exists('error', $foto)) {
+
+						$data = array(
+							'titulo' => 'Editar Cadastro',
+							'icone_view' => 'ik ik-user',
+							'pessoas' => $this->core_model->get_by_id('pessoa', array('id' => $id)),
+							'styles' => array(
+								'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',
+							),
+							'scripts' => array(
+								'plugins/datatables.net/js/jquery.dataTables.min.js',
+								'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js',
+							),
+						);
+						$this->session->set_flashdata('error', 'Erro no upload da foto!' . trim($foto['error']));
+						$this->load->view('layout/header', $data);
+						$this->load->view('pessoa/alterar');
+						$this->load->view('layout/footer');
+						return;
+					}
+				}
+
+				$data['foto'] = 'assets/img/pessoas/' . $foto['upload_data']['file_name'];
+
+				/*echo '<pre>';
+				print_r($data);*/
+				
+				$this->db->update('pessoa', $data, array('id' => $id));
+				$this->session->set_flashdata('sucesso', 'Dados  atualizados com sucesso!');
 				redirect($this->router->fetch_class());				 				
 			}		
 		}	
@@ -227,6 +283,29 @@ class Pessoa extends CI_Controller {
 		$this->load->view('layout/header', $data);
 		$this->load->view('pessoa/visualizar');
 		$this->load->view('layout/footer');
+	}
+
+	private function carregarFoto()
+	{
+		$config['upload_path']          = './assets/img/pessoas/';
+		$config['allowed_types']        = 'gif|jpg|png|jpeg';
+		$config['max_size']             = 5000;
+		$config['overwrite']             = true;
+		$config['overwrite'] 			=  true;
+
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload('foto')) {
+
+			$error = array('error' => $this->upload->display_errors());
+
+			return $error;
+		} else {
+
+			$data = array('upload_data' => $this->upload->data());
+
+			return $data;
+		}
 	}
 
 }

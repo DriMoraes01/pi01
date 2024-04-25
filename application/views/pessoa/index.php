@@ -29,12 +29,12 @@
                             </div>
                         </div>
 
-                        <?php if ($message = $this->session->flashdata('sucesso')) : ?>
+                        <?php if ($sucesso = $this->session->flashdata('sucesso')) : ?>
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="alert bg-success alert-success text-white alert-dismissible fade show" role="alert">
-                                        <strong><?= $message ?></strong>
+                                        <strong><?= $sucesso; ?></strong>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <i class="ik ik-x"></i>
                                         </button>
@@ -42,19 +42,19 @@
                                 </div>
                             </div>
 
-                            <!--    
-                        <//?php elseif ($message = $this->session->flashdata('error')) : ?>
+                           
+                        <?php elseif ($erro = $this->session->flashdata('error')) : ?>
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="alert bg-danger alert-danger text-white alert-dismissible fade show" role="alert">
-                                        <strong><//?= $message ?></strong>
+                                        <strong><?= $erro; ?></strong>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <i class="ik ik-x"></i>
                                         </button>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div> 
 
                         <?php endif; ?>
 
@@ -68,7 +68,8 @@
                                         <div class="table-responsive-sm">
                                             <table class="table data-table table-sm pl-20 pr-20">
                                                 <thead>
-                                                    <tr>                                                        
+                                                    <tr>
+                                                        <th class="text-center">Foto</th>
                                                         <th class="text-center">Nome</th>
                                                         <th class="text-center">Data de Nascimento</th>
                                                         <th class="text-center">Celular</th>
@@ -80,7 +81,12 @@
                                                 <tbody>
                                                     <?php if (isset($pessoas)) : ?>
                                                         <?php foreach ($pessoas as $pessoa) : ?>
-                                                            <tr>                                                                
+                                                            <tr>
+                                                                <?php if(isset($pessoa->foto)): ?>
+                                                                <td class="text-center"><img width="50" height="50" class="rounded-circle" src="<?= base_url($pessoa->foto) ?>"></td>
+                                                                <?php else: ?>
+                                                                 <td class="text-center">FOTO</td>  
+                                                                <?php endif; ?> 
                                                                 <td class="text-center"><?= mb_strtoupper($pessoa->nome); ?></td>
                                                                 <td class="text-center"><?= formata_data_banco_sem_hora($pessoa->data_nascimento); ?></td>
                                                                 <td class="text-center"><?= $pessoa->celular; ?></td>

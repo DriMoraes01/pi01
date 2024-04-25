@@ -89,6 +89,7 @@ class Animal extends CI_Controller
 
 			/*
 			$foto = $this->do_upload();
+
 			if (array_key_exists('error', $foto)) {
 
 				$data = array(
@@ -102,7 +103,7 @@ class Animal extends CI_Controller
 						'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js',
 					),
 				);
-				/*$this->session->set_flashdata('error', 'Erro no upload da foto!' . trim($foto['error']));
+				$this->session->set_flashdata('error', 'Erro no upload da foto!' . trim($foto['error']));
 				$this->load->view('layout/header', $data);
 				$this->load->view('animal/cadastrar');
 				$this->load->view('layout/footer');
@@ -162,16 +163,34 @@ class Animal extends CI_Controller
 			$data = html_escape($data);
 
 			$foto = $this->carregarFoto();
-			
+
+
+			if (isset($foto)){
+				if (array_key_exists('error', $foto)) {
+
+					$data = array(
+						'titulo' => 'Cadastrar Animal',
+						'icone_view' => 'ik ik-star-on',
+						'styles' => array(
+							'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',
+						),
+						'scripts' => array(
+							'plugins/datatables.net/js/jquery.dataTables.min.js',
+							'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js',
+						),
+					);
+					$this->session->set_flashdata('error', 'Erro no upload da foto!' . trim($foto['error']));
+					$this->load->view('layout/header', $data);
+					$this->load->view('animal/cadastrar');
+					$this->load->view('layout/footer');
+					return;
+				}
+			}
+		
 			
 			$data['foto'] = 'assets/img/animais/'.$foto['upload_data']['file_name'];
 
-			/*
-			echo '<pre>';
-			print_r($data);
-			exit;
-				*/
-
+			
 			$this->core_model->insert('animal', $data);
 			$this->session->set_flashdata('sucesso', 'Animal cadastrado com sucesso!');
 			redirect($this->router->fetch_class());	
@@ -199,9 +218,7 @@ class Animal extends CI_Controller
 			$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
 			$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[255]');
 			$this->form_validation->set_rules('castrado', 'Castrado', 'exact_length[1]');
-			//$this->form_validation->set_rules('foto', 'Foto', 'trim|required');
 			
-			//$this->form_validation->set_rules('foto', 'Foto do Animal', 'trim');
 
 			if (!$this->form_validation->run()) {
 
@@ -232,24 +249,39 @@ class Animal extends CI_Controller
 				$data['observacao'] = $this->input->post('observacao');
 				$data['castrado'] = $this->input->post('castrado');
 				$data['data_cadastro'] = $this->input->post('data_cadastro');
-				$data['tipo_animal'] = $this->input->post('tipo_animal');
-				
+				$data['tipo_animal'] = $this->input->post('tipo_animal');				
 				
 
 				$data = html_escape($data);
 
 				$foto = $this->carregarFoto();
 
-				if(!$this->carregarFoto()){
-					$this->session->set_flashdata('erro', 'Upload não realizado!');					
-					redirect($this->router->fetch_class());
-				}
+				if(isset($foto)){
+					if (array_key_exists('error', $foto)) {
 
-				var_dump($data);
+						$data = array(
+							'titulo' => 'Editar Cadastro',
+							'icone_view' => 'ik ik-star-on',
+							'animais' => $this->core_model->get_by_id('animal', array('id_animal' => $id_animal)),
+							'styles' => array(
+								'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',
+							),
+							'scripts' => array(
+								'plugins/datatables.net/js/jquery.dataTables.min.js',
+								'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js',
+							),
+						);
+						$this->session->set_flashdata('error', 'Erro no upload da foto!' . trim($foto['error']));
+						$this->load->view('layout/header', $data);
+						$this->load->view('animal/alterar');
+						$this->load->view('layout/footer');
+						return;
+					}
+				}					
 
 				$data['foto'] = 'assets/img/animais/' . $foto['upload_data']['file_name'];
 				
-				$this->core_model->update('animal', $data, array('id_animal' => $id_animal));
+				$this->db->update('animal', $data, array('id_animal' => $id_animal));
 
 				$this->session->set_flashdata('sucesso', 'Dados atualizados com sucesso!');
 				redirect($this->router->fetch_class());
@@ -290,17 +322,22 @@ class Animal extends CI_Controller
 		$config['allowed_types']        = 'gif|jpg|png|jpeg';
 		$config['max_size']             = 5000;
 		$config['overwrite']             = true;
+		$config['overwrite'] 			=  true;
 
 		$this->load->library('upload', $config);
 
-		if (!$this->upload->carregarFoto('foto')) {
+		if (! $this->upload->do_upload('foto')) {
+
 			$error = array('error' => $this->upload->display_errors());
-			$this->session->set_flashdata('error', $error);
+			
+			return $error;
 			
 		} else {
-			$data = array('upload_data' => $this->upload->data());			
+
+			$data = array('upload_data' => $this->upload->data());
 
 			return $data;
+			
 		}
 	}
 
@@ -319,8 +356,7 @@ class Animal extends CI_Controller
 			'titulo' => 'Visualizar animal',
 			'sub_titulo' => 'Chegou a hora de visualizar o cadastro',
 			'icone_view' => 'ik ik-star-on',
-			'animais' => $this->core_model->get_by_id('animal', array('id_animal' => $id_animal)),
-			'fotos' => $this->core_model->visualizar('foto_animal', array('id_animal' => $id_animal))
+			'animais' => $this->core_model->get_by_id('animal', array('id_animal' => $id_animal)),			
 		);
 		
 		if (!isset($data['animais'])) {
