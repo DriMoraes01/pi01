@@ -34,7 +34,7 @@
                     <div class="card">
                         <div class="card-header"></div>
                         <div class="card-body">
-                            <form name="form_core" method="POST" enctype="multipart/form-data">
+                            <form name="form_core" method="POST" enctype="multipart/form-data" value="">
                                 <div class="form-group row">
                                     <div class="col-md-2 mb-20">
                                         <label>Tipo de Animal</label>
@@ -103,21 +103,21 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="observacao">Observação</label>
-                                            <input type="observacao" class="form-control" id="observacao" name="observacao">
+                                            <input type="observacao" class="form-control" id="observacao" name="observacao" value=" <?= set_value('observacao'); ?>">
                                             <?= form_error('observacao', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
-                                </div>  
-                                <!--                             
+                                </div>
+
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="foto">Foto do Animal</label>
-                                            <input type="file" class="form-control" id="foto" name="foto">
-                                            <//?= form_error('foto', '<div class="text-danger">', '</div>'); ?>
+                                            <input type="file" class="form-control" id="foto" name="foto" value=" <?= set_value('foto'); ?>">
+                                            <?= form_error('foto', '<div class="text-danger">', '</div>'); ?>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="form-group row">
                                     <div class="col-md-6 ml-20">
                                         <div class="form-group">

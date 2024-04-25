@@ -34,7 +34,7 @@
                         <div class="card">
                             <div class="card-header"><?= (isset($animal) ? '<i class="ik ik-calendar ik-2x"></i>&nbsp;Data da última alteração: &nbsp;' . date("d/m/Y H:i:s", strtotime($animal->ultima_alteracao)) : ''); ?></div>
                             <div class="card-body">
-                                <form class="forms-sample" id="form_core" name="form_core" method="POST">
+                                <form class="forms-sample" id="form_core" name="form_core" method="POST" enctype="multipart/form-data">                                   
                                     <div class="form-group row">
                                         <div class="col-md-4 mb-20">
                                             <label for="nome">Nome do Animal</label>
@@ -104,16 +104,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--
                                     <div class="form-group row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="foto">Foto do Animal</label>
-                                                <input type="file" class="form-control" id="foto" name="foto" value="<//?= (isset($animal) ? $animal->foto : set_value('foto')); ?>">
-                                                <//?= form_error('foto', '<div class="text-danger">', '</div>'); ?>
+                                                <input type="file" class="form-control" id="foto" name="foto" value=" <?= set_value('foto'); ?>" required>
+                                                <!--<//?= form_error('foto', '<div class="text-danger">', '</div>'); ?> -->
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
 
                                     <?php if (isset($animal)) : ?>
                                         <div class="form-group row">

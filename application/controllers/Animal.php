@@ -158,30 +158,34 @@ class Animal extends CI_Controller
 			$data['observacao'] = $this->input->post('observacao');
 			$data['castrado'] = $this->input->post('castrado');
 			$data['tipo_animal'] = $this->input->post('tipo_animal');
-			//$data['foto']  =  $this->input->post('foto');
-
+			
 			$data = html_escape($data);
+
+			$foto = $this->carregarFoto();
+			
+			
+			$data['foto'] = 'assets/img/animais/'.$foto['upload_data']['file_name'];
+
 			/*
 			echo '<pre>';
 			print_r($data);
-			exit; */
+			exit;
+				*/
 
-				
-
-				$this->core_model->insert('animal', $data);
-				$this->session->set_flashdata('sucesso', 'Animal cadastrado com sucesso!');
-				redirect($this->router->fetch_class());	
-			}
-
+			$this->core_model->insert('animal', $data);
+			$this->session->set_flashdata('sucesso', 'Animal cadastrado com sucesso!');
+			redirect($this->router->fetch_class());	
 		}
+
+	}
+	
 	
 
 
-
-	public function alterar($id = NULL)
+	public function alterar($id_animal = NULL)
 	{
 		//atualizando
-		if (!$this->core_model->get_by_id('animal', array('id_animal' => $id))) {
+		if (!$this->core_model->get_by_id('animal', array('id_animal' => $id_animal))) {
 
 			$this->session->set_flashdata('error', 'Cadastro não encontrado!');
 			redirect($this->router->fetch_class());
@@ -194,7 +198,9 @@ class Animal extends CI_Controller
 			$this->form_validation->set_rules('cor', 'Cor', 'trim|min_length[1]|max_length[20]');
 			$this->form_validation->set_rules('observacao', 'Observação', 'trim|min_length[1]|max_length[255]');
 			$this->form_validation->set_rules('data_cadastro', 'Data de Cadastro', 'trim|min_length[1]|max_length[255]');
-			$this->form_validation->set_rules('castrado', 'castrado', 'exact_length[1]');
+			$this->form_validation->set_rules('castrado', 'Castrado', 'exact_length[1]');
+			//$this->form_validation->set_rules('foto', 'Foto', 'trim|required');
+			
 			//$this->form_validation->set_rules('foto', 'Foto do Animal', 'trim');
 
 			if (!$this->form_validation->run()) {
@@ -202,7 +208,7 @@ class Animal extends CI_Controller
 				$data = array(
 					'titulo' => 'Editar Cadastro',
 					'icone_view' => 'ik ik-star-on',
-					'animais' => $this->core_model->get_by_id('animal', array('id_animal' => $id)),
+					'animais' => $this->core_model->get_by_id('animal', array('id_animal' => $id_animal)),
 					'styles' => array(
 						'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css',
 					),
@@ -227,22 +233,30 @@ class Animal extends CI_Controller
 				$data['castrado'] = $this->input->post('castrado');
 				$data['data_cadastro'] = $this->input->post('data_cadastro');
 				$data['tipo_animal'] = $this->input->post('tipo_animal');
-				$data['foto']  =  $this->input->post('foto');
+				
 				
 
 				$data = html_escape($data);
 
-				$foto = $this->do_upload();
+				$foto = $this->carregarFoto();
 
-				$data['foto'] = '/uploads/' . $foto['upload_data']['file_name'];
+				if(!$this->carregarFoto()){
+					$this->session->set_flashdata('erro', 'Upload não realizado!');					
+					redirect($this->router->fetch_class());
+				}
+
+				var_dump($data);
+
+				$data['foto'] = 'assets/img/animais/' . $foto['upload_data']['file_name'];
 				
-				$this->core_model->update('animal', $data, array('id_animal' => $id));
+				$this->core_model->update('animal', $data, array('id_animal' => $id_animal));
 
 				$this->session->set_flashdata('sucesso', 'Dados atualizados com sucesso!');
 				redirect($this->router->fetch_class());
 			}
 		}
 	}
+
 
 
 	public function del($id = Null)
@@ -269,27 +283,6 @@ class Animal extends CI_Controller
 		redirect($this->router->fetch_class());
 	}
 
-	/*
-	private function do_upload()
-	{
-		$config['upload_path']          = './uploads/';
-		$config['allowed_types']        = 'gif|jpg|png';
-		$config['max_size']             = 5000;
-		$config['overwrite']             = true;
-
-		$this->load->library('upload', $config);
-
-		if (!$this->upload->do_upload('foto')) {
-			$error = array('error' => $this->upload->display_errors());
-
-			return $error;
-		} else {
-			$data = array('upload_data' => $this->upload->data());
-
-			return $data;
-		}
-	}
-*/
 
 	private function carregarFoto()
 	{
@@ -300,27 +293,18 @@ class Animal extends CI_Controller
 
 		$this->load->library('upload', $config);
 
-		if (!$this->upload->do_upload('foto')) {
+		if (!$this->upload->carregarFoto('foto')) {
 			$error = array('error' => $this->upload->display_errors());
-
-			return $error;
+			$this->session->set_flashdata('error', $error);
+			
 		} else {
-			$data = array('upload_data' => $this->upload->data());
+			$data = array('upload_data' => $this->upload->data());			
 
 			return $data;
 		}
 	}
 
-	private function uploadFoto(){
-		$config['upload_path']          = 'assets/img/animais/';
-		$config['max_size']             = 5000;
-		$config['allowed_types']        = 'gif|jpg|png|jpeg';
-
-		$this->load->library('upload', $config);
-
-		
-	}
-
+	
 	public function visualizar($id_animal = NULL)
 	{
 
