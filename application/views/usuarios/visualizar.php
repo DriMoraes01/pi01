@@ -81,7 +81,7 @@
 
                                     <?php endforeach; ?>
                                     <!--<button type="submit" class="btn btn-primary mr-2">Salvar</button> -->
-                                    <a href="<?= base_url('/usuarios'); ?>" class="btn btn-info">Voltar</a>
+                                    <a href="<?= base_url('/home'); ?>" class="btn btn-info">Voltar</a>
                                 <?php endif; ?>
                                     </form>
                                 </div>
