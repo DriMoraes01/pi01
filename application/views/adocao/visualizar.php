@@ -50,7 +50,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-md-2 mb-20">
+                                        <div class="col-md-3
+                                         mb-20">
                                             <label>E-mail</label>
                                             <input type="email" class="form-control" id="email" name="email" value="<?= isset($adocao) ? $adocao->email : ''; ?>" readonly>
                                         </div>

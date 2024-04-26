@@ -229,9 +229,7 @@ class Pessoa extends CI_Controller {
 
 				$data['foto'] = 'assets/img/pessoas/' . $foto['upload_data']['file_name'];
 
-				/*echo '<pre>';
-				print_r($data);*/
-				
+							
 				$this->db->update('pessoa', $data, array('id' => $id));
 				$this->session->set_flashdata('sucesso', 'Dados  atualizados com sucesso!');
 				redirect($this->router->fetch_class());				 				
