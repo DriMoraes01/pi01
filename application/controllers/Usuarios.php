@@ -178,7 +178,6 @@ class Usuarios extends CI_Controller {
 
 	public function visualizar($usuario_id = NULL)
 	{
-
 		if(!$usuario_id){
 			$this->session->set_flashdata('error', 'Usuário não existe!');
 			redirect($this->router->fetch_class());		

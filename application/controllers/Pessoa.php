@@ -39,13 +39,7 @@ class Pessoa extends CI_Controller {
 	}
 		
 	public function cadastrar()
-	{	
-		$id =  $this->uri->segment(3);
-		if (isset($id)){						
-			$this->session->set_flashdata('error', 'O campo ID deve estar em branco');
-			redirect($this->router->fetch_class());	
-		}
-
+	{		
 		$this->form_validation->set_rules('cpf', 'CPF', 'trim|min_length[1]|max_length[14]|required');
 		$this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[1]|max_length[100]|required');		
 		$this->form_validation->set_rules('sexo', 'Sexo', 'trim|min_length[5]|max_length[10]|required');
