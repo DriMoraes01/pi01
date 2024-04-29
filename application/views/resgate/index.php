@@ -67,8 +67,7 @@
                                         <div class="table-responsive-sm">
                                             <table class="table data-table table-sm pl-20 pr-20">
                                                 <thead>
-                                                    <tr>
-                                                        <th class="text-center">#</th>
+                                                    <tr>                                                       
                                                         <th class="text-center">Tipo de Animal</th>
                                                         <th class="text-center">Sexo</th>
                                                         <th class="text-center">Endereço</th>
@@ -79,8 +78,7 @@
                                                 <tbody>
                                                     <?php if (isset($resgates)) : ?>
                                                         <?php foreach ($resgates as $resgate) : ?>
-                                                            <tr>
-                                                                <td class="text-center"><?= $resgate->id; ?></td>
+                                                            <tr>                                                               
                                                                 <td class="text-center"><?= mb_strtoupper($resgate->animal); ?></td>
                                                                 <td class="text-center"><?= $resgate->sexo; ?></td>
                                                                 <td class="text-center"><?= $resgate->logradouro . ',&nbsp;' . $resgate->numero . '&nbsp;-&nbsp;' . $resgate->bairro . '&nbsp;-&nbsp;' . $resgate->localidade; ?></td>

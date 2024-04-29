@@ -67,8 +67,7 @@
                                         <div class="table-responsive-sm">
                                             <table class="table data-table table-sm pl-20 pr-20">
                                                 <thead>
-                                                    <tr>
-                                                        <th class="text-center">#</th>
+                                                    <tr>                                                       
                                                         <th class="text-center">Nome</th>
                                                         <th class="text-center">Valor</th>
                                                         <th class="text-center">E-mail</th>
@@ -79,8 +78,7 @@
                                                 <tbody>
                                                     <?php if (isset($doacoes)) : ?>
                                                         <?php foreach ($doacoes as $doacao) : ?>
-                                                            <tr>
-                                                                <td class="text-center"><?= $doacao->id; ?></td>
+                                                            <tr>                                                                
                                                                 <td class="text-center"><?= mb_strtoupper($doacao->nome); ?></td>
                                                                 <td class="text-center">R$ &nbsp;<?= $doacao->valor; ?></td>
                                                                 <td class="text-center"><?= $doacao->email; ?></td>
