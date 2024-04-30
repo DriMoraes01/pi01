@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-//$config['base_url'] = 'http://localhost/accountsystem/';
-$config['base_url'] = 'http://localhost/pi/pi01/';
+//$config['base_url'] = 'http://localhost/helponpets/';
+$config['base_url'] = 'https://helponpets.000webhostapp.com/';
 /*
 |--------------------------------------------------------------------------
 | Index File
